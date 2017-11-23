@@ -13,6 +13,19 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
+    homePageMenu:[{
+      "url":"www.baidu.com",
+      "name":"售后维修",
+      "bgImage":""
+    }, {
+      "url": "www.baidu.com",
+      "name": "主页",
+      "bgImage": ""
+    },{
+      "url":"www.baidu.com",
+      "name":"设置",
+      "bgImage":""
+    }],
     indicatorDots: false,
     autoplay: true,
     circular: true,

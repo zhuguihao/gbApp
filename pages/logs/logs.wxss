@@ -1,0 +1,23 @@
+.swipeImg{
+  width: 750rpx;
+  height: 500rpx;
+}
+.swiper{
+  height: 500rpx;
+}
+.homePageMenuBlock{
+  display: -webkit-box;
+}
+.homePageMenu{
+  border: 1px solid #f5f5f9;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #f5f5f9;
+  margin: 30rpx 0 0 30rpx;
+}
+.homePageMenuTitle{
+  line-height: 150rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
