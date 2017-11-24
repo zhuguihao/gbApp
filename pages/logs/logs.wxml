@@ -13,8 +13,11 @@
   </block>
 </swiper>
 
-<block wx:for="{{homePageMenu}}" wx:key="homePageMenuKey" class='homePageMenuBlock'>
-  <view class='homePageMenu'>
-    <view class='homePageMenuTitle'>{{item.name}}</view>
+<view class='rowBox'>
+  <view class='homePageMenu' wx:for="{{homePageMenu}}" wx:key="homePageMenuKey">
+    <block>
+      <view class='homePageMenuTitle'>{{item.name}}</view>
+    </block>
   </view>
-</block>
+</view>
+

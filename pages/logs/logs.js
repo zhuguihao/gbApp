@@ -15,22 +15,22 @@ Page({
     ],
     homePageMenu:[{
       "url":"www.baidu.com",
-      "name":"售后维修",
+      "name":"查询产品",
       "bgImage":""
     }, {
       "url": "www.baidu.com",
       "name": "主页",
       "bgImage": ""
-    },{
+    }, {
       "url":"www.baidu.com",
       "name":"设置",
       "bgImage":""
     }],
-    indicatorDots: false,
+    indicatorDots: true,
     autoplay: true,
     circular: true,
     interval: 10000,
-    duration: 10000
+    duration: 100
   },
   changeIndicatorDots: function (e) {
     this.setData({
