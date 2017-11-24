@@ -15,7 +15,9 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (e) {
+    console.log(e);
+    console.log(JSON.parse(e.params));
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

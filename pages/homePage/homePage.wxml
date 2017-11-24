@@ -16,7 +16,7 @@
 <view class='rowBox'>
   <view class='homePageMenu' wx:for="{{homePageMenu}}" wx:key="homePageMenuKey">
     <block>
-      <view class='homePageMenuTitle'>{{item.name}}</view>
+      <view class='homePageMenuTitle' bindtap="pageNavigateTo" data-index="{{index}}">{{item.name}}</view>
     </block>
   </view>
 </view>
