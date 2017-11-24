@@ -1,6 +1,5 @@
 //logs.js
 const util = require('../../utils/util.js')
-
 Page({
   data: {
     imgUrls: [
@@ -32,24 +31,9 @@ Page({
     interval: 10000,
     duration: 100
   },
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
-  },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
+  navigateTo(url,params){
+    wx.navigateTo({
+      url: url + params//'test?id=1'
     })
   }
 })

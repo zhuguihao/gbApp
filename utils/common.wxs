@@ -9,3 +9,12 @@ var version = function(){
     })
   }
 }
+
+var test = function(a){
+  console.log(1111111);
+}
+
+module.exports = {
+  ver: version,
+  test: test
+};
