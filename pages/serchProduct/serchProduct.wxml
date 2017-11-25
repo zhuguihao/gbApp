@@ -1,11 +1,16 @@
 <!--pages/serchProduct.wxml-->
 <view class='serchView'>
-  <input class='serchInput' placeholder="{{inputAttribute.placeholder}}" />
-  <button class='serchBotton'>扫码</button>
+  <input class='serchInput' placeholder="{{inputAttribute.placeholder}}" value='{{scanCode}}'/>
+  <button class='serchBotton' bindtap='scanCodeTap'>扫码</button>
 </view>
-<scroll-view class='productInfoScrollView'>
-  <view>
-    <text class='productInfoTitle'>tips</text>
-    <text>{{productInfo.a1}}</text>
+<scroll-view scroll-y class='productInfoScrollView'>
+  <view wx:for="{{productInfo}}" wx:key='productInfo' class='productInfo'>
+    <view class='productInfoTitle'>
+      <text>{{item.title}}</text>
+    </view>
+    <view class='productInfoMain'>
+      <text wx:if="{{item.text.length<20}}">{{item.text}}</text>
+      <textarea auto-height wx:else>{{item.text}}</textarea>
+    </view>
   </view>
 </scroll-view>

@@ -1,13 +1,13 @@
 {
-  "pages":[
-    "pages/serchProduct/serchProduct",
+  "pages": [
     "pages/homePage/homePage",
+    "pages/serchProduct/serchProduct",
     "pages/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
