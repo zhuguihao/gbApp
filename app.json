@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/serchProduct/serchProduct",
     "pages/homePage/homePage",
     "pages/index/index"
   ],

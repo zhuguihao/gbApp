@@ -36,9 +36,7 @@ Page({
   },
   pageNavigateTo(e){
     var vm = this;
-    var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var homePageMenu = vm.data.homePageMenu[index];
+    var homePageMenu = e.currentTarget.dataset.item;
     console.log(homePageMenu);
     var pageUrl = homePageMenu.pageUrl;
     console.log(pageUrl);

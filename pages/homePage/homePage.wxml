@@ -1,23 +1,21 @@
-<swiper 
-  indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}"
-  interval="{{interval}}"
-  duration="{{duration}}"
-  circular="{{circular}}"
-  class="swiper"
->
-  <block wx:for="{{imgUrls}}" wx:key="imgSwipeKey" >
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="swiper">
+  <block wx:for="{{imgUrls}}" wx:key="imgSwipeKey">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" class='swipeImg'/>
+      <image src="{{item}}" class='swipeImg' />
     </swiper-item>
   </block>
 </swiper>
 
 <view class='rowBox'>
-  <view class='homePageMenu' wx:for="{{homePageMenu}}" wx:key="homePageMenuKey">
+  <view class='homePageMenu' 
+  wx:for="{{homePageMenu}}" 
+  wx:key="homePageMenuKey">
     <block>
-      <view class='homePageMenuTitle' bindtap="pageNavigateTo" data-index="{{index}}">{{item.name}}</view>
+      <view class='homePageMenuTitle' 
+        bindtap="pageNavigateTo" 
+        data-item="{{item}}">
+          {{item.name}}
+      </view>
     </block>
   </view>
 </view>
-

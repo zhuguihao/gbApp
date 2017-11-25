@@ -1,0 +1,11 @@
+<!--pages/serchProduct.wxml-->
+<view class='serchView'>
+  <input class='serchInput' placeholder="{{inputAttribute.placeholder}}" />
+  <button class='serchBotton'>扫码</button>
+</view>
+<scroll-view class='productInfoScrollView'>
+  <view>
+    <text class='productInfoTitle'>tips</text>
+    <text>{{productInfo.a1}}</text>
+  </view>
+</scroll-view>
