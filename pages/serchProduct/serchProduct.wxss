@@ -2,10 +2,12 @@
   display: flex;
   display: -wenbkit-flex;
   flex-wrap: wrap;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #f5f5f9;
 }
 
 .serchInput {
-  border: 1px solid #f5f5f9;
+  border: 1rpx solid #f5f5f9;
   width: 550rpx;
   height: 70rpx;
   line-height: 70rpx;
@@ -28,14 +30,13 @@
   display: -wenbkit-flex;
   flex-wrap: wrap;
   margin-left: 30rpx;
-  border-bottom: 1px solid #f5f5f9;
+  border-bottom: 1rpx solid #f5f5f9;
 }
 
-.productInfoScrollView {
-  border-top: 1px solid #f5f5f9;
+ .productInfoScrollView {
   height: 1100rpx;
   width: 747rpx;
-  margin-top: 15rpx;
+  
 }
 
 .productInfoScrollView view {
@@ -43,10 +44,10 @@
   padding-bottom: 10rpx;
   line-height: 50rpx;
   font-size: 30rpx;
-}
+} 
 
 .productInfoTitle {
-  color: #789;
+  color: #404040;
   width: 150rpx;
 }
 

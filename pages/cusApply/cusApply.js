@@ -1,43 +1,91 @@
+// pages/customerService.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    /**
-     * 输入框的属性
-     */
-    inputAttribute: {
-      "placeholder": "未扫码成功，请手动填写流水号"
-    },
-    /**
-     * 产品信息
-     */
-    productInfo: [{
-      "title": "系列",
-      "text": "IE系列经济型手工焊机"
-    }, {
-      "title": "产品名称",
-      "text": "1P/3P均可接用 宽电压直流电焊机"
-    }, {
-      "title": "型号",
-      "text": "IE 255D"
-    }, {
-      "title": "电压范围",
-      "text": "150V~510V"
-    }, {
-      "title": "经销价",
-      "text": "469"
-    }, {
-      "title": "零售价",
-      "text": "599"
-    }, {
-      "title": "政策",
-      "text": "1年包换"
-    }, {
-      "title": "功能",
-      "text": "单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊"
-    }],
     /**
      * 流水号
      */
-    scanCode: ""
+    scanCode: "",
+    /**
+     * 损坏点
+     */
+    damagePoint: [
+      {
+        id: 0,
+        name: '电路损坏'
+      },
+      {
+        id: 1,
+        name: '插头损坏'
+      },
+      {
+        id: 2,
+        name: '不能使用'
+      },
+      {
+        id: 3,
+        name: '机箱破损'
+      }
+    ]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   },
   /**
    * 扫码事件
@@ -89,5 +137,14 @@ Page({
         console.log("接口调用结束的回调函数（调用成功、失败都会执行）");
       }
     })
-  }
+  },
+  /**
+   * 损坏点
+   */
+  bindDamagePointChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
 })

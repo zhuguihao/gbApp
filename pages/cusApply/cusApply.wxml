@@ -1,0 +1,24 @@
+<view class='title'>
+  售后申请单
+</view>
+
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>条形码</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='serchInput' placeholder="无法扫码时，请再此输入" value='{{scanCode}}' />
+    <!-- <textarea auto-height wx:else>{{item.text}}</textarea> -->
+  </view>
+  <button class='serchBotton' bindtap='scanCodeTap'>扫码</button>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>报修</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePoint}}">
+      <input disabled class='damagePoint' placeholder="请选择损坏原因" value='{{damagePoint[index].name}}' />
+    </picker>
+  </view>
+</view>

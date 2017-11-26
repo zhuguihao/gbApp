@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/homePage/homePage",
+    "pages/cusApply/cusApply",
     "pages/serchProduct/serchProduct",
-    "pages/index/index"
+    "pages/personalSettings/personalSettings"
   ],
   "window": {
     "backgroundTextStyle": "light",
