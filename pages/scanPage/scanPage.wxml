@@ -1,0 +1,9 @@
+<view class='propagandaMap'>
+   <image src="{{propagandaMapImg}}" class='propagandaMapImg' />
+</view>
+<view class='scanView'>
+  <text>扫码售后</text>
+</view>
+<view class='scanView'>
+  <text>手动输入产品码</text>
+</view>

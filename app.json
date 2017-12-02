@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/scanPage/scanPage",
     "pages/homePage/homePage",
     "pages/cusApply/cusApply",
     "pages/serchProduct/serchProduct",
