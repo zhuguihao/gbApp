@@ -1,15 +1,17 @@
 {
   "pages": [
-    "pages/scanPage/scanPage",
+    "pages/loginPage/loginPage",
     "pages/homePage/homePage",
+    "pages/personalSettings/personalSettings",
     "pages/cusApply/cusApply",
-    "pages/serchProduct/serchProduct",
-    "pages/personalSettings/personalSettings"
+    "pages/scanPage/scanPage",
+    "pages/errorPage/errorPage",
+    "pages/serchProduct/serchProduct"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#F7F7F7",
+    "navigationBarTitleText": "gh",
     "navigationBarTextStyle": "black"
   }
 }

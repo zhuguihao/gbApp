@@ -1,0 +1,17 @@
+<view class='LoginMain'>
+  <view class='loginFrom'>
+    <view class='loginLine'>
+      <view class='loginTile'>账号：</view>
+      <input maxlength='20' placeholder='请输入登录账号' class='loginInput' />
+    </view>
+    <view class='loginLine'>
+      <view class='loginTile'>密码：</view>
+      <input maxlength='20' password='true' placeholder='请输入登录密码' class='loginInput' />
+    </view>
+    <view class='loginBtn'>登录</view>
+  </view>
+  <view class='register'>
+    <text>注册</text>
+    <text>修改</text>
+  </view>
+</view>

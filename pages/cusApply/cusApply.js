@@ -12,7 +12,7 @@ Page({
     /**
      * 损坏点
      */
-    damagePoint: [
+    damagePointList: [
       {
         id: 0,
         name: '电路损坏'
@@ -29,14 +29,38 @@ Page({
         id: 3,
         name: '机箱破损'
       }
-    ]
+    ],
+    /**
+     * 故障点
+     */
+    damagePoint: "",
+    /**
+     * 姓名
+     */
+    name: "",
+    /**
+     * 提交时候的参数
+     * 条形码：scanCode
+     * 报修：damagePoint
+     * 姓名：name
+     * 联系方式：phone
+     */
+    fromParams: {
+
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (options.params) {
+      var scanCode = JSON.parse(options.params).scanCode;
+      this.setData({
+        params: JSON.parse(options.params),
+        scanCode: scanCode
+      });
+    }
   },
 
   /**
@@ -142,9 +166,11 @@ Page({
    * 损坏点
    */
   bindDamagePointChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    var vm = this;
+    var index = e.detail.value;
     this.setData({
-      index: e.detail.value
+      index: index,
+      damagePoint: vm.data.damagePointList[index].name
     })
   },
 })

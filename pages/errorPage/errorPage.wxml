@@ -1,0 +1,9 @@
+<view class='textAlign'>
+  <icon type="cancel" size="100" />
+</view>
+<view class='textAlign textView'>
+  <text>扫码失败</text>
+</view>
+<view class='textAlign btnView'>
+  <view class='btn' bindtap='comfirm'>确认</view>
+</view>

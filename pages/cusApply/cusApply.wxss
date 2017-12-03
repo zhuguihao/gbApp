@@ -40,7 +40,7 @@
 
 .cusApplyTitle {
   color: #404040;
-  width: 100rpx;
+  width: 150rpx;
 }
 
 .cusApplyMain {

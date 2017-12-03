@@ -2,23 +2,47 @@
   售后申请单
 </view>
 
+<!-- <view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>条形码</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='serchInput' disabled placeholder="请输入条形码" value='{{scanCode}}' />
+  <textarea auto-height wx:else>{{item.text}}</textarea>
+  </view>
+   <button class='serchBotton' bindtap='scanCodeTap'>扫码</button> 
+</view> -->
 <view class='cusApply'>
   <view class='cusApplyTitle'>
     <text>条形码</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <input class='serchInput' placeholder="无法扫码时，请再此输入" value='{{scanCode}}' />
-    <!-- <textarea auto-height wx:else>{{item.text}}</textarea> -->
+    <input disabled class='damagePoint' placeholder="请输入条形码" value='{{scanCode}}' />
   </view>
-  <button class='serchBotton' bindtap='scanCodeTap'>扫码</button>
 </view>
 <view class='cusApply'>
   <view class='cusApplyTitle'>
-    <text>报修</text>
+    <text>故障点</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePoint}}">
-      <input disabled class='damagePoint' placeholder="请选择损坏原因" value='{{damagePoint[index].name}}' />
+    <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePointList}}">
+      <input disabled class='damagePoint' placeholder="请选择故障点" value='{{damagePoint}}' />
     </picker>
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>姓名</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' placeholder="请输入姓名" value='{{name}}' maxlength='15' />
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>联系方式</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' type = '' placeholder="请输入您的联系方式" value='{{name}}' maxlength='11' />
   </view>
 </view>

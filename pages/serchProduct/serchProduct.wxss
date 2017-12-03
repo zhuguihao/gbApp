@@ -34,7 +34,7 @@
 }
 
  .productInfoScrollView {
-  height: 1100rpx;
+  /* height: 1100rpx; */
   width: 747rpx;
   
 }

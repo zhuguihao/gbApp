@@ -1,13 +1,29 @@
 <!--index.wxml-->
-<view class="container">
+<view class='titleView'>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:if="{{!hasUserInfo}}">
+      <view class='userinfoAvatar' bindtap='getUserInfo'>
+        <icon size='64' type='clear'></icon>
+      </view>
+      <text class="userinfoNickname">未登录</text>
+    </block>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image class="userinfoAvatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfoNickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<block>
+  <view class='setLine'>
+    <view class='setLineImg'>
+      <image />
+    </view>
+    <view class='setLineMain'>
+      <view class='setContent'>我的地址</view>
+      <view class='rightIcon'>></view>
+    </view>
   </view>
+</block>
+<view class='outLogin' wx:if="{{hasUserInfo}}" bindtap='outLoginFun'>
+  <view>退出登录</view>
 </view>
