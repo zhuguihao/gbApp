@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    /**
+     * 登录账号
+     */
+    account:""
   },
 
   /**
@@ -31,10 +35,20 @@ Page({
     if ("B" == params.page) {
       url = "../registerPage/registerPage";
     } else {
-      url = "../modifyPwdPage/modifyPwdPage";
+      console.log(data);
+      console.log(data.account);
+      url = "../modifyPwdPage/modifyPwdPage?account="+data.account;
     }
     wx.navigateTo({
       url: url,
+    })
+  },
+  /**
+   * 输入框绑定值
+   */
+  bindAccountInput: function (e) {
+    this.setData({
+      account: e.detail.value
     })
   },
   /**

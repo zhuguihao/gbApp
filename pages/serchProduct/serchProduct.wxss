@@ -1,4 +1,5 @@
 .serchView {
+  margin-top: 10rpx;
   display: flex;
   display: -wenbkit-flex;
   flex-wrap: wrap;

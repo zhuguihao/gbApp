@@ -1,1 +1,85 @@
 /* pages/registerPage/registerPage.wxss */
+
+/* pages/loginPage/loginPage.wxss */
+
+page {
+  background-image: url(http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: auto 100%;
+  -moz-background-size: auto 100%;
+}
+
+.LoginMain {
+  position: fixed;
+  top: 500rpx;
+  left: 100rpx;
+  opacity: 0.83;
+  -moz-opacity: 0.83;
+}
+
+.loginFrom {
+  border: 1rpx solid #f5f5f9;
+  width: 550rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.loginLine {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #f5f5f9;
+  margin-left: 20rpx;
+}
+
+.loginTile {
+  margin-top: 40rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 120rpx;
+  text-align: right;
+}
+
+.loginTileCode {
+  margin-top: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 120rpx;
+  text-align: right;
+}
+
+.loginInput {
+  padding-left: 15rpx;
+  margin-top: 40rpx;
+  height: 50rpx;
+  width: 380rpx;
+}
+
+.loginCodeInput {
+  padding-left: 15rpx;
+  margin-top: 20rpx;
+  height: 60rpx;
+  width: 200rpx;
+}
+
+.registerCode {
+  border: 1px solid #f5f5f9;
+  margin-top: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 25rpx;
+  width: 150rpx;
+  text-align: center;
+  background-color: #f5f5f9;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+
+.loginBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #404040;
+  text-align: center;
+}
