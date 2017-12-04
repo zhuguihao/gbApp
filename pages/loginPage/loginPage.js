@@ -8,7 +8,7 @@ Page({
     /**
      * 登录账号
      */
-    account:""
+    account: ""
   },
 
   /**
@@ -31,13 +31,13 @@ Page({
     console.log(res.currentTarget.dataset);
     var params = res.currentTarget.dataset;
     var data = this.data;
-    var url ="";
+    var url = "";
     if ("B" == params.page) {
       url = "../registerPage/registerPage";
     } else {
       console.log(data);
       console.log(data.account);
-      url = "../modifyPwdPage/modifyPwdPage?account="+data.account;
+      url = "../modifyPwdPage/modifyPwdPage?account=" + data.account;
     }
     wx.navigateTo({
       url: url,
@@ -49,6 +49,14 @@ Page({
   bindAccountInput: function (e) {
     this.setData({
       account: e.detail.value
+    })
+  },
+  /**
+   * 登录
+   */
+  bindLogin: function () {
+    wx.redirectTo({
+      url: '../homePage/homePage',
     })
   },
   /**

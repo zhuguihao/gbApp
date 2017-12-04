@@ -13,8 +13,8 @@ page {
   position: fixed;
   top: 500rpx;
   left: 100rpx;
-  opacity: 0.83;
-  -moz-opacity: 0.83;
+  opacity: 0.6;
+  -moz-opacity: 0.6;
 }
 
 .loginFrom {

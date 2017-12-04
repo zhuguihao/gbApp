@@ -8,7 +8,7 @@
       <view class='loginTile'>密码：</view>
       <input maxlength='20' password='true' placeholder='请输入登录密码' class='loginInput' />
     </view>
-    <view class='loginBtn'>登录</view>
+    <view class='loginBtn' bindtap='bindLogin'>登录</view>
   </view>
   <view class='register'>
     <text data-page="B" bindtap='chagePageType'>注册</text>
