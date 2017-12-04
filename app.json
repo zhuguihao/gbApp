@@ -6,7 +6,9 @@
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage",
     "pages/errorPage/errorPage",
-    "pages/serchProduct/serchProduct"
+    "pages/serchProduct/serchProduct",
+    "pages/registerPage/registerPage",
+    "pages/modifyPwdPage/modifyPwdPage"
   ],
   "window": {
     "backgroundTextStyle": "light",

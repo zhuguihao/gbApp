@@ -11,7 +11,7 @@
     <view class='loginBtn'>登录</view>
   </view>
   <view class='register'>
-    <text>注册</text>
-    <text>修改</text>
+    <text data-page="B" bindtap='chagePageType'>注册</text>
+    <text data-page="C" bindtap='chagePageType'>修改密码</text>
   </view>
 </view>
