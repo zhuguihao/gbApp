@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/loginPage/loginPage",
     "pages/homePage/homePage",
     "pages/modifyPwdPage/modifyPwdPage",
     "pages/registerPage/registerPage",
-    "pages/loginPage/loginPage",
     "pages/personalSettings/personalSettings",
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage",
