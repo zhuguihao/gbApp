@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/loginPage/loginPage",
     "pages/homePage/homePage",
+    "pages/serchProduct/serchProduct",
+    "pages/loginPage/loginPage",
     "pages/modifyPwdPage/modifyPwdPage",
     "pages/registerPage/registerPage",
     "pages/personalSettings/personalSettings",
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage",
-    "pages/errorPage/errorPage",
-    "pages/serchProduct/serchProduct"
+    "pages/errorPage/errorPage"
   ],
   "window": {
     "backgroundTextStyle": "light",

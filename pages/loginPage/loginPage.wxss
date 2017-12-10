@@ -31,17 +31,10 @@ page {
   margin-left: 20rpx;
 }
 
-.loginTile {
-  margin-top: 40rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-}
-
 .loginLine input {
-  margin-top: 40rpx;
+  margin-top: 25rpx;
   height: 50rpx;
-  /* width: 360rpx; */
-}
+} 
 
 .loginBtn {
   height: 100rpx;

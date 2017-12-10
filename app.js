@@ -1,10 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
+    var globalData = this.globalData;
     if (wx.openBluetoothAdapter) {
       console.log("版本正常");
       wx.openBluetoothAdapter()
@@ -18,7 +15,32 @@ App({
     wx.login({
       success: res => {
         console.log("login:" + JSON.stringify(res));
-
+        var params = {
+          "jsCode": res.code
+        };
+        console.log(JSON.stringify(params))
+        wx.request({
+          method: "POST",
+          header: {
+            'content-type': 'application/json'
+          },
+          url: globalData.reqIp + "/getOpenIdByCode",
+          data: params,
+          success: function (res) {
+            console.log(res)
+            var data = res.data;
+            console.log(data)
+            if ("success" == data.status) {
+              console.log(data.data.openId);
+              globalData.openId = data.data.openId
+            }
+          },
+          fail: function (res) {
+            console.log(res.data)
+          },
+          complete: function (res) {
+          }
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -33,8 +55,8 @@ App({
               // console.log("getUserInfo-res:" + JSON.stringify(res));
               console.log("getUserInfo:" + JSON.stringify(res.userInfo));
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
+              globalData.userInfo = res.userInfo
+    
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -47,6 +69,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openId: null,
+    reqIp: "http://gb.zhuguihao.com:7777"
   }
 })

@@ -43,6 +43,34 @@ Page({
     scanCode: ""
   },
   /**
+   * 清空输入框
+   */
+  inpClear: function (e) {
+    console.log(111111);
+    this.setData({
+      scanCode: ""
+    });
+  },
+  /**
+   * 扫码输入框事件
+   */
+  scanInput: function (e) {
+    this.setData({
+      scanCode: e.detail.value
+    });
+  },
+  /**
+   * 查询产品接口
+   */
+  productSerch: function () {
+    console.log(this.data.scanCode);
+    wx.showToast({
+      title: '正在查询产品信息',
+      icon: 'loading',
+      duration: 2000
+    })
+  },
+  /**
    * 扫码事件
    */
   scanCodeTap() {
@@ -55,12 +83,7 @@ Page({
       onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
-        // if ("QR_CODE" == res.scanType) {//二维码
-        //   vm.setData({
-        //     scanCode: res.result
-        //   })
-        //   return
-        // } else 
+        console.log(res.scanType);
         if ("CODE_128" == res.scanType) {//条形码
           vm.setData({
             scanCode: res.result
@@ -73,11 +96,8 @@ Page({
           })
           return
         }
-        wx.showToast({
-          title: '正在查询产品信息',
-          icon: 'loading',
-          duration: 2000
-        })
+
+        this.productSerch();
       },
       fail: (res) => {
         wx.hideLoading();
@@ -86,10 +106,6 @@ Page({
           content: '识别失败，请重试！',
           showCancel: false
         })
-      },
-      //接口调用结束的回调函数（调用成功、失败都会执行）
-      complete: () => {
-        console.log("接口调用结束的回调函数（调用成功、失败都会执行）");
       }
     })
   }

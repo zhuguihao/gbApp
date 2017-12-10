@@ -26,6 +26,15 @@
   background-color:#ffffff;
 }
 
+.inpClear{
+  position: absolute;
+  left: 525rpx;
+  top: 25rpx; 
+  width: 20rpx;
+  height: 20rpx;
+  z-index: 2;
+}
+
 .productInfo {
   display: flex;
   display: -wenbkit-flex;

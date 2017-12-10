@@ -1,16 +1,24 @@
-<!--pages/serchProduct.wxml-->
 <view class='serchView'>
-  <input class='serchInput' placeholder="{{inputAttribute.placeholder}}" value='{{scanCode}}'/>
-  <button class='serchBotton' bindtap='scanCodeTap'>扫码</button>
+  <input class='serchInput' placeholder="{{inputAttribute.placeholder}}" bindinput='scanInput' value='{{scanCode}}'/>
+  <button wx:if="{{scanCode.length==0}}" class='serchBotton' bindtap='scanCodeTap'>扫码</button>
+  <block wx:else>
+    <icon class='inpClear' bindtap='inpClear' type="clear" size="20" color="{{item}}" />
+    <button class='serchBotton' bindtap='productSerch'>查询</button>
+  </block>
 </view>
-<scroll-view scroll-y class='productInfoScrollView'>
-  <view wx:for="{{productInfo}}" wx:key='productInfo' class='productInfo'>
-    <view class='productInfoTitle'>
-      <text>{{item.title}}</text>
+<block>
+  <scroll-view scroll-y class='productInfoScrollView' wx:if="{{productInfo.length>0}}">
+    <view wx:for="{{productInfo}}" wx:key='productInfo' class='productInfo'>
+      <view class='productInfoTitle'>
+        <text>{{item.title}}</text>
+      </view>
+      <view class='productInfoMain'>
+        <text wx:if="{{item.text.length<20}}">{{item.text}}</text>
+        <textarea auto-height wx:else>{{item.text}}</textarea>
+      </view>
     </view>
-    <view class='productInfoMain'>
-      <text wx:if="{{item.text.length<20}}">{{item.text}}</text>
-      <textarea auto-height wx:else>{{item.text}}</textarea>
-    </view>
+  </scroll-view>
+  <view wx:else>
+    无当前产品信息，请确认流水号是否正确
   </view>
-</scroll-view>
+</block>

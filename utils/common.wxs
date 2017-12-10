@@ -15,6 +15,6 @@ var test = function(a){
 }
 
 module.exports = {
-  ver: version,
+  version: version,
   test: test
 };
