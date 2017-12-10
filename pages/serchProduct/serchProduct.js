@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     /**
@@ -9,34 +10,7 @@ Page({
     /**
      * 产品信息
      */
-    productInfo: [{
-      "title": "系列",
-      "text": "IE系列经济型手工焊机"
-    }, {
-      "title": "产品名称",
-      "text": "1P/3P均可接用 宽电压直流电焊机"
-    }, {
-      "title": "型号",
-      "text": "IE 255D"
-    }, {
-      "title": "电压范围",
-      "text": "150V~510V"
-    }, {
-      "title": "经销价",
-      "text": "469"
-    }, {
-      "title": "零售价",
-      "text": "599"
-    }, {
-      "title": "政策",
-      "text": "1年包换"
-    }, {
-      "title": "功能",
-      "text": "单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊"
-    }, {
-      "title": "功能",
-      "text": "单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊 单相三相发电机均可用￠3.2-100M持续焊"
-    }],
+    productInfo: {},
     /**
      * 流水号
      */
@@ -63,11 +37,48 @@ Page({
    * 查询产品接口
    */
   productSerch: function () {
+    var vm = this;
     console.log(this.data.scanCode);
-    wx.showToast({
-      title: '正在查询产品信息',
-      icon: 'loading',
-      duration: 2000
+    // wx.showToast({
+    //   title: '正在查询产品信息',
+    //   icon: 'loading',
+    //   duration: 2000
+    // })
+    console.log(app.globalData.reqIp);
+    // var params = {
+    //   "machineCode": this.data.scanCode
+    // };
+    var params = { "barcode": "10086001" };
+    console.log(params);
+    wx.showLoading({
+      title: '查询中，请稍后',
+      mask: true
+    });
+    wx.request({
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      url: app.globalData.reqIp + "/getProductInfoByBarcode",
+      data: params,
+      success: function (res) {
+        var data = res.data;
+        console.log(vm.data.productInfo);
+        console.log(vm.data.productInfo.length);
+        if ("success" == data.status) {
+          vm.setData({
+            productInfo: data.data
+          });
+          console.log(vm.data.productInfo);
+          console.log(vm.data.productInfo.length);
+        }
+      },
+      fail: function (res) {
+        console.log(res.data)
+      },
+      complete: function (res) {
+        wx.hideLoading();
+      }
     })
   },
   /**
