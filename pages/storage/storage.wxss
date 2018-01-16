@@ -1,0 +1,5 @@
+/* pages/storage/storage.wxss */
+
+.pickerMain {
+  display: -webkit-box;
+}

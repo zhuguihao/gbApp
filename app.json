@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/storage/storage",
     "pages/homePage/homePage",
     "pages/serchProduct/serchProduct",
     "pages/loginPage/loginPage",
