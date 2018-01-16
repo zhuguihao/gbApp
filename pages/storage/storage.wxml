@@ -1,26 +1,38 @@
-<view>
-  <picker bindchange="bindProSeriesChange" value="{{proSeriesIndex}}" range="{{proList}}" range-key='name'>
-    <view class='pickerMain'>
-      <text>系列：</text>
-      <view class="picker">
-        {{proList[proSeriesIndex].name}}
+<view class='storageScan'>
+  <view class='pickerBox'>
+    <picker bindchange="bindProSeriesChange" value="{{proSeriesIndex}}" range="{{proList}}" range-key='name'>
+      <view class='pickerMain'>
+        <text>系列：</text>
+        <view class="picker">
+          {{proList[proSeriesIndex].name}}
+        </view>
+        <view>
+          V
+        </view>
       </view>
-    </view>
-  </picker>
-  <picker bindchange="bindProNameChange" value="{{proNameIndex}}" range="{{proList[proSeriesIndex].list}}" range-key='name'>
-    <view class='pickerMain'>
-      <text>名称：</text>
-      <view class="picker">
-        {{proList[proSeriesIndex].list[proNameIndex].name}}
+    </picker>
+    <picker bindchange="bindProNameChange" value="{{proNameIndex}}" range="{{proList[proSeriesIndex].list}}" range-key='name'>
+      <view class='pickerMain'>
+        <text>名称：</text>
+        <view class="picker">
+          {{proList[proSeriesIndex].list[proNameIndex].name}}
+        </view>
+        <view>
+          V
+        </view>
       </view>
-    </view>
-  </picker>
-  <picker bindchange="bindProChange" value="{{proIndex}}" range="{{proList[proSeriesIndex].list[proNameIndex].list}}" range-key='name'>
-    <view class='pickerMain'>
-      <text>型号：</text>
-      <view class="picker">
-        {{proList[proSeriesIndex].list[proNameIndex].list[proIndex].name}}
+    </picker>
+    <picker bindchange="bindProChange" value="{{proIndex}}" range="{{proList[proSeriesIndex].list[proNameIndex].list}}" range-key='name'>
+      <view class='pickerMain'>
+        <text>型号：</text>
+        <view class="picker">
+          {{proList[proSeriesIndex].list[proNameIndex].list[proIndex].name}}
+        </view>
+        <view>
+          V
+        </view>
       </view>
-    </view>
-  </picker>
+    </picker>
+  </view>
+  <view class='scanCode'>入库</view>
 </view>
