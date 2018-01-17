@@ -7,7 +7,7 @@
           {{proList[proSeriesIndex].name}}
         </view>
         <view>
-          V
+          w
         </view>
       </view>
     </picker>
@@ -18,7 +18,7 @@
           {{proList[proSeriesIndex].list[proNameIndex].name}}
         </view>
         <view>
-          V
+          w
         </view>
       </view>
     </picker>
@@ -29,10 +29,30 @@
           {{proList[proSeriesIndex].list[proNameIndex].list[proIndex].name}}
         </view>
         <view>
-          V
+          w
         </view>
       </view>
     </picker>
   </view>
   <view class='scanCode'>入库</view>
+</view>
+
+<view class='storageFrom'>
+  <view class='title'>入库单</view>
+  <view class='storageList'>
+    <view class='stoProList'>产品系列：产品系列</view>
+    <view class='stoProList'>产品名称：产品名称</view>
+    <view class='stoProList'>产品型号：产品型号</view>
+    <view class='stoProList'>产品电压范围：产品电压范围</view>
+    <view class='stoProList'>经销价：经销价</view>
+    <view class='stoProList'>零售价：零售价</view>
+    <view class='stoProList'>
+      产品描述：产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述
+    </view>
+    <view class='stoProList'>产品描述：产品描述</view>
+  </view>
+</view>
+
+<view>
+  扫码入库
 </view>

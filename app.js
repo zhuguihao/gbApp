@@ -71,6 +71,6 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    reqIp: "http://gb.zhuguihao.com:7777/appService"
+    reqIp: "http://localhost:7777/appService"
   }
 })
