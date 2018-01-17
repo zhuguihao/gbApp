@@ -37,6 +37,11 @@ Page({
       "name": "卖出产品",
       "bgImage": "",
       "params": { "a": "1", "b": "2" }
+    }, {
+      "pageUrl": "../storage/storage",
+      "name": "出库",
+      "bgImage": "",
+      "params": {}
     }],
     indicatorDots: true,
     autoplay: true,

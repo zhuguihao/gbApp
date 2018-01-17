@@ -17,3 +17,20 @@ page {
   margin: 0;
   padding: 0;
 }
+
+.comBtn {
+  width: 80%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  margin-left: 10%;
+  border-radius: 10rpx;
+  background-color: #ccc;
+}
+/**
+ * 下拉框角标样式
+ */
+.selectImg {
+  width: 30rpx;
+  height: 30rpx;
+}

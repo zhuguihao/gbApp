@@ -1,13 +1,4 @@
 /* pages/storage/storage.wxss */
-
-.storageScan {
-  display: -webkit-box;
-}
-
-.pickerBox {
-  width: 500rpx;
-}
-
 .pickerMain {
   display: -webkit-box;
   height: 100rpx;
@@ -17,7 +8,7 @@
 }
 
 .picker {
-  width: 370rpx;
+  width: 80%;
   text-align: center;
 }
 
@@ -55,4 +46,9 @@
 
 .stoProList:last-child {
   border: none;
+}
+
+.btn{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }

@@ -20,7 +20,23 @@ Page({
     /**
      * 产品信息数组
      */
-    proList: [{ "code": "001", "name": "产品的系列", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "002", "name": "产品的系列2", "list": [{ "code": "002", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "003", "name": "产品型号3" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "003", "name": "产品的系列3", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }]
+    proList: [{ "code": "001", "name": "产品的系列", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "002", "name": "产品的系列2", "list": [{ "code": "002", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "003", "name": "产品型号3" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "003", "name": "产品的系列3", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }],
+    /**
+     * 下拉图标地址
+     */
+    selectImgSrc: '../../static/image/select.png',
+    /**
+     * 入库单和出库单切换开关
+     */
+    storageShow: true
+  },
+  /**
+   * 切换入库单和出库单
+   */
+  clickStorageBill: function (e) {
+    this.setData({
+      storageShow: !this.data.storageShow
+    });
   },
   /**
    * 产品系列下拉框
@@ -29,7 +45,7 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       proSeriesIndex: e.detail.value,
-      proNameIndex:0,
+      proNameIndex: 0,
       proIndex: 0
     })
   },
