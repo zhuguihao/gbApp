@@ -2,7 +2,7 @@
   <view class='loginFrom'>
     <view class='loginLine'>
       <view class='loginTile'>账号：</view>
-      <input maxlength='20' placeholder='请输入登录账号' class='loginInput' bindinput='bindAccountInput' value='{{account}}'/>
+      <input maxlength='20' placeholder='请输入登录账号' class='loginInput' bindinput='bindAccountInput' />
     </view>
     <view class='loginLine'>
       <view class='loginTile'>密码：</view>
@@ -14,4 +14,4 @@
     <text data-page="B" bindtap='chagePageType'>注册</text>
     <text data-page="C" bindtap='chagePageType'>修改密码</text>
   </view>
-</view>
+</view> 

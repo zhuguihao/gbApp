@@ -24,7 +24,7 @@ Page({
     /**
      * 下拉图标地址
      */
-    selectImgSrc: '../../static/image/select.png',
+    selectImgSrc: '../../static/logo/select.png',
     /**
      * 入库单和出库单切换开关
      */

@@ -1,18 +1,18 @@
 /* pages/loginPage/loginPage.wxss */
 
 page {
-  background-image: url(http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg);
+  background-image: url(https://gb.zhuguihao.com/image/login.jpg);
   /* background-repeat: no-repeat; */
   background-size: auto 100%;
   -moz-background-size: auto 100%;
-}
+} 
 
 .LoginMain {
   position: fixed;
-  top: 550rpx;
+  top: 500rpx;
   left: 100rpx;
-  opacity: 0.6;
-  -moz-opacity: 0.6;
+  opacity: 0.7;
+  -moz-opacity: 0.7;
 }
 
 .loginFrom {
@@ -31,10 +31,20 @@ page {
   margin-left: 20rpx;
 }
 
-.loginLine input {
-  margin-top: 25rpx;
+.loginTile {
+  margin-top: 40rpx;
   height: 50rpx;
-} 
+  line-height: 50rpx;
+  width: 120rpx;
+  text-align: right;
+}
+
+.loginInput {
+  padding-left: 15rpx;
+  margin-top: 40rpx;
+  height: 50rpx;
+  width: 380rpx;
+}
 
 .loginBtn {
   height: 100rpx;

@@ -13,7 +13,7 @@
     </block>
   </view>
 </view>
-<block>
+<!-- <block>
   <view class='setLine'>
     <view class='setLineImg'>
       <image />
@@ -23,7 +23,7 @@
       <view class='rightIcon'>></view>
     </view>
   </view>
-</block>
-<view class='outLogin' wx:if="{{hasUserInfo}}" bindtap='outLoginFun'>
+</block> -->
+<view class='outLogin comBtn' wx:if="{{hasUserInfo}}" bindtap='outLoginFun'>
   <view>退出登录</view>
 </view>

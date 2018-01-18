@@ -1,11 +1,13 @@
 {
   "pages": [
+    
     "pages/homePage/homePage",
+    "pages/loginPage/loginPage",
+    "pages/registerPage/registerPage",
+    "pages/companyIndex/companyIndex",
     "pages/storage/storage",
     "pages/serchProduct/serchProduct",
-    "pages/loginPage/loginPage",
     "pages/modifyPwdPage/modifyPwdPage",
-    "pages/registerPage/registerPage",
     "pages/personalSettings/personalSettings",
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage",
@@ -16,5 +18,25 @@
     "navigationBarBackgroundColor": "#F7F7F7",
     "navigationBarTitleText": "gh",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#272727",
+    "borderStyle": "white",
+    "backgroundColor":"#F7F7F7",
+    "list": [
+      {
+        "selectedIconPath": "static/logo/all.png",
+        "iconPath": "static/logo/unall.png",
+        "pagePath": "pages/homePage/homePage",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "static/logo/set.png",
+        "iconPath": "static/logo/unset.png",
+        "pagePath": "pages/personalSettings/personalSettings",
+        "text": "设置"
+      }
+    ]
   }
 }

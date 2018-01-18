@@ -39,7 +39,7 @@ Page({
    * 退出登录
    */
   outLoginFun: function(){
-    wx.redirectTo({
+    wx.navigateTo({ 
       url: '../loginPage/loginPage?page=A'
     })
   }

@@ -1,0 +1,6 @@
+/* pages/companyIndex/companyIndex.wxss */
+
+.swipeImg {
+  width: 100%;
+  height: 100%;
+}

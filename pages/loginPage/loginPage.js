@@ -9,19 +9,14 @@ Page({
     /**
      * 登录账号
      */
-    account1: ""
+    account: ""
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载 
    */
   onLoad: function (options) {
 
-    console.log(options);
-    if (options.page) {
-      var page = options.page;
-      console.log(page);
-    }
   },
   /**
    * 切换界面属性
@@ -39,7 +34,8 @@ Page({
     } else {
       console.log(data);
       console.log(data.account);
-      url = "../modifyPwdPage/modifyPwdPage?account=" + data.account;
+      url = "../modifyPwdPage/modifyPwdPage?account =" + data.account;
+      console.log(url);
     }
     wx.navigateTo({
       url: url,
@@ -52,13 +48,8 @@ Page({
     var vm = this;
     var pos = e.detail.cursor;
     var value = e.detail.value;
-    var regValue = value.substr(pos - 1, pos);
-    console.log(pos);
-    console.log(value);
-    var account = util.regAccount(regValue, "account");
-    console.log(value.splice(pos,1, account));
     return {
-      value: account,
+      value: util.regAccount(value, "account"),
       cursor: pos
     }
   },

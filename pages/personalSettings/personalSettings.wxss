@@ -62,10 +62,5 @@
 }
 
 .outLogin{
-  margin-top: 20rpx;
-  height: 70rpx;
-  line-height: 70rpx;
-  border: 1rpx solid #f5f5f9;
-  text-align: center;
-  font-size: 30rpx;
+  margin-top: 30rpx;
 }

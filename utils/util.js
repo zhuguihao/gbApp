@@ -26,25 +26,21 @@ const formatNumber = n => {
 // }
 
 const check = function (account, type) {
-  var regLowerCase = new RegExp('[a-z]', 'g');//判断用户输入的是否为小写字母
-  var regCapitalLetter = new RegExp('[A-Z]', 'g');//判断用户输入的是否为大写字母
-  var regNum = new RegExp('[0-9]', 'g');//判断用户输入的是否为数字
-  var regCom = new RegExp('.*@.*', 'g');//判断用户输入的是否为 @
-  var regD = new RegExp('(\\.)', 'g');//判断用户输入的是否为小数点
-  var rsLowerCase = regLowerCase.exec(account);
-  var rsCapitalLetter = regCapitalLetter.exec(account);
-  var rsNum = regNum.exec(account);
-  var rsCom = regCom.exec(account);
-  var rsD = regD.exec(account);
-  var result = "";
+  var regLowerCase= /[a-z]/;//判断用户输入的是否为小写字母
+  var regCapitalLetter = /[A-Z]/;//判断用户输入的是否为大写字母
+  var regNum = /[0-9]/;//判断用户输入的是否为数字
+  var regCom = /.*@.*/;//判断用户输入的是否为 @
+  var regD = /(\\.)/;//判断用户输入的是否为小数点
+  var regSpace = " ";//空格
+  var regS = /((?=[\x21-\x7e]+)[^A-Za-z0-9])/g;//特殊符号
+  var regCh = /[^\x00-\xff]/g;//中文
   switch (type) {
     case "account":
-      if (rsLowerCase || rsCapitalLetter || rsNum || rsCom || rsD) {
-        result = account;
-      }
+      account = account.replace(regCh,"");
+      account = account.replace(regS, "");
+      account = account.replace(regSpace, "");
       break;
   }
-  console.log(account);
   return account;
 }
 

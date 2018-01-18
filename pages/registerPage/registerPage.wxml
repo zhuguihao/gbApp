@@ -1,8 +1,8 @@
 <view class='LoginMain'>
   <view class='loginFrom'>
     <view class='loginLine'>
-      <view class='loginTile'>账号：</view>
-      <input maxlength='18' placeholder='请输入账号' class='loginInput' />
+      <view class='loginTile'>账号：</view> 
+      <input maxlength='18' placeholder='请输入账号' bindinput='bindAccountInput' class='loginInput' />
     </view>
 
     <view class='loginLine'>
@@ -11,7 +11,7 @@
     </view>
     <view class='loginLine'>
       <view class='loginTileCode'>验证码：</view>
-      <input maxlength='4' placeholder='请输入验证码' class='loginCodeInput' />
+      <input maxlength='4' placeholder='请输入验证码' type='number' class='loginCodeInput' />
       <view class='registerCode'>获取验证码</view>
     </view>
     <view class='loginBtn' bindtap='register'>注册</view>
