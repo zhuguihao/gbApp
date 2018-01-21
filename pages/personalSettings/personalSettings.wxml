@@ -1,14 +1,14 @@
 <!--index.wxml-->
 <view class='titleView'>
   <view class="userinfo">
-    <block wx:if="{{!hasUserInfo}}">
-      <view class='userinfoAvatar' bindtap='getUserInfo'>
+    <block wx:if="{{!token}}">
+      <view class='userinfoAvatar' bindtap='loginFun'>
         <icon size='64' type='clear'></icon>
       </view>
       <text class="userinfoNickname">未登录</text>
     </block>
     <block wx:else>
-      <image class="userinfoAvatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <image class="userinfoAvatar" src="{{userInfo.avatarUrl}}" background-size="cover" />
       <text class="userinfoNickname">{{userInfo.nickName}}</text>
     </block>
   </view>
@@ -24,6 +24,12 @@
     </view>
   </view>
 </block> -->
-<view class='outLogin comBtn' wx:if="{{hasUserInfo}}" bindtap='outLoginFun'>
-  <view>退出登录</view>
+
+<view class='outLogin comBtn' >
+  <block wx:if="{{token}}">
+    <view bindtap='outLoginFun'>退出登录</view>
+  </block>
+  <block wx:else>
+    <view bindtap='loginFun'>登录</view>
+  </block>
 </view>

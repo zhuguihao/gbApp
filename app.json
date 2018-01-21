@@ -1,14 +1,13 @@
 {
   "pages": [
-    
     "pages/homePage/homePage",
-    "pages/loginPage/loginPage",
     "pages/registerPage/registerPage",
+    "pages/loginPage/loginPage",
+    "pages/personalSettings/personalSettings",
     "pages/companyIndex/companyIndex",
     "pages/storage/storage",
     "pages/serchProduct/serchProduct",
     "pages/modifyPwdPage/modifyPwdPage",
-    "pages/personalSettings/personalSettings",
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage",
     "pages/errorPage/errorPage"
@@ -38,5 +37,9 @@
         "text": "设置"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 3000,
+    "downloadFile": 10000
   }
 }

@@ -2,18 +2,17 @@
   <view class='loginFrom'>
     <view class='loginLine'>
       <view class='loginTile'>账号：</view>
-      <input maxlength='18' placeholder='请输入账号' class='loginInput' disabled='{{accDisabled}}' value='{{account}}'/>
+      <input type='number' maxlength='18' placeholder='请输入账号' class='loginInput' bindinput='bindAccountInput' disabled='{{accDisabled}}' value='{{account}}'/>
     </view>
-
     <view class='loginLine'>
       <view class='loginTile'>密码：</view>
-      <input maxlength='18' password='true' placeholder='请输入密码' class='loginInput' />
+      <input maxlength='18' password='true' placeholder='请输入密码' class='loginInput' bindinput='bindPwdInput'/>
     </view>
-    <view class='loginLine'>
+    <!-- <view class='loginLine'>
       <view class='loginTileCode'>验证码：</view>
-      <input maxlength='4' placeholder='请输入验证码' class='loginCodeInput' />
+      <input maxlength='4' placeholder='请输入验证码' class='loginCodeInput' bindinput='bindRegisterCodeInput'/>
       <view class='registerCode'>获取验证码</view>
-    </view>
-    <view class='loginBtn' bindtap='register'>确认</view>
+    </view> -->
+    <view class='loginBtn' bindtap='bindModify'>修改密码</view>
   </view>
 </view>

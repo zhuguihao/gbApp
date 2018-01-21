@@ -22,11 +22,6 @@ Page({
       "bgImage": "",
       "params": { "a": "1", "b": "2" }
     }, {
-      "pageUrl": "../personalSettings/personalSettings",
-      "name": "设置",
-      "bgImage": "",
-      "params": { "a": "1", "b": "2" }
-    }, {
       "pageUrl": "",
       "name": "卖出产品",
       "bgImage": "",

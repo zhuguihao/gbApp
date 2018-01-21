@@ -1,46 +1,55 @@
 //获取应用实例
 const app = getApp()
-
+const util = require('../../utils/util.js')
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false
+    token: null,
+    userInfo: null
   },
   onLoad: function (e) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else {
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    let vm = this
+    console.log(app.globalData.userInfo)
+    vm.setData({
+      token: app.globalData.token,
+      userInfo: app.globalData.userInfo
+    })
   },
-  getUserInfo: function() {
-    wx.getUserInfo({
-      success: res => {
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+  /**
+   * 登录
+   */
+  loginFun: function () {
+    wx.navigateTo({
+      url: '../loginPage/loginPage'
     })
   },
   /**
    * 退出登录
    */
-  outLoginFun: function(){
-    wx.navigateTo({ 
-      url: '../loginPage/loginPage?page=A'
+  outLoginFun: function () {
+    var vm = this
+    /**
+     * 删除基本数据
+     */
+    util.postHttp("/outLogin", {}, {
+      success: res => {
+        var tips;
+        if ("success" == res.status) {
+          tips = res.data.outLoginResult
+          app.globalData.token = null;
+          app.globalData.userInfo = null;
+          vm.setData({
+            token: app.globalData.token,
+            userInfo: app.globalData.userInfo
+          })
+        } else {
+          tips = res.msg
+        }
+        wx.showToast({
+          title: tips,
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
   }
 })
