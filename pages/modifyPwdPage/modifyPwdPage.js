@@ -9,7 +9,8 @@ Page({
   data: {
     account: '',
     password: '',
-    registerCode: ''
+    registerCode: '',
+    oldPassword:''
   },
   /**
     * 账号输入框
@@ -27,7 +28,22 @@ Page({
     }
   },
   /**
-   * 密码输入框
+   * 旧密码输入框
+   */
+  bindOldPwdInput: function (e) {
+    var vm = this;
+    var pos = e.detail.cursor;
+    var value = e.detail.value;
+    vm.setData({
+      oldPassword: value
+    })
+    return {
+      value: value,
+      cursor: pos
+    }
+  },
+  /**
+   * 新密码输入框
    */
   bindPwdInput: function (e) {
     var vm = this;
@@ -85,6 +101,14 @@ Page({
       })
       return
     }
+    if (data.oldPassword.length == 0) {
+      wx.showToast({
+        title: '请输入旧密码',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     if (data.password.length == 0) {
       wx.showToast({
         title: '请输入密码',
@@ -114,6 +138,7 @@ Page({
     var params = {
       account: vm.data.account,
       password: vm.data.password,
+      oldPassword: vm.data.oldPassword,
       registerCode: vm.data.registerCode
     }
     util.postHttp("/modifyPwd", params, {

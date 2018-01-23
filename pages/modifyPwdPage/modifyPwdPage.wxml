@@ -5,8 +5,12 @@
       <input type='number' maxlength='18' placeholder='请输入账号' class='loginInput' bindinput='bindAccountInput' disabled='{{accDisabled}}' value='{{account}}'/>
     </view>
     <view class='loginLine'>
-      <view class='loginTile'>密码：</view>
-      <input maxlength='18' password='true' placeholder='请输入密码' class='loginInput' bindinput='bindPwdInput'/>
+      <view class='loginTile'>旧密码：</view>
+      <input maxlength='18' password='true' placeholder='请输入旧密码' class='loginInput' bindinput='bindOldPwdInput'/>
+    </view>
+    <view class='loginLine'>
+      <view class='loginTile'>新密码：</view>
+      <input maxlength='18' password='true' placeholder='请输入新密码' class='loginInput' bindinput='bindPwdInput'/>
     </view>
     <!-- <view class='loginLine'>
       <view class='loginTileCode'>验证码：</view>

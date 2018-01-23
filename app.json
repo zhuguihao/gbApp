@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/errorPage/errorPage",
     "pages/homePage/homePage",
     "pages/registerPage/registerPage",
     "pages/loginPage/loginPage",
@@ -9,8 +10,8 @@
     "pages/serchProduct/serchProduct",
     "pages/modifyPwdPage/modifyPwdPage",
     "pages/cusApply/cusApply",
-    "pages/scanPage/scanPage",
-    "pages/errorPage/errorPage"
+    "pages/scanPage/scanPage"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
