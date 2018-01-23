@@ -1,4 +1,4 @@
-<view class='storageScan' wx:if="{{storageShow}}">
+<view class='storageScan' wx:if="{{storageShow=='A'}}">
   <view class='pickerBox'>
     <picker bindchange="bindProSeriesChange" value="{{proSeriesIndex}}" range="{{proList}}" range-key='name'>
       <view class='pickerMain'>
@@ -34,10 +34,10 @@
       </view>
     </picker>
   </view>
-  <view class='comBtn btn' bindtap='clickStorageBill'>生成入库单</view>
+  <view class='comBtn btn' bindtap='clickStorage' data-page='B'>生成入库单</view>
 </view>
 
-<view wx:else>
+<view wx:if="{{storageShow=='B'}}">
   <view class='storageFrom'>
     <view class='title'>入库单</view>
     <view class='storageList'>
@@ -53,6 +53,287 @@
       <view class='stoProList'>产品描述：产品描述</view>
     </view>
   </view>
-  <view class='comBtn btn' bindtap='clickStorageBill'>重新生成入库单</view>
-  <view class='comBtn btn' >扫码入库</view>
+  <view class='comBtn btn' bindtap='clickStorage' data-page='A'>重新生成入库单</view>
+  <view class='comBtn btn' bindtap='clickStorage' data-page='C'>扫码入库</view>
+</view>
+
+<view wx:if="{{storageShow=='C'}}">
+  <view class='title'>
+    <view class='comTips'>入库单</view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comList'>
+    <view class='comListMain'>
+      <view class='comListTip'>产品编号：</view>
+      <view class='comListDesc'>产品编号</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品系列：</view>
+      <view class='comListDesc'>产品系列</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品名称：</view>
+      <view class='comListDesc'>产品名称</view>
+    </view>
+    <view class='comListMain'>
+      <view class='comListTip'>产品型号：</view>
+      <view class='comListDesc'>产品型号</view>
+    </view>
+    <view class='comSubBtn'>
+      <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
+      <view class='comListDel'>删 除</view>
+    </view>
+  </view>
+
+  <view class='comBtn btn' bindtap='clickStorage' data-page='A'>重新生成入库单</view>
+  <view class='comBtn btn' bindtap='bindStorageScan'>扫码入库</view>
+</view>
+
+<view wx:if="{{storageShow=='D'}}">
+  <view class='storageFrom'>
+    <view class='title'>入库详情</view>
+    <view class='storageList'>
+      <view class='stoProList'>产品系列：产品系列</view>
+      <view class='stoProList'>产品名称：产品名称</view>
+      <view class='stoProList'>产品型号：产品型号</view>
+      <view class='stoProList'>产品电压范围：产品电压范围</view>
+      <view class='stoProList'>经销价：经销价</view>
+      <view class='stoProList'>零售价：零售价</view>
+      <view class='stoProList'>
+        产品描述：产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述
+      </view>
+      <view class='stoProList'>产品描述：产品描述</view>
+    </view>
+  </view>
+  <view class='comBtn btn' bindtap='clickStorage' data-page='C'>关闭详情</view>
 </view>

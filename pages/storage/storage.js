@@ -27,16 +27,22 @@ Page({
     selectImgSrc: '../../static/logo/select.png',
     /**
      * 入库单和出库单切换开关
+     * A:生成出库单
+     * B:生成入库单
+     * C:扫码入库
      */
-    storageShow: true
+    storageShow: 'A'
   },
   /**
-   * 切换入库单和出库单
+   * 切换扫码入库状态值
    */
-  clickStorageBill: function (e) {
+  clickStorage: function(e) {
     this.setData({
-      storageShow: !this.data.storageShow
+      storageShow: e.currentTarget.dataset.page
     });
+  },
+  bindStorageScan: function(){
+    console.log("点击了扫码")
   },
   /**
    * 产品系列下拉框
@@ -80,48 +86,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

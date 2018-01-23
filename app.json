@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/errorPage/errorPage",
     "pages/homePage/homePage",
+    "pages/errorPage/errorPage",
     "pages/registerPage/registerPage",
     "pages/loginPage/loginPage",
     "pages/personalSettings/personalSettings",
@@ -11,7 +11,6 @@
     "pages/modifyPwdPage/modifyPwdPage",
     "pages/cusApply/cusApply",
     "pages/scanPage/scanPage"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +22,7 @@
     "color": "#ccc",
     "selectedColor": "#272727",
     "borderStyle": "white",
-    "backgroundColor":"#F7F7F7",
+    "backgroundColor": "#F7F7F7",
     "list": [
       {
         "selectedIconPath": "static/logo/all.png",
