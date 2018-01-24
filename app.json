@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/storage/storage",
     "pages/homePage/homePage",
     "pages/errorPage/errorPage",
     "pages/registerPage/registerPage",
     "pages/loginPage/loginPage",
     "pages/personalSettings/personalSettings",
-    "pages/companyIndex/companyIndex",
-    "pages/storage/storage",
+    "pages/companyIndex/companyIndex",    
     "pages/serchProduct/serchProduct",
     "pages/modifyPwdPage/modifyPwdPage",
     "pages/cusApply/cusApply",

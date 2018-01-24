@@ -141,7 +141,7 @@ Page({
       oldPassword: vm.data.oldPassword,
       registerCode: vm.data.registerCode
     }
-    util.postHttp("/modifyPwd", params, {
+    util.postHttp("/user/modifyPwd", params, {
       success: res => {
         wx.showToast({
           title: res.data.modifyResult,

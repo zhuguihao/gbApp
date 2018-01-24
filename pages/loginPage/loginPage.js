@@ -107,7 +107,7 @@ Page({
       account: vm.data.account,
       password: vm.data.password
     }
-    util.postHttp("/login", params, {
+    util.postHttp("/user/login", params, {
       success: res => {
         wx.showToast({
           title: res.data.loginResult,

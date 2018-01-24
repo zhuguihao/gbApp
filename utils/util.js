@@ -46,7 +46,7 @@ const getOpenId = function (fun) {
         "jsCode": res.code
       };
       console.log(JSON.stringify(params))
-      this.postHttp("/getOpenIdByCode", params, {
+      this.postHttp("/wechat/getOpenIdByCode", params, {
         success: res => {
           fun.result(res)
         }
@@ -64,7 +64,7 @@ const postHttp = function (url, params, fun) {
   console.log("url:  " + url)
   console.log("params:  " + JSON.stringify(params))
   let LoadingBool = true;
-  if ("/getOpenIdByCode" == url) {
+  if ("/wechat/getOpenIdByCode" == url) {
     LoadingBool = false;
   }
   if (LoadingBool) {
@@ -82,7 +82,7 @@ const postHttp = function (url, params, fun) {
     url: getApp().globalData.reqIp + url,
     data: params,
     success: function (res) {
-      console.log(res)
+      console.log(res.data)
       if (LoadingBool) {
         wx.hideLoading()
       }

@@ -119,7 +119,7 @@ Page({
       avatarUrl: app.globalData.userInfo.avatarUrl,
       openId: app.globalData.openId
     }
-    util.postHttp("/register", params, {
+    util.postHttp("/user/register", params, {
       success: res => {
         wx.showToast({
           title: res.data.registerResult,
