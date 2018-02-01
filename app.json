@@ -2,7 +2,7 @@
   "pages": [
     "pages/homePage/homePage",
     "pages/storage/storage",
-    
+    "pages/storage/storageScan/storageScan",
     "pages/errorPage/errorPage",
     "pages/registerPage/registerPage",
     "pages/loginPage/loginPage",
@@ -40,7 +40,7 @@
     ]
   },
   "networkTimeout": {
-    "request": 3000,
+    "request": 30000,
     "downloadFile": 10000
   }
 }

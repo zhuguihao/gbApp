@@ -38,8 +38,9 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    reqIp: "http://gb.zhuguihao.com:7777/appService",
-    // reqIp: "http://192.168.1.102:7777/appService",
+    reqIp: "https://gb.zhuguihao.com/appService",
+    // reqIp: "http://gb.zhuguihao.com:7777/appService",
+    // reqIp: "http://192.168.0.124:7777/appService",
     token: null
   }
 })

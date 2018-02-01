@@ -1,0 +1,15 @@
+/* pages/storage/storageScan/storageScan.wxss */
+
+.btn {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  /* border-radius: 10rpx; */
+  background-color: #ccc;
+  padding: 20rpx;
+  font-weight: bold;
+}

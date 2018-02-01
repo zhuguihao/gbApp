@@ -52,7 +52,11 @@ Page({
     /**
      * 入库列表数据
      */
-    storageProList: []
+    storageProList: [],
+    /**
+     * 入库界面URL
+     */
+    storageScanUrl: "./storageScan/storageScan"
   },
   /**
    * 切换扫码入库状态值
@@ -84,33 +88,25 @@ Page({
       })
       return
     }
-    var proListDetail = {
-
-    };
-    this.setData({
-      storageShow: e.currentTarget.dataset.page,
-      // proListDetail: proListDetail
-    });
-  },
-  bindStorageScan: function () {
-    var vm = this
-    console.log("点击了扫码")
-    var proListDetail = {
-      "barCode": new Date,
-      "series": "IE系列经济型手工焊机",
-      "name": "1P直流电焊机",
-      "model": "IE 225",
-      "voltageRange": "150V~270V",
-      "distributionPrice": 319,
-      "retailPrice": 399,
-      "desc": "￠2.5-100M持续焊，￠3.2-5M",
-      "policy": 2,
-      "policy_replace": 1
+    console.log(e.currentTarget.dataset.page)
+    if ("C" == e.currentTarget.dataset.page) {
+      console.log(proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex].id)
+      var id = proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex].id
+      if ("" == id || null == id) {
+        wx.showToast({
+          title: '请先添加产品型号',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+      wx.navigateTo({
+        url: vm.data.storageScanUrl + "?id=" + id
+      })
+      return
     }
-    var data = vm.data.storageProList
-    data.unshift(proListDetail)
     this.setData({
-      storageProList: data
+      storageShow: e.currentTarget.dataset.page
     });
   },
   /**
