@@ -1,5 +1,5 @@
 /* pages/storage/storage.wxss */
-.pickerMain {
+.pickerMain { 
   display: -webkit-box;
   height: 100rpx;
   line-height: 100rpx;

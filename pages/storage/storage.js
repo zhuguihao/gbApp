@@ -1,5 +1,6 @@
 // pages/storage/storage.js
 const util = require('../../utils/util.js')
+const app = getApp();
 Page({
 
   /**
@@ -120,17 +121,28 @@ Page({
       proIndex: e.detail.value
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var vm = this;
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    /**
+     * 判断token为空则跳转到登陆界面
+     */
+    if (null == app.globalData.token) {
+      wx.showToast({
+        title: '用户没有登录',
+        icon: 'none',
+        mask: true,
+        duration: 2000
+      })
+      setTimeout(function () {
+        wx.reLaunch({
+          url: "../loginPage/loginPage"
+        })
+      }, 2000);
+      return
+    }
     this.getProductList();
   },
   /**

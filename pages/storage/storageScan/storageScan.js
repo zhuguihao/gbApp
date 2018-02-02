@@ -1,7 +1,7 @@
 // pages/storage/storageScan/storageScan.js
 const util = require('../../../utils/util.js')
 Page({
- 
+
   /**
    * 页面的初始数据
    */
@@ -20,11 +20,15 @@ Page({
     /**
      * 选择产品URL
      */
-    storageUrl: "../storage/storage",
+    storageUrl: "../storage",
     /**
      * 产品ID
      */
-    id: null
+    id: null,
+    /**
+     * 产品详情信息
+     */
+    productSaleDetail: {}
   },
 
   /**
@@ -36,7 +40,34 @@ Page({
       id: options.id
     });
   },
-
+  /**
+   * 删除当前的入库信息
+   */
+  delStorage: function (e) {
+    let vm = this
+    console.log(e.currentTarget.dataset.id)
+    var params = {
+      id: e.currentTarget.dataset.id
+    }
+    util.postHttp("/product/delStorage", params, {
+      success: res => {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        if ("success" == res.status) {
+          console.log(res.data)
+          let data = vm.data.storageProList;
+          data.splice(e.currentTarget.dataset.index,1)
+          console.log(data)
+          this.setData({
+            storageProList: data
+          });
+        }
+      }
+    })
+  },
   /**
    * 点击重新入库
    */
@@ -48,9 +79,25 @@ Page({
       })
       return
     }
-    this.setData({
-      storageShow: e.currentTarget.dataset.page
-    });
+    /**
+     * 点击详情的时候
+     */
+    if ("D" == e.currentTarget.dataset.page) {
+      console.log(e.currentTarget.dataset.index)
+      this.setData({
+        storageShow: e.currentTarget.dataset.page,
+        productSaleDetail: vm.data.storageProList[e.currentTarget.dataset.index]
+      });
+    }
+    /**
+    * 点击关闭详情的时候
+    */
+    if ("C" == e.currentTarget.dataset.page) {
+      this.setData({
+        storageShow: e.currentTarget.dataset.page
+      });
+    }
+
   },
   /**
     * 扫码事件
@@ -66,20 +113,12 @@ Page({
       onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
+        console.log(res)
         if ("CODE_128" == res.scanType) {//条形码
           var params = {
             barCode: res.result,
             productId: vm.data.id
           };
-          // data.unshift(proListDetail)
-          // this.setData({
-          //   storageProList: data
-          // });
-          // return
-          // wx.navigateTo({
-          //   url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
-          // })
-          // return
 
           util.postHttp("/product/storage", params, {
             success: res => {
@@ -90,6 +129,13 @@ Page({
               })
               if ("success" == res.status) {
                 console.log(res.data)
+                let data = vm.data.storageProList;
+                data.unshift(res.data)
+
+                console.log(data)
+                this.setData({
+                  storageProList: data
+                });
               }
             }
           })
@@ -115,10 +161,6 @@ Page({
           content: '识别失败，请重试！',
           showCancel: false
         })
-      },
-      //接口调用结束的回调函数（调用成功、失败都会执行）
-      complete: () => {
-        console.log("接口调用结束的回调函数（调用成功、失败都会执行）");
       }
     })
   },

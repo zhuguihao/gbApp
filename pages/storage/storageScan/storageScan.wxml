@@ -1,10 +1,10 @@
 <view wx:if="{{storageShow=='C'}}">
   <view class='comBtn btn' bindtap='clickStorage' data-page='A'>重新生成入库单</view>
   <view class='comBtn btn' bindtap='bindStorageScan'>扫码入库</view>
-  
-  <!-- <view class='title'>
+
+  <view class='title'>
     <view class='comTips'>入库单</view>
-  </view> 
+  </view>
   <view wx:for="{{storageProList}}" wx:key='splKey' wx:for-index="splIndex" wx:for-item="splItem">
     <view class='comList'>
       <view class='comListMain'>
@@ -17,35 +17,35 @@
       </view>
       <view class='comListMain'>
         <view class='comListTip'>产品名称：</view>
-        <view class='comListDesc'>{{splItem.name}}</view>
+        <view class='comListDesc'>{{splItem.proName}}</view>
       </view>
       <view class='comListMain'>
         <view class='comListTip'>产品型号：</view>
-        <view class='comListDesc'>{{splItem.model}}</view>
+        <view class='comListDesc'>{{splItem.proModel}}</view>
       </view>
       <view class='comSubBtn'>
-        <view class='comListDetail' bindtap='clickStorage' data-page='D'>详 情</view>
-        <view class='comListDel'>删 除</view>
+        <view class='comListDetail' bindtap='clickStorage' data-page='D' data-index='{{splIndex}}'>详 情</view>
+        <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{splIndex}}'>删 除</view>
       </view>
     </view>
-  </view> -->
-  
+  </view>
+
 </view>
 
 <view wx:if="{{storageShow=='D'}}">
   <view class='storageFrom'>
     <view class='title'>入库详情</view>
     <view class='storageList'>
-      <view class='stoProList'>产品系列：产品系列</view>
-      <view class='stoProList'>产品名称：产品名称</view>
-      <view class='stoProList'>产品型号：产品型号</view>
-      <view class='stoProList'>产品电压范围：产品电压范围</view>
-      <view class='stoProList'>经销价：经销价</view>
-      <view class='stoProList'>零售价：零售价</view>
-      <view class='stoProList'>
-        产品描述：产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述
+      <view class='stoProList'>产品编号：{{productSaleDetail.barCode}}</view>
+      <view class='stoProList'>产品系列：{{productSaleDetail.series}}</view>
+      <view class='stoProList'>产品名称：{{productSaleDetail.proName}}</view>
+      <view class='stoProList'>产品型号：{{productSaleDetail.proModel}}</view>
+      <view class='stoProList'>产品电压范围：{{productSaleDetail.voltageRange}}</view>
+      <view class='stoProList' wx:if='{{productSaleDetail.distributionPrice!=null}}'>经销价：{{productSaleDetail.distributionPrice}}</view>
+      <view class='stoProList' wx:if='{{productSaleDetail.retailPrice!=null}}'>零售价：{{productSaleDetail.retailPrice}}</view>
+      <view class='stoProList'>产品描述：{{productSaleDetail.proDesc}}</view>
+      <view class='stoProList'>保修政策： {{productSaleDetail.policy==null?"":productSaleDetail.policy+"年保修"}} {{productSaleDetail.policyReplace==null?"":productSaleDetail.policyReplace+"年包换"}}
       </view>
-      <view class='stoProList'>产品描述：产品描述</view>
     </view>
   </view>
   <view class='comBtn btn' bindtap='clickStorage' data-page='C'>关闭详情</view>

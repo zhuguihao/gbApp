@@ -48,8 +48,8 @@
       <view class='stoProList'>产品名称：{{proListDetail.proName}}</view>
       <view class='stoProList'>产品型号：{{proListDetail.proModel}}</view>
       <view class='stoProList'>产品电压范围：{{proListDetail.voltageRange}}</view>
-      <view class='stoProList'>经销价：{{proListDetail.distributionPrice}}</view>
-      <view class='stoProList'>零售价：{{proListDetail.retailPrice}}</view>
+      <view class='stoProList' wx:if='{{proListDetail.distributionPrice!=null}}'>经销价：{{proListDetail.distributionPrice}}</view>
+      <view class='stoProList' wx:if='{{proListDetail.retailPrice!=null}}'>零售价：{{proListDetail.retailPrice}}</view>
       <view class='stoProList'>产品描述：{{proListDetail.proDesc}}</view>
       <view class='stoProList'>保修政策： {{proListDetail.policy==null?"":proListDetail.policy+"年保修"}} {{proListDetail.policyReplace==null?"":proListDetail.policyReplace+"年包换"}}
       </view>
