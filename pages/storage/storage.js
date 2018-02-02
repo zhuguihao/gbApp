@@ -21,9 +21,7 @@ Page({
     /**
      * 产品信息数组
      */
-    proList: [
-      // { "code": "001", "name": "产品的系列", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "002", "name": "产品的系列2", "list": [{ "code": "002", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "003", "name": "产品型号3" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }, { "code": "003", "name": "产品的系列3", "list": [{ "code": "001", "name": "产品名称", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "02", "name": "产品名称2", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }, { "code": "003", "name": "产品名称3", "list": [{ "code": "001", "name": "产品型号" }, { "code": "002", "name": "产品型号2" }, { "code": "003", "name": "产品型号3" }] }] }
-    ],
+    proList: [],
     /**
      * 下拉图标地址
      */
@@ -38,17 +36,7 @@ Page({
     /**
      * 生成入库单的详情列表
      */
-    proListDetail: {
-      "series": "IE系列经济型手工焊机",
-      "name": "1P直流电焊机",
-      "model": "IE 225",
-      "voltageRange": "150V~270V",
-      "distributionPrice": 319,
-      "retailPrice": 399,
-      "desc": "￠2.5-100M持续焊，￠3.2-5M",
-      "policy": 2,
-      "policy_replace": 1
-    },
+    proListDetail: {},
     /**
      * 入库列表数据
      */
@@ -80,7 +68,8 @@ Page({
       })
       return
     }
-    if (!proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex]) {
+    var id = proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex].id
+    if (!id) {
       wx.showToast({
         title: '请先添加产品型号',
         icon: 'none',
@@ -88,22 +77,14 @@ Page({
       })
       return
     }
-    console.log(e.currentTarget.dataset.page)
     if ("C" == e.currentTarget.dataset.page) {
-      console.log(proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex].id)
-      var id = proList[vm.data.proSeriesIndex].descendant[vm.data.proNameIndex].descendant[vm.data.proIndex].id
-      if ("" == id || null == id) {
-        wx.showToast({
-          title: '请先添加产品型号',
-          icon: 'none',
-          duration: 2000
-        })
-        return
-      }
       wx.navigateTo({
         url: vm.data.storageScanUrl + "?id=" + id
       })
       return
+    } else if ("B" == e.currentTarget.dataset.page) {
+      vm.getProductById(id)
+      // return
     }
     this.setData({
       storageShow: e.currentTarget.dataset.page
@@ -162,6 +143,25 @@ Page({
         if ("success" == res.status) {
           this.setData({
             proList: res.data
+          })
+        }
+      }
+    })
+  },
+  /**
+   * 获取产品ID获取产品信息
+   */
+  getProductById: function (id) {
+    var vm = this;
+    var params = {
+      id: id
+    };
+    util.postHttp("/product/getProductById", params, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(JSON.stringify(res.data))
+          this.setData({
+            proListDetail: res.data
           })
         }
       }

@@ -87,12 +87,27 @@ const postHttp = function (url, params, fun) {
         wx.hideLoading()
       }
       if (200 == res.statusCode) {
+        if ("not_login" == res.data.status) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.reLaunch({
+              url: "../loginPage/loginPage"
+            })
+          }, 2000);
+          return
+        }
         fun.success(res.data)
       } else {
         if (LoadingBool) {
           wx.showToast({
             title: '网络异常请重试',
             icon: 'loading',
+            mask: true,
             duration: 2000
           })
         }
@@ -105,6 +120,7 @@ const postHttp = function (url, params, fun) {
         wx.showToast({
           title: '网络异常请重试',
           icon: 'loading',
+          mask: true,
           duration: 2000
         })
       }

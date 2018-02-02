@@ -1,9 +1,10 @@
 <view wx:if="{{storageShow=='C'}}">
   <view class='comBtn btn' bindtap='clickStorage' data-page='A'>重新生成入库单</view>
   <view class='comBtn btn' bindtap='bindStorageScan'>扫码入库</view>
-  <view class='title'>
+  
+  <!-- <view class='title'>
     <view class='comTips'>入库单</view>
-  </view>
+  </view> 
   <view wx:for="{{storageProList}}" wx:key='splKey' wx:for-index="splIndex" wx:for-item="splItem">
     <view class='comList'>
       <view class='comListMain'>
@@ -27,7 +28,8 @@
         <view class='comListDel'>删 除</view>
       </view>
     </view>
-  </view>
+  </view> -->
+  
 </view>
 
 <view wx:if="{{storageShow=='D'}}">

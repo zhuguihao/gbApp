@@ -45,13 +45,13 @@
     <view class='title'>入库单</view>
     <view class='storageList'>
       <view class='stoProList'>产品系列：{{proListDetail.series}}</view>
-      <view class='stoProList'>产品名称：{{proListDetail.name}}</view>
-      <view class='stoProList'>产品型号：{{proListDetail.model}}</view>
+      <view class='stoProList'>产品名称：{{proListDetail.proName}}</view>
+      <view class='stoProList'>产品型号：{{proListDetail.proModel}}</view>
       <view class='stoProList'>产品电压范围：{{proListDetail.voltageRange}}</view>
       <view class='stoProList'>经销价：{{proListDetail.distributionPrice}}</view>
       <view class='stoProList'>零售价：{{proListDetail.retailPrice}}</view>
-      <view class='stoProList'>产品描述：{{proListDetail.desc}}</view>
-      <view class='stoProList'>保修政策： {{proListDetail.policy==0?"":proListDetail.policy+"年保修"}} {{proListDetail.policy_replace==0?"":proListDetail.policy_replace+"年包换"}}
+      <view class='stoProList'>产品描述：{{proListDetail.proDesc}}</view>
+      <view class='stoProList'>保修政策： {{proListDetail.policy==null?"":proListDetail.policy+"年保修"}} {{proListDetail.policyReplace==null?"":proListDetail.policyReplace+"年包换"}}
       </view>
     </view>
   </view>
