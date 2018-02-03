@@ -28,6 +28,11 @@ Page({
       "params": { "a": "1", "b": "2" }
     }, {
       "pageUrl": "../storage/storage",
+      "name": "入库",
+      "bgImage": "",
+      "params": {}
+    }, {
+      "pageUrl": "../outStorage/outStorage",
       "name": "出库",
       "bgImage": "",
       "params": {}

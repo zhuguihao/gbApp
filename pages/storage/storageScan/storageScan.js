@@ -36,9 +36,28 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
+    this.getStorageByUser();
     this.setData({
       id: options.id
     });
+  },
+  /**
+   * 获取当前的操作人员当日的入库记录
+   */
+  getStorageByUser: function () {
+    let vm = this;
+
+    util.postHttp("/productSale/getStorageByUser", {}, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          this.setData({
+            storageProList: res.data
+          });
+        }
+      }
+    })
+
   },
   /**
    * 删除当前的入库信息
@@ -49,7 +68,7 @@ Page({
     var params = {
       id: e.currentTarget.dataset.id
     }
-    util.postHttp("/product/delStorage", params, {
+    util.postHttp("/productSale/delStorage", params, {
       success: res => {
         wx.showToast({
           title: res.msg,
@@ -59,7 +78,7 @@ Page({
         if ("success" == res.status) {
           console.log(res.data)
           let data = vm.data.storageProList;
-          data.splice(e.currentTarget.dataset.index,1)
+          data.splice(e.currentTarget.dataset.index, 1)
           console.log(data)
           this.setData({
             storageProList: data
@@ -120,7 +139,7 @@ Page({
             productId: vm.data.id
           };
 
-          util.postHttp("/product/storage", params, {
+          util.postHttp("/productSale/storage", params, {
             success: res => {
               wx.showToast({
                 title: res.msg,
@@ -128,6 +147,7 @@ Page({
                 duration: 2000
               })
               if ("success" == res.status) {
+                console.log(vm.data.storageProList)
                 console.log(res.data)
                 let data = vm.data.storageProList;
                 data.unshift(res.data)

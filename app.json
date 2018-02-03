@@ -2,6 +2,7 @@
   "pages": [
     "pages/homePage/homePage",
     "pages/storage/storage",
+    "pages/outStorage/outStorage",
     "pages/storage/storageScan/storageScan",
     "pages/errorPage/errorPage",
     "pages/registerPage/registerPage",
