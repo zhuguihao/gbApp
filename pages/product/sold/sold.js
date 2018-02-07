@@ -1,5 +1,5 @@
-// pages/outStorage/outStorage.js
-const util = require('../../utils/util.js')
+// pages/product/sold/sold.js
+const util = require('../../../utils/util.js')
 Page({
 
   /**
@@ -7,36 +7,36 @@ Page({
    */
   data: {
     /**
-     * A：显示出库界面
-     * B：展示详情界面
-     */
-    outStorageShow: 'A',
+       * A：显示售出界面
+       * B：展示售出详情界面
+       */
+    soldShow: 'A',
     /**
-     * 出库列表数据
+     * 售出产品列表清单
      */
-    outStorageProList: [],
+    soldProList: [],
     /**
-     * 出库详情单
+     * 售出产品列表详情
      */
-    productSaleDetail: {}
+    soldProListDetail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.init()
+    this.init();
   },
   /**
-   * 初始化当天当前操作者的出库记录
+   * 初始化当天当前操作者的出售记录
    */
   init: function () {
     let vm = this
-    util.postHttp("/productSale/getOutStorageByUser", {}, {
+    util.postHttp("/productSale/getSoldByUser", {}, {
       success: res => {
         if ("success" == res.status) {
           this.setData({
-            outStorageProList: res.data
+            soldProList: res.data
           })
 
         } else {
@@ -52,7 +52,7 @@ Page({
     })
   },
   /**
-   * 扫码事件
+   * 扫码生成售后维修时间
    */
   scanCodeTap() {
     var vm = this;
@@ -73,13 +73,14 @@ Page({
             barCode: res.result
           }
 
-          util.postHttp("/productSale/outStorage", params, {
+          util.postHttp("/productSale/soldTime", params, {
             success: res => {
               if ("success" == res.status) {
-                let data = vm.data.outStorageProList
+                let data = vm.data.soldProList
                 data.unshift(res.data)
+                console.log(JSON.stringify(data))
                 this.setData({
-                  outStorageProList: data
+                  soldProList: data
                 })
 
               } else {
@@ -120,7 +121,7 @@ Page({
 
     if ("A" == e.currentTarget.dataset.page) {
       this.setData({
-        outStorageShow: e.currentTarget.dataset.page
+        soldShow: e.currentTarget.dataset.page
       });
     }
 
@@ -129,14 +130,14 @@ Page({
      */
     if ("B" == e.currentTarget.dataset.page) {
       this.setData({
-        outStorageShow: e.currentTarget.dataset.page,
-        productSaleDetail: vm.data.outStorageProList[e.currentTarget.dataset.index]
+        soldShow: e.currentTarget.dataset.page,
+        soldProListDetail: vm.data.soldProList[e.currentTarget.dataset.index]
       });
     }
 
   },
   /**
-     * 删除当前的出库信息
+     * 删除当前的售出产品信息
      */
   delStorage: function (e) {
     let vm = this
@@ -144,7 +145,7 @@ Page({
     var params = {
       id: e.currentTarget.dataset.id
     }
-    util.postHttp("/productSale/delOutStorage", params, {
+    util.postHttp("/productSale/delSold", params, {
       success: res => {
         wx.showToast({
           title: res.msg,
@@ -153,11 +154,11 @@ Page({
         })
         if ("success" == res.status) {
           console.log(res.data)
-          let data = vm.data.outStorageProList;
+          let data = vm.data.soldProList;
           data.splice(e.currentTarget.dataset.index, 1)
           console.log(data)
           this.setData({
-            outStorageProList: data
+            soldProList: data
           });
         }
       }

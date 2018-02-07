@@ -1,4 +1,4 @@
-/* pages/outStorage/outStorage.wxss */
+/* pages/product/sold/sold.wxss */
 .btn {
   margin-top: 30rpx;
   margin-bottom: 30rpx;

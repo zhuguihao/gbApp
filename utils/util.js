@@ -96,7 +96,7 @@ const postHttp = function (url, params, fun) {
           })
           setTimeout(function () {
             wx.reLaunch({
-              url: "../loginPage/loginPage"
+              url: "/pages/loginPage/loginPage"
             })
           }, 2000);
           return

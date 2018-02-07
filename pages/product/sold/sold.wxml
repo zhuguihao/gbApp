@@ -1,0 +1,52 @@
+<!--pages/product/sold/sold.wxml-->
+<view wx:if="{{soldShow=='A'}}">
+  <view class='comBtn btn' bindtap='scanCodeTap'>售出扫码</view>
+  <view class='title'>
+    <view class='comTips'>售出产品清单</view>
+  </view>
+  <view wx:for="{{soldProList}}" wx:key='splKey' wx:for-index="splIndex" wx:for-item="splItem">
+    <view class='comList'>
+      <view class='comListMain'>
+        <view class='comListTip'>售后开始时间：</view>
+        <view class='comListDesc'>{{splItem.afterSaleTime}}</view>
+      </view>
+      <view class='comListMain'>
+        <view class='comListTip'>产品系列：</view>
+        <view class='comListDesc'>{{splItem.series}}</view>
+      </view>
+      <view class='comListMain'>
+        <view class='comListTip'>产品名称：</view>
+        <view class='comListDesc'>{{splItem.proName}}</view>
+      </view>
+      <view class='comListMain'>
+        <view class='comListTip'>产品型号：</view>
+        <view class='comListDesc'>{{splItem.proModel}}</view>
+      </view>
+      <view class='comSubBtn'>
+        <view class='comListDetail' bindtap='clickStorage' data-page='B' data-index='{{splIndex}}'>详 情</view>
+        <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{splIndex}}'>驳 回</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view wx:if="{{soldShow=='B'}}">
+  <view class='storageFrom'>
+    <view class='title'>售出产品详情</view>
+    <view class='storageList'>
+      <view class='stoProList'>产品编号：{{soldProListDetail.barCode}}</view>
+      <view class='stoProList'>产品系列：{{soldProListDetail.series}}</view>
+      <view class='stoProList'>产品名称：{{soldProListDetail.proName}}</view>
+      <view class='stoProList'>产品型号：{{soldProListDetail.proModel}}</view>
+      <view class='stoProList'>产品电压范围：{{soldProListDetail.voltageRange}}</view>
+      <view class='stoProList' wx:if='{{soldProListDetail.distributionPrice!=null}}'>经销价：{{soldProListDetail.distributionPrice}}</view>
+      <view class='stoProList' wx:if='{{soldProListDetail.retailPrice!=null}}'>零售价：{{soldProListDetail.retailPrice}}</view>
+      <view class='stoProList'>产品描述：{{soldProListDetail.proDesc}}</view>
+      <view class='stoProList'>售后开始时间：{{soldProListDetail.afterSaleTime}}</view>
+      <view class='stoProList'>保修政策： {{soldProListDetail.policy==null?"":soldProListDetail.policy+"年保修"}} {{soldProListDetail.policyReplace==null?"":soldProListDetail.policyReplace+"年包换"}}
+      </view>
+    </view>
+  </view>
+  <view class='comBtn btn' bindtap='clickStorage' data-page='A'>关闭详情</view>
+</view>

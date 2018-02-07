@@ -52,7 +52,7 @@ Page({
           wx.showLoading({
             title: '正在查询产品信息...',
             mask: true
-          });
+          })
           wx.request({
             url: 'test.php', //仅为示例，并非真实的接口地址
             data: {

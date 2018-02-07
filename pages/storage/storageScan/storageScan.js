@@ -149,7 +149,7 @@ Page({
               if ("success" == res.status) {
                 console.log(vm.data.storageProList)
                 console.log(res.data)
-                let data = vm.data.storageProList;
+                let data = vm.data.storageProList
                 data.unshift(res.data)
 
                 console.log(data)

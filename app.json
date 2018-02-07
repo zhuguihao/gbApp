@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/homePage/homePage",
+    "pages/product/sold/sold",
     "pages/storage/storage",
     "pages/outStorage/outStorage",
     "pages/storage/storageScan/storageScan",

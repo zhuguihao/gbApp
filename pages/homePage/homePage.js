@@ -12,21 +12,6 @@ Page({
       "bgImage": "",
       "params": { "a": "1", "b": "2" }
     }, {
-      "pageUrl": "../serchProduct/serchProduct",
-      "name": "查询",
-      "bgImage": "",
-      "params": { "a": "1", "b": "2" }
-    }, {
-      "pageUrl": "../scanPage/scanPage",
-      "name": "售后",
-      "bgImage": "",
-      "params": { "a": "1", "b": "2" }
-    }, {
-      "pageUrl": "",
-      "name": "卖出产品",
-      "bgImage": "",
-      "params": { "a": "1", "b": "2" }
-    }, {
       "pageUrl": "../storage/storage",
       "name": "入库",
       "bgImage": "",
@@ -36,7 +21,24 @@ Page({
       "name": "出库",
       "bgImage": "",
       "params": {}
-    }],
+    }, {
+      "pageUrl": "../product/sold/sold",
+      "name": "售出",
+      "bgImage": "",
+      "params": { "a": "1", "b": "2" }
+    }
+      // , {
+      //   "pageUrl": "../serchProduct/serchProduct",
+      //   "name": "查询",
+      //   "bgImage": "",
+      //   "params": { "a": "1", "b": "2" }
+      // }, {
+      //   "pageUrl": "../scanPage/scanPage",
+      //   "name": "售后",
+      //   "bgImage": "",
+      //   "params": { "a": "1", "b": "2" }
+      // }
+    ],
     indicatorDots: true,
     autoplay: true,
     circular: true,
