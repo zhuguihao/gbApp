@@ -6,82 +6,26 @@
     <button class='serchBotton' bindtap='productSerch'>查询</button>
   </block>
 </view>
-<block>
+<block> 
   <scroll-view scroll-y class='productInfoScrollView' wx:if="{{productInfo.id}}">
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>产品系列</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.series.length<20}}">{{productInfo.series}}</text>
-        <textarea auto-height wx:else>{{productInfo.series}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>产品名称</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.name.length<20}}">{{productInfo.name}}</text>
-        <textarea auto-height wx:else>{{productInfo.name}}</textarea>
+    <view class='storageFrom'>
+    <view class='title'>产品详情</view>
+    <view class='storageList'>
+      <view class='stoProList'>产品编号：{{productInfo.barCode}}</view>
+      <view class='stoProList'>产品系列：{{productInfo.series}}</view>
+      <view class='stoProList'>产品名称：{{productInfo.proName}}</view>
+      <view class='stoProList'>产品型号：{{productInfo.proModel}}</view>
+      <view class='stoProList'>产品电压范围：{{productInfo.voltageRange}}</view>
+      <view class='stoProList' wx:if='{{productInfo.distributionPrice!=null}}'>经销价：{{productInfo.distributionPrice}}</view>
+      <view class='stoProList' wx:if='{{productInfo.retailPrice!=null}}'>零售价：{{productInfo.retailPrice}}</view>
+      <view class='stoProList'>产品描述：{{productInfo.proDesc}}</view>
+      <view class='stoProList'>售后开始时间：{{productInfo.afterSaleTime}}</view>
+      <view class='stoProList'>保修政策： {{productInfo.policy==null?"":productInfo.policy+"年保修"}} {{productInfo.policyReplace==null?"":productInfo.policyReplace+"年包换"}}
       </view>
     </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>产品型号</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.machineCode.length<20}}">{{productInfo.machineCode}}</text>
-        <textarea auto-height wx:else>{{productInfo.machineCode}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>电压范围</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.voltageRange.length<20}}">{{productInfo.voltageRange}}</text>
-        <textarea auto-height wx:else>{{productInfo.voltageRange}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>经销价</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.distributePrice.length<20}}">{{productInfo.distributePrice}}</text>
-        <textarea auto-height wx:else>{{productInfo.distributePrice}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>零售价</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.retailPrice.length<20}}">{{productInfo.retailPrice}}</text>
-        <textarea auto-height wx:else>{{productInfo.retailPrice}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>产品政策</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.policy.length<20}}">{{productInfo.policy}}</text>
-        <textarea auto-height wx:else>{{productInfo.tepolicyxt}}</textarea>
-      </view>
-    </view>
-    <view class='productInfo'>
-      <view class='productInfoTitle'>
-        <text>产品功能</text>
-      </view>
-      <view class='productInfoMain'>
-        <text wx:if="{{productInfo.functionDescp.length<20}}">{{productInfo.functionDescp}}</text>
-        <textarea auto-height wx:else>{{productInfo.functionDescp}}</textarea>
-      </view>
-    </view>
+  </view>
   </scroll-view>
-  <view wx:else>
+  <view wx:else> 
     无当前产品信息，请确认流水号是否正确
   </view>
 </block>

@@ -1,4 +1,5 @@
 const app = getApp();
+const util = require('../../utils/util.js')
 Page({
   data: {
     /**
@@ -39,21 +40,33 @@ Page({
   productSerch: function () {
     var vm = this;
     console.log(this.data.scanCode);
-    // wx.showToast({
-    //   title: '正在查询产品信息',
-    //   icon: 'loading',
-    //   duration: 2000
-    // })
-    console.log(app.globalData.reqIp);
-    // var params = {
-    //   "machineCode": this.data.scanCode
-    // };
-    var params = { "barcode": "10086001" };
-    console.log(params);
+    var params = {
+      "barCode": this.data.scanCode
+    }
+    console.log(params)
+
+    util.postHttp("/cusProuctQuery/getProductInfoByBarcode", params, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(JSON.stringify(res.data))
+          vm.setData({
+            productInfo: res.data
+          })
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+
+    return
     wx.showLoading({
       title: '查询中，请稍后',
       mask: true
-    });
+    })
     wx.request({
       method: "POST",
       header: {

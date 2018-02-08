@@ -26,13 +26,13 @@ Page({
       "name": "售出",
       "bgImage": "",
       "params": { "a": "1", "b": "2" }
+    }, {
+      "pageUrl": "../serchProduct/serchProduct",
+      "name": "查询",
+      "bgImage": "",
+      "params": { "a": "1", "b": "2" }
     }
-      // , {
-      //   "pageUrl": "../serchProduct/serchProduct",
-      //   "name": "查询",
-      //   "bgImage": "",
-      //   "params": { "a": "1", "b": "2" }
-      // }, {
+    // , {
       //   "pageUrl": "../scanPage/scanPage",
       //   "name": "售后",
       //   "bgImage": "",
