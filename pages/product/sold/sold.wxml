@@ -24,7 +24,7 @@
       </view>
       <view class='comSubBtn'>
         <view class='comListDetail' bindtap='clickStorage' data-page='B' data-index='{{splIndex}}'>详 情</view>
-        <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{splIndex}}'>驳 回</view>
+        <!-- <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{splIndex}}'>驳 回</view> -->
       </view>
     </view>
   </view>

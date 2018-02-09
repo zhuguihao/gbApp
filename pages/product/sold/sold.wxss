@@ -31,3 +31,7 @@
 .stoProList:last-child {
   border: none;
 }
+
+.listDetailBtn {
+  
+}

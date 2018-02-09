@@ -1,4 +1,4 @@
-var version = function(){
+var version = function () {
   if (wx.openBluetoothAdapter) {
     wx.openBluetoothAdapter()
   } else {
@@ -10,11 +10,84 @@ var version = function(){
   }
 }
 
-var test = function(a){
+/**
+ * HTTP:POST请求
+ * 
+ */
+var postHttp = function (url, params, fun) {
+  console.log("url:  " + url)
+  console.log("params:  " + JSON.stringify(params))
+  let LoadingBool = true;
+  if ("/wechat/getOpenIdByCode" == url) {
+    LoadingBool = false;
+  }
+  if (LoadingBool) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+  }
+  wx.request({
+    method: "POST",
+    header: {
+      'content-type': 'application/json',
+      token: getApp().globalData.token
+    },
+    url: getApp().globalData.reqIp + url,
+    data: params,
+    success: function (res) {
+      console.log(res.data)
+      if (LoadingBool) {
+        wx.hideLoading()
+      }
+      if (200 == res.statusCode) {
+        if ("not_login" == res.data.status) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.reLaunch({
+              url: "/pages/loginPage/loginPage"
+            })
+          }, 2000);
+          return
+        }
+        fun.success(res.data)
+      } else {
+        if (LoadingBool) {
+          wx.showToast({
+            title: '网络异常请重试',
+            icon: 'loading',
+            mask: true,
+            duration: 2000
+          })
+        }
+      }
+    },
+    fail: function (res) {
+      console.log(res)
+      wx.hideLoading()
+      if (LoadingBool) {
+        wx.showToast({
+          title: '网络异常请重试',
+          icon: 'loading',
+          mask: true,
+          duration: 2000
+        })
+      }
+    }
+  })
+}
+
+var test = function (a) {
   console.log(1111111);
 }
 
 module.exports = {
   version: version,
-  test: test
+  test: test,
+  postHttp: postHttp
 };

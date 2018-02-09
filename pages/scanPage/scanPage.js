@@ -1,5 +1,6 @@
 // pages/scanPage/scanPage.js
-Page({
+const util = require('../../utils/util.js')
+Page({ 
 
   /**
    * 页面的初始数据
@@ -28,26 +29,45 @@ Page({
       success: (res) => {
         wx.hideLoading();
         if ("CODE_128" == res.scanType) {//条形码
+          /**
+             * 1.不存在申请中的条形码
+             * 2.存在申请中的条形码
+             *    1.被驳回 ---  重新填单
+             *    （跳转到申请单填写页面）
+             *    2.初审状态
+             *    （跳转到结果页------提示客户正在初审，请等待）
+             *    3.其他流程步骤
+             *    （需要补充）
+             * 3.当前的条形码其他人员正在操作（需要询问客户具体操作）
+             * （跳转到帮助页面）
+             * 跳转页面
+           */
           var params = {
-            "scanCode": res.result
+            "barCode": res.result
           };
+
+          util.postHttp("/productApply/checkStatus", params, {
+            success: res => {
+              if ("success" == res.status) {
+                console.log(JSON.stringify(res.data))
+                vm.setData({
+                  productInfo: res.data
+                })
+              } else {
+                wx.showToast({
+                  title: res.msg,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            }
+          })
+
           wx.navigateTo({
             url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
           })
           return
-          /**
-            * 1.不存在申请中的条形码
-            * 2.存在申请中的条形码
-            *    1.被驳回 ---  重新填单
-            *    （跳转到申请单填写页面）
-            *    2.初审状态
-            *    （跳转到结果页------提示客户正在初审，请等待）
-            *    3.其他流程步骤
-            *    （需要补充）
-            * 3.当前的条形码其他人员正在操作（需要询问客户具体操作）
-            * （跳转到帮助页面）
-            * 跳转页面
-          */
+
 
           wx.showLoading({
             title: '正在查询产品信息...',
