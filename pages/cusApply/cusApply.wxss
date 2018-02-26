@@ -41,6 +41,8 @@
 .cusApplyTitle {
   color: #404040;
   width: 150rpx;
+  text-align: right;
+  padding-right:20rpx;
 }
 
 .cusApplyMain {
@@ -53,4 +55,7 @@
 }
 .damagePoint{
   margin-top: 12rpx;
+}
+.btn{
+  margin-top: 30rpx;
 }

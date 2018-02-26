@@ -14,10 +14,10 @@
 </view> -->
 <view class='cusApply'>
   <view class='cusApplyTitle'>
-    <text>条形码</text>
+    <text>产品编号</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <input disabled class='damagePoint' placeholder="请输入条形码" value='{{scanCode}}' />
+    <input disabled class='damagePoint' value='{{barCode}}' />
   </view>
 </view>
 <view class='cusApply'>
@@ -35,7 +35,7 @@
     <text>姓名</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <input class='damagePoint' placeholder="请输入姓名" value='{{name}}' maxlength='15' />
+    <input class='damagePoint' placeholder="请输入姓名" bindinput='bindName' maxlength='15' />
   </view>
 </view>
 <view class='cusApply'>
@@ -43,6 +43,7 @@
     <text>联系方式</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <input class='damagePoint' type = '' placeholder="请输入您的联系方式" value='{{name}}' maxlength='11' />
+    <input class='damagePoint' type = 'number' placeholder="请输入您的联系方式" bindinput='bindPhone' maxlength='11' />
   </view>
 </view>
+<view class='comBtn btn' bindtap='bindSubmit'>申请售后</view>

@@ -1,6 +1,6 @@
 const app = getApp();
 const util = require('../../utils/util.js')
-Page({
+Page({ 
   data: {
     /**
      * 输入框的属性

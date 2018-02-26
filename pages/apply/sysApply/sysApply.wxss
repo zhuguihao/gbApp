@@ -1,0 +1,80 @@
+.serch {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+}
+
+.serchView {
+  margin-top: 10rpx;
+  display: flex;
+  display: -wenbkit-flex;
+  flex-wrap: wrap;
+  padding-bottom: 10rpx;
+}
+
+.serchTips {
+  width: 170rpx;
+  line-height: 70rpx;
+  text-align: right;
+}
+
+.serchInput {
+  border: 1rpx solid #f5f5f9;
+  width: 520rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  padding-left: 10rpx;
+  margin-left: 15rpx;
+}
+
+.serchBotton {
+  width: 145rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+.inpClear {
+  position: absolute;
+  left: 665rpx;
+  margin-top: 18rpx;
+  width: 20rpx;
+  height: 20rpx;
+  z-index: 2;
+}
+
+.selImg {
+  position: absolute;
+  left: 665rpx;
+  margin-top: 18rpx;
+  width: 35rpx;
+  height: 35rpx;
+  z-index: 2;
+}
+
+.btn {
+  margin-top: 20rpx;
+}
+
+.serchBtn {
+  width: 100%;
+  text-align: center;
+}
+
+.loadMore {
+  margin-top: 20rpx;
+  width: 35rpx;
+  height: 35rpx;
+  z-index: 2;
+}
+
+.loadLess {
+  margin-top: 20rpx;
+  width: 35rpx;
+  height: 35rpx;
+  z-index: 2;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,21 @@
+<view class='comBorderBottom serch'>
+  <view wx:if='{{!loadMore}}'>
+    <view class='serchView'>
+      <view class='serchTips'>产品编号：</view>
+      <input class='serchInput' placeholder="{{placeholder.barCode}}" bindinput='scanInput' value='{{barCode}}' />
+      <icon class='inpClear' bindtap='inpClear' type="clear" size="20" wx:if="{{barCode.length!=0}}" />
+    </view>
+    <view class='serchView'>
+      <view class='serchTips'>售后状态：</view>
+      <picker bindchange="bindApplyStatusChange" value="{{applyStatusndex}}" range="{{applyStatusList}}" range-key='value'>
+        <input class='serchInput' disabled placeholder="{{placeholder.applyStatus}}" value='{{applyStatusList[applyStatusndex].value}}' />
+      </picker>
+      <image class='selImg' src="{{selectSrc}}"></image>
+    </view>
+    <view class='comBtn btn'>查询</view>
+  </view>
+  <view class='serchBtn' bindtap='bindLoadMore'>
+    <image class='loadMore' src="{{moreSrc}}" wx:if='{{loadMore}}' />
+    <image class='loadLess' src="{{moreSrc}}" wx:else/>
+  </view>
+</view>

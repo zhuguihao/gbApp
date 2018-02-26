@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/apply/sysApply/sysApply",
     "pages/homePage/homePage",
+    "pages/cusApply/cusApply",
     "pages/product/sold/sold",
     "pages/storage/storage",
     "pages/outStorage/outStorage",
@@ -9,10 +11,9 @@
     "pages/registerPage/registerPage",
     "pages/loginPage/loginPage",
     "pages/personalSettings/personalSettings",
-    "pages/companyIndex/companyIndex",    
+    "pages/companyIndex/companyIndex",
     "pages/serchProduct/serchProduct",
     "pages/modifyPwdPage/modifyPwdPage",
-    "pages/cusApply/cusApply",
     "pages/scanPage/scanPage"
   ],
   "window": {

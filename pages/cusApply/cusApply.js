@@ -1,14 +1,11 @@
 // pages/customerService.js
+const util = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    /**
-     * 流水号
-     */
-    scanCode: "",
     /**
      * 损坏点
      */
@@ -30,14 +27,7 @@ Page({
         name: '机箱破损'
       }
     ],
-    /**
-     * 故障点
-     */
-    damagePoint: "",
-    /**
-     * 姓名
-     */
-    name: "",
+
     /**
      * 提交时候的参数
      * 条形码：scanCode
@@ -45,71 +35,95 @@ Page({
      * 姓名：name
      * 联系方式：phone
      */
-    fromParams: {
-
-    }
+    barCode: '',
+    damagePoint: '',
+    name: '',
+    phone: '',
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 绑定姓名
+   */
+  bindName: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  /**
+   * 绑定联系方式
+   */
+  bindPhone: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  /**
+   * 申请提交
+   */
+  bindSubmit: function () {
+    let vm = this
+    let data = vm.data
+    console.log(vm.data.name)
+    console.log(vm.data.damagePoint)
+    console.log(vm.data.barCode)
+    console.log(vm.data.phone)
+    if (data.damagePoint.length == 0) {
+      wx.showToast({
+        title: '请选择故障点',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (data.name.length == 0) {
+      wx.showToast({
+        title: '请输入姓名',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (data.phone.length == 0) {
+      wx.showToast({
+        title: '请输入联系方式',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    let params = {
+      cusName: vm.data.name,
+      cusTelphone: vm.data.phone,
+      faultPoint: vm.data.damagePoint,
+      barCode: vm.data.barCode
+    }
+
+    util.postHttp("/productApply/subApply", params, {
+      success: res => {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        if ("success" == res.status) {
+          wx.reLaunch({
+            url: '../homePage/homePage',
+          })
+        }
+      }
+    })
+
+  },
+  /**
+   * 初始化界面
    */
   onLoad: function (options) {
     if (options.params) {
-      var scanCode = JSON.parse(options.params).scanCode;
+      var barCode = JSON.parse(options.params).barCode;
       this.setData({
-        params: JSON.parse(options.params),
-        scanCode: scanCode
+        barCode: barCode
       });
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   },
   /**
    * 扫码事件

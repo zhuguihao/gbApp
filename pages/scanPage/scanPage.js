@@ -1,6 +1,6 @@
 // pages/scanPage/scanPage.js
 const util = require('../../utils/util.js')
-Page({ 
+Page({
 
   /**
    * 页面的初始数据
@@ -13,7 +13,15 @@ Page({
     /**
      * 首次填单地址
      */
-    cusApplyUrl: "../cusApply/cusApply"
+    cusApplyUrl: "../cusApply/cusApply",
+    /**
+     * 售后单状态
+     */
+    applyStatus: null,
+    /**
+     * 产品编号
+     */
+    barCode: null,
   },
   /**
     * 扫码事件
@@ -47,15 +55,17 @@ Page({
           };
 
           util.postHttp("/productApply/checkStatus", params, {
-            success: res => {
-              if ("success" == res.status) {
-                console.log(JSON.stringify(res.data))
+            success: data => {
+              if ("success" == data.status) {
+                console.log(JSON.stringify(data.data))
                 vm.setData({
-                  productInfo: res.data
+                  applyStatus: data.data.applyStatus,
+                  barCode: res.result
                 })
+                vm.applyStatusPage();
               } else {
                 wx.showToast({
-                  title: res.msg,
+                  title: data.msg,
                   icon: 'none',
                   duration: 2000
                 })
@@ -63,35 +73,7 @@ Page({
             }
           })
 
-          wx.navigateTo({
-            url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
-          })
-          return
 
-
-          wx.showLoading({
-            title: '正在查询产品信息...',
-            mask: true
-          })
-          wx.request({
-            url: 'test.php', //仅为示例，并非真实的接口地址
-            data: {
-              x: '',
-              y: ''
-            },
-            header: {
-              'content-type': 'application/json' // 默认值
-            },
-            success: function (res) {
-              console.log("success:" + res.data)
-            },
-            fail: function (res) {
-              console.log("fail:" + res.data)
-            },
-            complete: function () {
-              wx.hideLoading();
-            }
-          })
         } else {
           wx.showModal({
             title: '提示',
@@ -114,59 +96,36 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  applyStatusPage: function () {
+    let vm = this
+    console.log(vm.data.applyStatus);
+    console.log(vm.data.barCode);
+    /**
+     * 为空新建
+     */
+    if ('first_trial' == vm.data.applyStatus) {
+      /**
+       * 等待初审
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '当前的产品提交的售后申请正在审批中，请等待',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else {
+      let params = {
+        barCode: vm.data.barCode
+      }
+      wx.navigateTo({
+        url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
+      })
+    }
   }
 })

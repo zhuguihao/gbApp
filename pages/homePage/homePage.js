@@ -36,6 +36,11 @@ Page({
       "name": "售后",
       "bgImage": "",
       "params": { "a": "1", "b": "2" }
+    }, {
+      "pageUrl": "../apply/sysApply/sysApply",
+      "name": "售后中心",
+      "bgImage": "",
+      "params": {}
     }
     ],
     indicatorDots: true,
