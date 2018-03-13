@@ -30,7 +30,7 @@ Page({
     /**
      * 删除基本数据
      */
-    util.postHttp("/user/outLogin", {}, {
+    util.postHttp("/user/logout", {}, {
       success: res => {
         var tips;
         if ("success" == res.status) {

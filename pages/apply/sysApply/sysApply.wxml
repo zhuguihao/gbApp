@@ -19,3 +19,6 @@
     <image class='loadLess' src="{{moreSrc}}" wx:else/>
   </view>
 </view>
+<view class='main'>
+
+</view>

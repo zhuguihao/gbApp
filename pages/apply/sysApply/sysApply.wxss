@@ -1,3 +1,8 @@
+Page {
+  height: 100%;
+  width: 100%;
+}
+
 .serch {
   position: relative;
   width: 100%;
@@ -77,4 +82,10 @@
   height: 35rpx;
   z-index: 2;
   transform: rotate(180deg);
+}
+
+.main {
+  border: 1px saddlebrown solid;
+  height: 94.5%;
+  width: 100%;
 }

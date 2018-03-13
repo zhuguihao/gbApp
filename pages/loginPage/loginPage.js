@@ -6,6 +6,11 @@ Page({
     account: '',
     password: '',
   },
+  onShow:function(){
+    wx.hideTabBar({
+      
+    })
+  },
   /**
    * 切换界面属性
    * A:登录
