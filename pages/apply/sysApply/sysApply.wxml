@@ -1,24 +1,34 @@
-<view class='comBorderBottom serch'>
-  <view wx:if='{{!loadMore}}'>
-    <view class='serchView'>
-      <view class='serchTips'>产品编号：</view>
-      <input class='serchInput' placeholder="{{placeholder.barCode}}" bindinput='scanInput' value='{{barCode}}' />
-      <icon class='inpClear' bindtap='inpClear' type="clear" size="20" wx:if="{{barCode.length!=0}}" />
-    </view>
-    <view class='serchView'>
-      <view class='serchTips'>售后状态：</view>
-      <picker bindchange="bindApplyStatusChange" value="{{applyStatusndex}}" range="{{applyStatusList}}" range-key='value'>
-        <input class='serchInput' disabled placeholder="{{placeholder.applyStatus}}" value='{{applyStatusList[applyStatusndex].value}}' />
-      </picker>
-      <image class='selImg' src="{{selectSrc}}"></image>
-    </view>
-    <view class='comBtn btn'>查询</view>
-  </view>
-  <view class='serchBtn' bindtap='bindLoadMore'>
-    <image class='loadMore' src="{{moreSrc}}" wx:if='{{loadMore}}' />
-    <image class='loadLess' src="{{moreSrc}}" wx:else/>
-  </view>
+<view wx:if="{{isShow}}">
+加载中
+</view>
+<view class='serchView'>
+  <view class='serchTips'>产品编号：</view>
+  <input class='serchInput' placeholder="{{placeholder.barCode}}" bindinput='scanInput' value='{{barCode}}' />
+  <icon class='inpClear' bindtap='inpClear' type="clear" size="20" wx:if="{{barCode.length!=0}}" />
+  <view class='btn'>查询</view>
+</view>
+
+<view class='tab'>
+  <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
+    <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
+  </block>
 </view>
 <view class='main'>
-
+  <swiper current='{{tabsIndex}}' bindchange="switchTab">
+    <swiper-item>
+      <view class="slide-image" width="355" height="150">
+        1
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="slide-image" width="355" height="150">
+        2
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="slide-image" width="355" height="150">
+        3
+      </view>
+    </swiper-item>
+  </swiper>
 </view>

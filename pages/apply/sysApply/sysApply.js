@@ -16,18 +16,6 @@ Page({
      */
     barCode: '',
     /**
-     * 下拉图标
-     */
-    selectSrc: '../../../static/logo/select.png',
-    /**
-     * 加载更多图标
-     */
-    moreSrc: '../../../static/logo/loadMore.png',
-    /**
-     * 售后状态下标
-     */
-    applyStatusndex: 0,
-    /**
      * 售后状态
      */
     applyStatusList: [{
@@ -41,9 +29,26 @@ Page({
       value: '售后人员'
     }],
     /**
-     * 加载更多图标切换
+     * tabs切换页
      */
-    loadMore: true,
+    tabsIndex: 0,
+    isShow: false
+  },
+  /**
+   * 点击tab标题
+   */
+  changeIndex: function (e) {
+    this.setData({
+      tabsIndex: e.currentTarget.dataset.index
+    })
+  },
+  /**
+   * 切换tab
+   */
+  switchTab: function (e) {
+    this.setData({
+      tabsIndex: e.detail.current
+    });
   },
   /**
    * 切换更多图标事件
@@ -51,14 +56,6 @@ Page({
   bindLoadMore: function () {
     this.setData({
       loadMore: !this.data.loadMore
-    })
-  },
-  /**
-   * 售后状态下拉事件
-   */
-  bindApplyStatusChange: function (e) {
-    this.setData({
-      applyStatusndex: e.detail.value
     })
   },
   /**
@@ -81,22 +78,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
   /**
    * 下拉事件
    */
   onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
+    var vm = this
+    console.log("加载中");
+    // wx.startPullDownRefresh({
+
+    // })
+    // wx.showLoading({
+    //   title: '加载中',
+    //   mask: true
+    // })
+    vm.setData({
+      isShow: true
     })
+    wx.stopPullDownRefresh()
     setTimeout(function () {
       wx.hideLoading()
       /**
        * 阻止下拉事件
        */
-      wx.stopPullDownRefresh()
+      vm.setData({
+        isShow: false
+      })
+      
     }, 2000)
   },
 })

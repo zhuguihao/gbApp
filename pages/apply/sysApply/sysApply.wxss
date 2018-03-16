@@ -25,7 +25,7 @@ Page {
 
 .serchInput {
   border: 1rpx solid #f5f5f9;
-  width: 520rpx;
+  width: 420rpx;
   height: 70rpx;
   line-height: 70rpx;
   border-radius: 10rpx;
@@ -44,7 +44,7 @@ Page {
 
 .inpClear {
   position: absolute;
-  left: 665rpx;
+  left: 565rpx;
   margin-top: 18rpx;
   width: 20rpx;
   height: 20rpx;
@@ -61,7 +61,12 @@ Page {
 }
 
 .btn {
-  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: #ccc;
+  margin-left: 10rpx;
+  width: 120rpx;
+  line-height: 70rpx;
+  text-align: center;
 }
 
 .serchBtn {
@@ -85,7 +90,26 @@ Page {
 }
 
 .main {
-  border: 1px saddlebrown solid;
-  height: 94.5%;
+  /* border: 1px saddlebrown solid; */
+  /* height: 94.5%; */
+  height: 600rpx;
   width: 100%;
+}
+
+.tab {
+  display: -webkit-box;
+}
+
+.tabTile {
+  padding: 20rpx 30rpx;
+  color: #ccc;
+}
+
+.tabBorder {
+  border-bottom: 1px solid #ccc;
+  color: black;
+}
+
+.slide-image {
+  height: 600rpx;
 }
