@@ -1,5 +1,5 @@
 <view wx:if="{{isShow}}">
-加载中
+  加载中
 </view>
 <view class='serchView'>
   <view class='serchTips'>产品编号：</view>
@@ -8,27 +8,21 @@
   <view class='btn'>查询</view>
 </view>
 
-<view class='tab'>
-  <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
-    <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
-  </block>
-</view>
+<scroll-view scroll-x="true" scroll-left="{{tabsIndex*88-50}}" scroll-with-animation="true">
+  <view class='tab'>
+    <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
+      <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
+    </block>
+  </view>
+</scroll-view>
 <view class='main'>
   <swiper current='{{tabsIndex}}' bindchange="switchTab">
-    <swiper-item>
-      <view class="slide-image" width="355" height="150">
-        1
-      </view>
-    </swiper-item>
-    <swiper-item>
-      <view class="slide-image" width="355" height="150">
-        2
-      </view>
-    </swiper-item>
-    <swiper-item>
-      <view class="slide-image" width="355" height="150">
-        3
-      </view>
-    </swiper-item>
+    <block wx:for="{{applyStatusList}}" wx:for-item="item" wx:key="aslList">
+      <swiper-item>
+        <view class="slide-image" width="355" height="150">
+          {{item.value}}
+        </view>
+      </swiper-item>
+    </block>
   </swiper>
 </view>

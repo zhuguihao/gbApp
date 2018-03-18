@@ -20,13 +20,28 @@ Page({
      */
     applyStatusList: [{
       key: 'all',
-      value: '查询所有审批状态'
+      value: '所有状态'
     }, {
       key: 'first_trial',
-      value: '售后人员初审'
+      value: '售后初审'
     }, {
       key: 'two_trial',
       value: '售后人员'
+    }, {
+      key: 'two_trial',
+      value: '运单状态'
+    }, {
+      key: 'two_trial',
+      value: '确认维修'
+    }, {
+      key: 'two_trial',
+      value: '确认维修'
+    }, {
+      key: 'two_trial',
+      value: '确认维修'
+    }, {
+      key: 'two_trial',
+      value: '确认维修'
     }],
     /**
      * tabs切换页
