@@ -47,7 +47,24 @@ Page({
      * tabs切换页
      */
     tabsIndex: 0,
-    isShow: false
+    isShow: false,
+    /**
+     * 屏幕宽度
+     */
+    sysWidth:null
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let vm = this
+    wx.getSystemInfo({
+      success: function (res) {
+        vm.setData({
+          sysWidth: 750 / res.screenWidth
+        })
+      },
+    })
   },
   /**
    * 点击tab标题
@@ -87,13 +104,7 @@ Page({
   inpClear: function (e) {
     this.setData({
       barCode: ''
-    });
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+    })
   },
   /**
    * 下拉事件

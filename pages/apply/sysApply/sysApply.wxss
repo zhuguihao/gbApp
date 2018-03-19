@@ -90,8 +90,7 @@ Page {
 }
 
 .main {
-  /* border: 1px saddlebrown solid; */
-  /* height: 94.5%; */
+  /* border: 1px saddlebrown solid; *//* height: 94.5%; */
   height: 600rpx;
   width: 100%;
 }
@@ -101,8 +100,10 @@ Page {
 }
 
 .tabTile {
-  padding: 20rpx 30rpx;
+  padding: 10px 30rpx;
+  width: 70px;
   color: #ccc;
+  text-align: center;
 }
 
 .tabBorder {
