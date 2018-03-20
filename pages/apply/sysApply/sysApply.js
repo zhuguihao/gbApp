@@ -33,15 +33,6 @@ Page({
     }, {
       key: 'two_trial',
       value: '确认维修'
-    }, {
-      key: 'two_trial',
-      value: '确认维修'
-    }, {
-      key: 'two_trial',
-      value: '确认维修'
-    }, {
-      key: 'two_trial',
-      value: '确认维修'
     }],
     /**
      * tabs切换页
@@ -113,17 +104,18 @@ Page({
     var vm = this
     console.log("加载中");
     // wx.startPullDownRefresh({
-
+    wx.stopPullDownRefresh()
     // })
-    // wx.showLoading({
-    //   title: '加载中',
-    //   mask: true
-    // })
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     vm.setData({
       isShow: true
     })
-    wx.stopPullDownRefresh()
+    
     setTimeout(function () {
+      
       wx.hideLoading()
       /**
        * 阻止下拉事件

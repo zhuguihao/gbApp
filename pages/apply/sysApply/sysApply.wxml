@@ -1,5 +1,8 @@
-<view wx:if="{{isShow}}">
+<view wx:if="{{isShow}}" style='text-align:center;'>
   加载中
+</view>
+<view wx:if="{{isShow}}" style='position:fixed;background-color:#000;opacity:0.3;width:100%;height:100%;z-index:9;'>
+  
 </view>
 <view class='serchView'>
   <view class='serchTips'>产品编号：</view>
