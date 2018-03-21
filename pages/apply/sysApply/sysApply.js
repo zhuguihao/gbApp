@@ -62,6 +62,29 @@ Page({
       },
     })
   },
+  upper: function (e) {
+    let vm =this
+    console.log(e)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    vm.setData({
+      isShow: true
+    })
+
+    setTimeout(function () {
+
+      wx.hideLoading()
+      /**
+       * 阻止下拉事件
+       */
+      vm.setData({
+        isShow: false
+      })
+
+    }, 2000)
+  },
   /**
    * 点击tab标题
    */
@@ -102,33 +125,5 @@ Page({
       barCode: ''
     })
   },
-  /**
-   * 下拉事件
-   */
-  onPullDownRefresh: function () {
-    var vm = this
-    console.log("加载中");
-    // wx.startPullDownRefresh({
-    wx.stopPullDownRefresh()
-    // })
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
-    vm.setData({
-      isShow: true
-    })
-    
-    setTimeout(function () {
-      
-      wx.hideLoading()
-      /**
-       * 阻止下拉事件
-       */
-      vm.setData({
-        isShow: false
-      })
-      
-    }, 2000)
-  },
+  
 })

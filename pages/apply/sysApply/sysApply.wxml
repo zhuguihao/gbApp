@@ -1,27 +1,60 @@
-<view wx:if="{{isShow}}" style='text-align:center;'>
-  加载中
-</view>
-<view class='serchView'>
-  <view class='serchTips'>产品编号：</view>
-  <input class='serchInput' placeholder="{{placeholder.barCode}}" bindinput='scanInput' value='{{barCode}}' />
-  <icon class='inpClear' bindtap='inpClear' type="clear" size="20" wx:if="{{barCode.length!=0}}" />
-  <view class='btn'>查询</view>
-</view>
-
-<scroll-view scroll-x="true" scroll-left="{{tabsIndex==0?tabsIndex*90:(tabsIndex*(90*(750/sysWidth))-(45*(750/sysWidth)))/(750/sysWidth)}}" scroll-with-animation="true">
-  <view class='tab'>
-    <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
-      <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
-    </block>
+<view style='height:7%;'>
+  <view class='serchView'>
+    <view class='serchTips'>产品编号：</view>
+    <input class='serchInput' placeholder="{{placeholder.barCode}}" bindinput='scanInput' value='{{barCode}}' />
+    <icon class='inpClear' bindtap='inpClear' type="clear" size="20" wx:if="{{barCode.length!=0}}" />
+    <view class='btn'>查询</view>
   </view>
-</scroll-view>
+</view>
+<view style='height:6%;'>
+  <scroll-view scroll-x="true" scroll-left="{{tabsIndex==0?tabsIndex*90:(tabsIndex*(90*(750/sysWidth))-(45*(750/sysWidth)))/(750/sysWidth)}}" scroll-with-animation="true">
+    <view class='tab'>
+      <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
+        <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
 
-<view class='main'>
-  <swiper current='{{tabsIndex}}' bindchange="switchTab" style='height:{{sysHeight-140*(sysWidth/750)*(750/sysWidth)}}px;'>
+<view class='main' style='height:87%;'>
+  <swiper current='{{tabsIndex}}' bindchange="switchTab" style='height:100%;'>
+    <!-- style='height:{{sysHeight-140*(sysWidth/750)*(750/sysWidth)}}px;'> -->
     <block wx:for="{{applyStatusList}}" wx:for-item="item" wx:key="aslList">
       <swiper-item>
-        <scroll-view scroll-y="true" style='height:{{sysHeight-140*(sysWidth/750)*(750/sysWidth)}}px;'>
-          {{item.value}}爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方爱是飞洒发的撒地方撒地方
+        <view wx:if="{{isShow}}" style='text-align:center;'>
+          加载中
+        </view>
+        <scroll-view class='main_list' scroll-y bindscrolltoupper="upper" upper-threshold="-100">
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
+         <view class='list'>
+
+         </view>
         </scroll-view>
       </swiper-item>
     </block>

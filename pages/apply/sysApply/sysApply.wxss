@@ -15,6 +15,7 @@ Page {
   display: -wenbkit-flex;
   flex-wrap: wrap;
   padding-bottom: 10rpx;
+  height: 5%;
 }
 
 .serchTips {
@@ -31,6 +32,8 @@ Page {
   font-size: 30rpx;
   padding-left: 10rpx;
   margin-left: 15rpx;
+  height: 70rpx;
+  margin-top: 5rpx;
 }
 
 .serchBotton {
@@ -64,8 +67,10 @@ Page {
   background-color: #ccc;
   margin-left: 10rpx;
   width: 120rpx;
-  line-height: 70rpx;
+  line-height: 65rpx;
+  height: 65rpx;
   text-align: center;
+  margin-top: 5rpx;
 }
 
 .serchBtn {
@@ -73,24 +78,8 @@ Page {
   text-align: center;
 }
 
-.loadMore {
-  margin-top: 20rpx;
-  width: 35rpx;
-  height: 35rpx;
-  z-index: 2;
-}
-
-.loadLess {
-  margin-top: 20rpx;
-  width: 35rpx;
-  height: 35rpx;
-  z-index: 2;
-  transform: rotate(180deg);
-}
-
 .main {
-   border: 1px saddlebrown solid; 
-  /* height: 94.5%; *//* height: 600rpx; */
+  /* border: 1px saddlebrown solid; *//* height: 94.5%; *//* height: 600rpx; */
   width: 100%;
 }
 
@@ -111,6 +100,11 @@ Page {
   color: black;
 }
 
-/* .slide-image {
-  height: 600rpx;
-} */
+.main_list {
+  height: 100%;
+}
+
+.list {
+  border: 1px solid #ccc;
+  height: 200rpx;
+}
