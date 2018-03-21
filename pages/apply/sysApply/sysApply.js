@@ -42,7 +42,11 @@ Page({
     /**
      * 屏幕宽度
      */
-    sysWidth:null
+    sysWidth:null,
+    /**
+     * 屏幕高度
+     */
+    sysHeight:null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -52,7 +56,8 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         vm.setData({
-          sysWidth: 750 / res.screenWidth
+          sysWidth: res.screenWidth,
+          sysHeight: res.screenHeight
         })
       },
     })

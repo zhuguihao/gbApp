@@ -10,7 +10,7 @@ Page {
 }
 
 .serchView {
-  margin-top: 10rpx;
+  padding-top: 10rpx;
   display: flex;
   display: -wenbkit-flex;
   flex-wrap: wrap;
@@ -26,7 +26,6 @@ Page {
 .serchInput {
   border: 1rpx solid #f5f5f9;
   width: 420rpx;
-  height: 70rpx;
   line-height: 70rpx;
   border-radius: 10rpx;
   font-size: 30rpx;
@@ -36,7 +35,7 @@ Page {
 
 .serchBotton {
   width: 145rpx;
-  height: 70rpx;
+  /* height: 70rpx; */
   line-height: 70rpx;
   font-size: 30rpx;
   background-color: #fff;
@@ -90,8 +89,8 @@ Page {
 }
 
 .main {
-  /* border: 1px saddlebrown solid; *//* height: 94.5%; */
-  height: 600rpx;
+   border: 1px saddlebrown solid; 
+  /* height: 94.5%; *//* height: 600rpx; */
   width: 100%;
 }
 
@@ -102,6 +101,7 @@ Page {
 .tabTile {
   padding: 10px 30rpx;
   width: 70px;
+  line-height: 40rpx;
   color: #ccc;
   text-align: center;
 }
@@ -111,6 +111,6 @@ Page {
   color: black;
 }
 
-.slide-image {
+/* .slide-image {
   height: 600rpx;
-}
+} */
