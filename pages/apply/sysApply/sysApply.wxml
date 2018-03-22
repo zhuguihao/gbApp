@@ -25,36 +25,17 @@
           加载中
         </view>
         <scroll-view class='main_list' scroll-y bindscrolltoupper="upper" upper-threshold="-100">
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
-         <view class='list'>
-
-         </view>
+          <view class='list'>
+            <view class='list_l'>
+              <view class='list_m'>客户姓名：zgh</view>
+              <view class='list_m'>联系方式：15057585921</view>
+              <view class='list_m'>损坏点：电路损坏</view>
+              <view class='list_m'>型号：IE225</view>
+            </view>
+            <view class='list_l right'>
+              <view class='list_m'>状态：初审</view>
+            </view>
+          </view>
         </scroll-view>
       </swiper-item>
     </block>

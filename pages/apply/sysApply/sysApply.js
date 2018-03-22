@@ -97,6 +97,7 @@ Page({
    * 切换tab
    */
   switchTab: function (e) {
+    console.log(e)
     this.setData({
       tabsIndex: e.detail.current
     });
