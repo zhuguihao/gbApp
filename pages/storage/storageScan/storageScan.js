@@ -129,7 +129,7 @@ Page({
       mask: true
     });
     wx.scanCode({
-      onlyFromCamera: true,// 只允许从相机扫码
+      // onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
         console.log(res)

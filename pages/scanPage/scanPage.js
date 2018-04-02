@@ -33,7 +33,7 @@ Page({
       mask: true
     });
     wx.scanCode({
-      onlyFromCamera: true,// 只允许从相机扫码
+      // onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
         if ("CODE_128" == res.scanType) {//条形码
