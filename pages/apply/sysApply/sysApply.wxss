@@ -105,17 +105,19 @@ Page {
 }
 
 .list {
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   height: 200rpx;
   display: -webkit-box;
 }
-.list_l{
-  width: 50%;
 
+.list_l {
+  width: 50%;
 }
+
 .list_m {
   line-height: 50rpx;
 }
-.right{
+
+.right {
   text-align: center;
 }

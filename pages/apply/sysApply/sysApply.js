@@ -1,4 +1,5 @@
 // pages/apply/sysApply/sysApply.js
+const util = require('../../../utils/util.js')
 Page({
 
   /**
@@ -16,24 +17,9 @@ Page({
      */
     barCode: '',
     /**
-     * 售后状态
+     * 售后单
      */
-    applyStatusList: [{
-      key: 'all',
-      value: '所有状态'
-    }, {
-      key: 'first_trial',
-      value: '售后初审'
-    }, {
-      key: 'two_trial',
-      value: '售后人员'
-    }, {
-      key: 'two_trial',
-      value: '运单状态'
-    }, {
-      key: 'two_trial',
-      value: '确认维修'
-    }],
+    applyList: [],
     /**
      * tabs切换页
      */
@@ -42,11 +28,11 @@ Page({
     /**
      * 屏幕宽度
      */
-    sysWidth:null,
+    sysWidth: null,
     /**
      * 屏幕高度
      */
-    sysHeight:null,
+    sysHeight: null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -61,9 +47,26 @@ Page({
         })
       },
     })
+    
+    vm.sysApply()
+  },
+  /**
+   * 查询售后中心信息
+   */
+  sysApply: function () {
+    util.postHttp("/productApplyQuery/sysApply", {}, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          this.setData({
+            applyList: res.data
+          });
+        }
+      }
+    })
   },
   upper: function (e) {
-    let vm =this
+    let vm = this
     console.log(e)
     wx.showLoading({
       title: '加载中',
@@ -126,5 +129,5 @@ Page({
       barCode: ''
     })
   },
-  
+
 })

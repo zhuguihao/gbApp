@@ -9,7 +9,7 @@
 <view style='height:6%;'>
   <scroll-view scroll-x="true" scroll-left="{{tabsIndex==0?tabsIndex*90:(tabsIndex*(90*(750/sysWidth))-(45*(750/sysWidth)))/(750/sysWidth)}}" scroll-with-animation="true">
     <view class='tab'>
-      <block wx:for="{{applyStatusList}}" wx:for-index="index" wx:for-item="item" wx:key="applyStatusList">
+      <block wx:for="{{applyList}}" wx:for-index="index" wx:for-item="item" wx:key="applyListTitle">
         <view class='tabTile {{index==tabsIndex?"tabBorder":""}}' bindtap='changeIndex' data-index='{{index}}'>{{item.value}}</view>
       </block>
     </view>
@@ -19,23 +19,30 @@
 <view class='main' style='height:87%;'>
   <swiper current='{{tabsIndex}}' bindchange="switchTab" style='height:100%;'>
     <!-- style='height:{{sysHeight-140*(sysWidth/750)*(750/sysWidth)}}px;'> -->
-    <block wx:for="{{applyStatusList}}" wx:for-item="item" wx:key="aslList">
+    <block wx:for="{{applyList}}" wx:key="aslList">
       <swiper-item>
         <view wx:if="{{isShow}}" style='text-align:center;'>
           加载中
         </view>
         <scroll-view class='main_list' scroll-y bindscrolltoupper="upper" upper-threshold="-100">
-          <view class='list'>
-            <view class='list_l'>
-              <view class='list_m'>客户姓名：zgh</view>
-              <view class='list_m'>联系方式：15057585921</view>
-              <view class='list_m'>损坏点：电路损坏</view>
-              <view class='list_m'>型号：IE225</view>
-            </view>
-            <view class='list_l right'>
-              <view class='list_m'>状态：初审</view>
-            </view>
-          </view>
+          <block wx:if="{{applyList[tabsIndex].list.length === 0}}">
+            暂无售后单
+          </block>
+          <block wx:else>
+            <block wx:for="{{applyList[tabsIndex].list}}" wx:for-item="item" wx:key="aslList">
+              <view class='list'>
+                <view class='list_l'>
+                  <view class='list_m'>客户姓名：{{item.cusName}}</view>
+                  <view class='list_m'>联系方式：{{item.cusTelphone}}</view>
+                  <view class='list_m'>损坏点：{{item.faultPoint}}</view>
+                  <view class='list_m'>型号：{{item.proModel}}</view>
+                </view>
+                <view class='list_l right'>
+                  <view class='list_m'>状态：{{item.applyStatus}}</view>
+                </view>
+              </view>
+            </block>
+          </block>
         </scroll-view>
       </swiper-item>
     </block>

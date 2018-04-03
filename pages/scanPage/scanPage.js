@@ -53,7 +53,7 @@ Page({
           var params = {
             "barCode": res.result
           };
-
+          
           util.postHttp("/productApply/checkStatus", params, {
             success: data => {
               if ("success" == data.status) {
