@@ -29,16 +29,47 @@
             暂无售后单
           </block>
           <block wx:else>
-            <block wx:for="{{applyList[tabsIndex].list}}" wx:for-item="item" wx:key="aslList">
-              <view class='list'>
-                <view class='list_l'>
-                  <view class='list_m'>客户姓名：{{item.cusName}}</view>
-                  <view class='list_m'>联系方式：{{item.cusTelphone}}</view>
-                  <view class='list_m'>损坏点：{{item.faultPoint}}</view>
-                  <view class='list_m'>型号：{{item.proModel}}</view>
+            <block wx:for="{{applyList[tabsIndex].list}}" wx:for-item="item" wx:key="aslList" wx:for-index="listIndex">
+              <view class='comList'>
+                <view class='comListMain'>
+                  <view class='comListTip'>客户姓名：</view>
+                  <view class='comListDesc'>{{item.cusName}}</view>
                 </view>
-                <view class='list_l right'>
-                  <view class='list_m'>状态：{{item.applyStatus}}</view>
+                <view class='comListMain'>
+                  <view class='comListTip'>联系方式：</view>
+                  <view class='comListDesc'>{{item.cusTelphone}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>损坏点：</view>
+                  <view class='comListDesc'>{{item.faultPoint}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>产品系列：</view>
+                  <view class='comListDesc'>{{item.series}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>产品名称：</view>
+                  <view class='comListDesc'>{{item.proName}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>产品型号：</view>
+                  <view class='comListDesc'>{{item.proModel}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>产品描述：</view>
+                  <view class='comListDesc'>{{item.proDesc}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>售后时间：</view>
+                  <view class='comListDesc'>{{item.afterSaleTime}}</view>
+                </view>
+                <view class='comListMain'>
+                  <view class='comListTip'>状态：</view>
+                  <view class='comListDesc'>{{item.applyStatus}}</view>
+                </view>
+                <view class='comSubBtn'>
+                  <view class='comListDetail' bindtap='clickStorage' data-page='D' data-index='{{listIndex}}'>详 情</view>
+                  <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{listIndex}}'>删 除</view>
                 </view>
               </view>
             </block>
