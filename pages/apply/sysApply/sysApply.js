@@ -79,6 +79,7 @@ Page({
    */
   rejSubmit(e) {
     let data = this.data
+    let vm = this
     console.log(data.rejResion)
     console.log(data.id)
     let params = {
@@ -89,7 +90,10 @@ Page({
       success: res => {
         if ("success" == res.status) {
           console.log(res.data)
-          this.rejCannal()
+          vm.setData({
+            rejectModal: !data.rejectModal
+          })
+          vm.sysApply()
         }
       }
     })
