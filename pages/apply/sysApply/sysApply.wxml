@@ -65,11 +65,11 @@
                 </view>
                 <view class='comListMain'>
                   <view class='comListTip'>状态：</view>
-                  <view class='comListDesc'>{{item.applyStatus}}</view>
+                  <view class='comListDesc'>{{item.applyStatusDesc}}</view>
                 </view>
                 <view class='comSubBtn'>
-                  <view class='comListDetail' bindtap='clickStorage' data-page='D' data-index='{{listIndex}}'>详 情</view>
-                  <view class='comListDel' bindtap='delStorage' data-id='{{splItem.id}}' data-index='{{listIndex}}'>删 除</view>
+                  <view class='comListDetail' bindtap='clickApply' data-page='D' data-index='{{listIndex}}'>处 理</view>
+                  <view class='comListDel' bindtap='delApply' data-id='{{item.id}}' data-index='{{listIndex}}' bindtap='rejCannal'>拒 绝</view>
                 </view>
               </view>
             </block>
@@ -78,4 +78,22 @@
       </swiper-item>
     </block>
   </swiper>
+</view>
+
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{rejectModal}}"></view>
+<view class="modalDlg" wx:if="{{rejectModal}}">
+  <view class='modalTitle'>
+    拒绝原因
+  </view>
+  <view class='modalMain'>
+    <textarea placeholder='请输入拒绝原因' maxlength='1000' fixed="true" bindblur="bindRejResion"/>
+  </view>
+  <view class='modalFoor'>
+    <view class='modalBtn' bindtap='rejSubmit'>
+      提交
+    </view>
+    <view class='modalBtn' bindtap='rejCannal'>
+      取消
+    </view>
+  </view>
 </view>

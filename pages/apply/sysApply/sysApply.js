@@ -36,7 +36,19 @@ Page({
     /**
      * 列表下标
      */
-    listIndex: null
+    listIndex: null,
+    /**
+     * 拒绝弹窗
+     */
+    rejectModal: false,
+    /**
+     * 拒绝原因
+     */
+    rejResion: null,
+    /**
+     * 选中的申请单ID
+     */
+    id: null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -53,6 +65,44 @@ Page({
     })
 
     vm.sysApply()
+  },
+  /**
+   * 绑定拒绝原因
+   */
+  bindRejResion(e) {
+    this.setData({
+      rejResion: e.detail.value
+    })
+  },
+  /**
+   * 初审拒单
+   */
+  rejSubmit(e) {
+    let data = this.data
+    console.log(data.rejResion)
+    console.log(data.id)
+    let params = {
+      productSaleApplyId: data.id,
+      applyRejectResion: data.rejResion
+    }
+    util.postHttp("/proApplySys/firstTrialReject", params, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          this.rejCannal()
+        }
+      }
+    })
+  },
+  /**
+   * 关闭拒单弹窗
+   */
+  rejCannal(e) {
+    console.log(e)
+    this.setData({
+      rejectModal: !this.data.rejectModal,
+      id: e.currentTarget.dataset.id
+    })
   },
   /**
    * 查询售后中心信息

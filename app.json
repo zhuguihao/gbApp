@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/homePage/homePage",
     "pages/apply/sysApply/sysApply",
+    "pages/homePage/homePage",
     "pages/cusApply/cusApply",
     "pages/product/sold/sold",
     "pages/storage/storage",
