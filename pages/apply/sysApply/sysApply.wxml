@@ -67,7 +67,7 @@
                   <view class='comListTip'>状态：</view>
                   <view class='comListDesc'>{{item.applyStatusDesc}}</view>
                 </view>
-                <view class='comSubBtn'>
+                <view class='comSubBtn' wx:if="{{item.applyStatus==='first_trial' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='aftersale_department' || item.applyStatus==='courier_department'}}">
                   <view class='comListDetail' bindtap='clickApply' data-page='D' data-index='{{listIndex}}'>处 理</view>
                   <view class='comListDel' bindtap='delApply' data-id='{{item.id}}' data-index='{{listIndex}}' bindtap='rejCannal'>拒 绝</view>
                 </view>
@@ -86,7 +86,7 @@
     拒绝原因
   </view>
   <view class='modalMain'>
-    <textarea placeholder='请输入拒绝原因' maxlength='1000' fixed="true" bindblur="bindRejResion"/>
+    <textarea placeholder='请输入拒绝原因' maxlength='1000' fixed="true" bindblur="bindRejResion" />
   </view>
   <view class='modalFoor'>
     <view class='modalBtn' bindtap='rejSubmit'>

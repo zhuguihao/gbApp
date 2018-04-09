@@ -88,6 +88,12 @@ Page({
     }
     util.postHttp("/proApplySys/firstTrialReject", params, {
       success: res => {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
         if ("success" == res.status) {
           console.log(res.data)
           vm.setData({
@@ -95,6 +101,7 @@ Page({
           })
           vm.sysApply()
         }
+        
       }
     })
   },
