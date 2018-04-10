@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/homePage/homePage",
+    "pages/cusApply/tracking/tracking",
     "pages/apply/sysApply/sysApply",
     "pages/cusApply/cusApply",
     "pages/product/sold/sold",

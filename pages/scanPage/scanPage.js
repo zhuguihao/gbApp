@@ -15,6 +15,10 @@ Page({
      */
     cusApplyUrl: "../cusApply/cusApply",
     /**
+     * 填写快递信息
+     */
+    trackingUrl: "../cusApply/tracking/tracking",
+    /**
      * 售后单状态
      */
     applyStatus: null,
@@ -53,7 +57,7 @@ Page({
           var params = {
             "barCode": res.result
           };
-          
+
           util.postHttp("/productApply/checkStatus", params, {
             success: data => {
               if ("success" == data.status) {
@@ -118,6 +122,72 @@ Page({
             console.log('用户点击取消')
           }
         }
+      })
+    } else if ('the_trial_reject' == vm.data.applyStatus) {
+      /**
+       * 等待初审
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '当前的产品提交的售后申请被拒绝',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else if ('courier_tracking' == vm.data.applyStatus) {
+      /**
+       * 等待初审
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '您的快递暂未收到，请稍等',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else if ('aftersale_department' == vm.data.applyStatus) {
+      /**
+       * 等待初审
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '您的产品正在维修，请稍等',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else if ('the_trial_pass' == vm.data.applyStatus) {
+      /**
+       * 初审通过
+       * 跳转到填写快递单流程
+       */
+      let params = {
+        barCode: vm.data.barCode
+      }
+      wx.navigateTo({
+        url: vm.data.trackingUrl + "?params=" + JSON.stringify(params)
+      })
+    } else if ('company_courier_tracking' == vm.data.applyStatus) {
+      /**
+       * 公司已经将产品维修好，需要确认收件
+       */
+      wx.navigateTo({
+        url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
       })
     } else {
       let params = {

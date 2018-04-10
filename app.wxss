@@ -154,3 +154,65 @@ page {
 .modalBtn:first-child {
   border-right: 1px solid #ccc;
 }
+
+/* wenkit-box布局 */
+
+.webKitBox {
+  display: -webkit-box;
+}
+
+.list {
+  line-height: 70rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.list:last-child {
+  border-bottom: none;
+}
+
+.title {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  background-color: #f5f5f9;
+}
+
+/* 填写列表样式 */
+
+.cusApply {
+  display: flex;
+  display: -wenbkit-flex;
+  flex-wrap: wrap;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #f5f5f9;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  padding-top: 10rpx;
+  padding-bottom: 12rpx;
+}
+
+.cusApplyTitle {
+  color: #404040;
+  width: 150rpx;
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.cusApplyMain {
+  width: 550rpx;
+}
+
+.cusApplyMain textarea {
+  display: inline;
+  line-height: 30rpx;
+}
+
+.damagePoint {
+  margin-top: 12rpx;
+}
+
+.btn {
+  margin-top: 30rpx;
+}

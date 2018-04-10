@@ -67,6 +67,46 @@ Page({
     vm.sysApply()
   },
   /**
+   * 初审按钮
+   */
+  ftPass: function (e) {
+    let vm = this
+    wx.showModal({
+      title: '初审审批',
+      content: '是否同意该产品售后',
+      success: function (res) {
+        if (res.confirm) {
+          vm.firstTrialPass(e.currentTarget.dataset.id)
+        }
+      }
+    })
+
+  },
+  /**
+   * 初审通过
+   */
+  firstTrialPass: function (id) {
+    let vm = this
+    let params = {
+      productSaleApplyId: id
+    }
+    util.postHttp("/proApplySys/firstTrialPass", params, {
+      success: res => {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
+        if ("success" == res.status) {
+          console.log(res.data)
+          vm.sysApply()
+        }
+
+      }
+    })
+  },
+  /**
    * 绑定拒绝原因
    */
   bindRejResion(e) {
@@ -101,7 +141,7 @@ Page({
           })
           vm.sysApply()
         }
-        
+
       }
     })
   },

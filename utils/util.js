@@ -64,7 +64,7 @@ const postHttp = function (url, params, fun) {
   console.log("url:  " + url)
   console.log("params:  " + JSON.stringify(params))
   let LoadingBool = true;
-  if ("/wechat/getOpenIdByCode" == url) {
+  if ("/wechat/getOpenIdByCode" == url || '/productApplyQuery/getCommpanyAddress' == url) {
     LoadingBool = false;
   }
   if (LoadingBool) {

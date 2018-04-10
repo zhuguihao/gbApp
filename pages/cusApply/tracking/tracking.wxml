@@ -1,0 +1,72 @@
+<view class='companyInfo'>
+  <view class='list companyTitle'>公司信息</view>
+  <view class='webKitBox list'>
+    <view class='companyTips'>
+      公司名称 :
+    </view>
+    <view class='companyMain'>
+      {{companyList.companyName}}
+    </view>
+  </view>
+  <view class='webKitBox list'>
+    <view class='companyTips'>
+      公司地址 :
+    </view>
+    <view class='companyMain'>
+      {{companyList.expressAddress}}
+    </view>
+  </view>
+  <view class='webKitBox list'>
+    <view class='companyTips'>
+      联系人 :
+    </view>
+    <view class='companyMain'>
+      {{companyList.expressName}}
+    </view>
+  </view>
+  <view class='webKitBox list'>
+    <view class='companyTips'>
+      联系方式 :
+    </view>
+    <view class='companyMain'>
+      {{companyList.expressPhone}}
+    </view>
+  </view>
+</view>
+
+<view class='title companyTitle'>请填写快递单信息</view>
+
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>快递单号</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' placeholder="请输入快递单号" bindinput='bindWaybill' maxlength='200' />
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>寄件人信息</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' placeholder="请输入寄件人信息" bindinput='bindAddressee' maxlength='200' />
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>联系地址</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' placeholder="请输入寄件人联系地址" bindinput='bindAddress' maxlength='1000' />
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>联系方式</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <input class='damagePoint' type='number' placeholder="请输入寄件人联系方式" bindinput='bindAddressPhone' maxlength='11' />
+  </view>
+</view>
+
+<view class='comBtn btn' bindtap='bindSubmit'>提交快递单</view>

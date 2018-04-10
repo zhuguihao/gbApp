@@ -1,0 +1,26 @@
+/* pages/cusApply/tracking/tracking.wxss */
+
+.companyInfo {
+  width: 80%;
+  margin: 5% 10%;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.companyTitle {
+  line-height: 80rpx;
+  font-size: 35rpx;
+  color: black;
+  background-color: #f7f7f7;
+  border-top-right-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+.companyTips {
+  width: 29%;
+}
+
+.companyMain {
+  width: 71%;
+}

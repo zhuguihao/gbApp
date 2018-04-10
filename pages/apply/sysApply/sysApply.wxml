@@ -68,8 +68,8 @@
                   <view class='comListDesc'>{{item.applyStatusDesc}}</view>
                 </view>
                 <view class='comSubBtn' wx:if="{{item.applyStatus==='first_trial' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='aftersale_department' || item.applyStatus==='courier_department'}}">
-                  <view class='comListDetail' bindtap='clickApply' data-page='D' data-index='{{listIndex}}'>处 理</view>
-                  <view class='comListDel' bindtap='delApply' data-id='{{item.id}}' data-index='{{listIndex}}' bindtap='rejCannal'>拒 绝</view>
+                  <view class='comListDetail' bindtap='clickApply' data-id='{{item.id}}' bindtap='ftPass'>通 过</view>
+                  <view class='comListDel' bindtap='delApply' data-id='{{item.id}}' bindtap='rejCannal'>拒 绝</view>
                 </view>
               </view>
             </block>

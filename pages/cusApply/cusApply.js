@@ -91,6 +91,26 @@ Page({
       return
     }
 
+    vm.subApply()
+  },
+
+  /**
+   * 初始化界面
+   */
+  onLoad: function (options) {
+    if (options.params) {
+      var barCode = JSON.parse(options.params).barCode;
+      this.setData({
+        barCode: barCode
+      })
+    }
+  },
+  /**
+  * 提交初审
+  */
+  subApply: function () {
+    let vm = this
+
     let params = {
       cusName: vm.data.name,
       cusTelphone: vm.data.phone,
@@ -113,17 +133,6 @@ Page({
       }
     })
 
-  },
-  /**
-   * 初始化界面
-   */
-  onLoad: function (options) {
-    if (options.params) {
-      var barCode = JSON.parse(options.params).barCode;
-      this.setData({
-        barCode: barCode
-      });
-    }
   },
   /**
    * 扫码事件
