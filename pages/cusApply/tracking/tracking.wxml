@@ -1,6 +1,6 @@
 <view class='companyInfo'>
-  <view class='list companyTitle'>公司信息</view>
-  <view class='webKitBox list'>
+  <view class='commonlist companyTitle'>公司信息</view>
+  <view class='webKitBox commonlist'>
     <view class='companyTips'>
       公司名称 :
     </view>
@@ -8,7 +8,7 @@
       {{companyList.companyName}}
     </view>
   </view>
-  <view class='webKitBox list'>
+  <view class='webKitBox commonlist'>
     <view class='companyTips'>
       公司地址 :
     </view>
@@ -16,7 +16,7 @@
       {{companyList.expressAddress}}
     </view>
   </view>
-  <view class='webKitBox list'>
+  <view class='webKitBox commonlist'>
     <view class='companyTips'>
       联系人 :
     </view>
@@ -24,7 +24,7 @@
       {{companyList.expressName}}
     </view>
   </view>
-  <view class='webKitBox list'>
+  <view class='webKitBox commonlist'>
     <view class='companyTips'>
       联系方式 :
     </view>

@@ -121,3 +121,8 @@ Page {
 .right {
   text-align: center;
 }
+
+.lineHeight{
+  height: 150rpx;
+  line-height: 150rpx;
+}

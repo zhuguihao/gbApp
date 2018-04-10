@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/apply/sysApply/sysApply",
     "pages/homePage/homePage",
     "pages/cusApply/tracking/tracking",
-    "pages/apply/sysApply/sysApply",
     "pages/cusApply/cusApply",
     "pages/product/sold/sold",
     "pages/storage/storage",

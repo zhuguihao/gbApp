@@ -79,7 +79,7 @@
     </block>
   </swiper>
 </view>
-
+<!-- 拒绝弹窗 -->
 <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{rejectModal}}"></view>
 <view class="modalDlg" wx:if="{{rejectModal}}">
   <view class='modalTitle'>
@@ -96,4 +96,57 @@
       取消
     </view>
   </view>
+</view>
+
+<!-- 初审通过 -->
+<view class='allModal'>
+  <view class='webKitBox commonlist'>
+    <view class='commonTips commonLineHeight'>
+      公司名称 :
+    </view>
+    <view class='commonMain commonLineHeight'>
+      <input class='commonInp' placeholder='请输入内容' />
+    </view>
+  </view>
+
+  <view class='webKitBox commonlist'>
+    <view class='commonTips commonLineHeight'>
+      公司名称 :
+    </view>
+    <view class='commonMain commonLineHeight'>
+      <input class='commonInp' placeholder='请输入内容' />
+    </view>
+  </view>
+
+
+
+  <view class='webKitBox commonlist'>
+    <view class='commonTips commonLineHeight'>
+      回访内容 :
+    </view>
+    <view class='commonMain commonLineHeight'>
+      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindRejResion" />
+    </view>
+  </view>
+
+  <view class='webKitBox commonlist'>
+    <view class='commonTips commonLineHeight'>
+      是否付费 :
+    </view>
+    <view class='commonMain commonLineHeight'>
+      <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePointList}}">
+        <input disabled class='commonInp commonSel' placeholder='请选择是否需要额外收费的产品' />
+      </picker>
+    </view>
+  </view>
+
+  <view class='webKitBox commonlist'>
+    <view class='commonTips commonLineHeight'>
+      回访内容 :
+    </view>
+    <view class='commonMain commonLineHeight'>
+      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindRejResion" />
+    </view>
+  </view>
+
 </view>

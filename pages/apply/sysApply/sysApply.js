@@ -49,6 +49,10 @@ Page({
      * 选中的申请单ID
      */
     id: null,
+    /**
+     * 初审弹窗开关
+     */
+    firstPassModal: true
   },
   /**
    * 生命周期函数--监听页面加载
