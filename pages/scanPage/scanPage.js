@@ -113,7 +113,7 @@ Page({
        */
       wx.showModal({
         title: '温馨提醒',
-        content: '当前的产品提交的售后申请正在审批中，请等待',
+        content: '当前产品提交的售后申请正在审批中，请等待',
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
@@ -129,7 +129,7 @@ Page({
        */
       wx.showModal({
         title: '温馨提醒',
-        content: '当前的产品提交的售后申请被拒绝',
+        content: '当前产品提交的售后申请被拒绝',
         showCancel: false,
         success: function (res) {
           if (res.confirm) {

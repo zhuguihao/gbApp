@@ -128,7 +128,7 @@
       付费记录:
     </view>
     <view class='commonMain commonLineHeight'>
-      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindPayGoods" />
+      <textarea class='commonTextarea' placeholder='请输入' maxlength='1000' fixed="true" bindblur="bindPayGoods" />
     </view>
   </view>
 

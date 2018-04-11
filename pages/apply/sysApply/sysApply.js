@@ -115,7 +115,8 @@ Page({
   bindIsPayChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      isPayIndex: e.detail.value
+      isPayIndex: e.detail.value,
+      isPayGoods: "Y" == this.data.isPayList[e.detail.value].key,
     })
   },
   /**
@@ -132,20 +133,10 @@ Page({
    */
   ftPass: function (e) {
     let vm = this
-    // wx.showModal({
-    //   title: '初审审批',
-    //   content: '是否同意该产品售后',
-    //   success: function (res) {
-    //     if (res.confirm) {
-    //       vm.firstTrialPass()
-    //     }
-    //   }
-    // })
     vm.setData({
       firstPassId: e.currentTarget.dataset.id,
       firstPassModal: true
     })
-
   },
   /**
    * 获取产品维修状态
@@ -169,7 +160,24 @@ Page({
    * 校验参数
    */
   subFirstPass: function () {
-    
+    let vm = this
+    let data = vm.data
+    if (data.applyDesc.length == 0) {
+      wx.showToast({
+        title: '请填写电话回访内容',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    } else if ("Y" == data.isPayList[data.isPayIndex].key && data.payGoods.length == 0) {
+      wx.showToast({
+        title: '请填写额外付费的产品信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    vm.firstTrialPass()
   },
   /**
    * 初审通过
@@ -180,14 +188,13 @@ Page({
     let params = {
       productSaleApplyId: data.firstPassId,
       applyDesc: data.applyDesc,
-      applyPolicyState: data.ApplyPolicyStateCodeList[ApplyPolicyIndex].key
+      applyPolicyState: data.ApplyPolicyStateCodeList[data.ApplyPolicyIndex].key
     }
-    if ("Y" == data.isPayList[isPayIndex].key) {
-      params.isPay = data.isPayList[isPayIndex].key
-      params.payGoods = payGoods
+    if ("Y" == data.isPayList[data.isPayIndex].key) {
+      params.isPay = data.isPayList[data.isPayIndex].key
+      params.payGoods = data.payGoods
     }
-    console.log(JOSN.stringify(params))
-    return
+    console.log(JSON.stringify(params))
     util.postHttp("/proApplySys/firstTrial", params, {
       success: res => {
         wx.showToast({
@@ -198,6 +205,10 @@ Page({
         })
         if ("success" == res.status) {
           console.log(res.data)
+          vm.setData({
+            firstPassModal: false,
+          })
+          console.log(data.isPayGoods)
           vm.sysApply()
         }
 
