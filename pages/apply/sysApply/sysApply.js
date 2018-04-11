@@ -52,7 +52,45 @@ Page({
     /**
      * 初审弹窗开关
      */
-    firstPassModal: true
+    firstPassModal: false,
+    /**
+     * 下拉图标地址
+     */
+    selectImgSrc: '../../../static/logo/select.png',
+    /**
+     * 是否付费
+     */
+    isPayList: [{
+      key: "N",
+      value: "否"
+    }, {
+      key: "Y",
+      value: "是"
+    }],
+    /**
+     * 是否付费下标
+     */
+    isPayIndex: 0,
+    /**
+     * 是否需要填写付费产品开关
+     */
+    isPayGoods: false,
+    /**
+     * 维修状态列表
+     */
+    ApplyPolicyStateCodeList: null,
+    /**
+     * 维修状态列表下标
+     */
+    ApplyPolicyIndex: 0,
+    /**
+     * 1.待初审ID
+     * 2.电话回访内容
+     * 3.需要额外付费的产品信息
+     */
+    firstPassId: null,
+    applyDesc: null,
+    payGoods: null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -69,32 +107,88 @@ Page({
     })
 
     vm.sysApply()
+    vm.getApplyPolicyStateCode()
+  },
+  /**
+   * 是否付费下拉框改变事件
+   */
+  bindIsPayChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      isPayIndex: e.detail.value
+    })
+  },
+  /**
+   * 选择维修状态
+   */
+  bindApplyPolicyStateChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      ApplyPolicyIndex: e.detail.value,
+    })
   },
   /**
    * 初审按钮
    */
   ftPass: function (e) {
     let vm = this
-    wx.showModal({
-      title: '初审审批',
-      content: '是否同意该产品售后',
-      success: function (res) {
-        if (res.confirm) {
-          vm.firstTrialPass(e.currentTarget.dataset.id)
-        }
-      }
+    // wx.showModal({
+    //   title: '初审审批',
+    //   content: '是否同意该产品售后',
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       vm.firstTrialPass()
+    //     }
+    //   }
+    // })
+    vm.setData({
+      firstPassId: e.currentTarget.dataset.id,
+      firstPassModal: true
     })
 
   },
   /**
+   * 获取产品维修状态
+   */
+  getApplyPolicyStateCode: function () {
+    let vm = this
+    util.postHttp("/productApplyQuery/getApplyPolicyStateCode", {}, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          vm.setData({
+            ApplyPolicyStateCodeList: res.data
+          })
+        }
+
+      }
+    })
+  },
+  /**
+   * 提交初审
+   * 校验参数
+   */
+  subFirstPass: function () {
+    
+  },
+  /**
    * 初审通过
    */
-  firstTrialPass: function (id) {
+  firstTrialPass: function () {
     let vm = this
+    let data = vm.data
     let params = {
-      productSaleApplyId: id
+      productSaleApplyId: data.firstPassId,
+      applyDesc: data.applyDesc,
+      applyPolicyState: data.ApplyPolicyStateCodeList[ApplyPolicyIndex].key
     }
-    util.postHttp("/proApplySys/firstTrialPass", params, {
+    if ("Y" == data.isPayList[isPayIndex].key) {
+      params.isPay = data.isPayList[isPayIndex].key
+      params.payGoods = payGoods
+    }
+    console.log(JOSN.stringify(params))
+    return
+    util.postHttp("/proApplySys/firstTrial", params, {
       success: res => {
         wx.showToast({
           title: res.msg,
@@ -116,6 +210,22 @@ Page({
   bindRejResion(e) {
     this.setData({
       rejResion: e.detail.value
+    })
+  },
+  /**
+   * 绑定电话回访内容
+   */
+  bindApplyDesc(e) {
+    this.setData({
+      applyDesc: e.detail.value
+    })
+  },
+  /**
+   * 绑定付费产品信息
+   */
+  bindPayGoods(e) {
+    this.setData({
+      payGoods: e.detail.value
     })
   },
   /**

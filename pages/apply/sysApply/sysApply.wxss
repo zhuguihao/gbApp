@@ -122,7 +122,16 @@ Page {
   text-align: center;
 }
 
-.lineHeight{
+.lineHeight {
   height: 150rpx;
   line-height: 150rpx;
+}
+
+.textAlignLeft {
+  text-align: left;
+  padding-left: 30rpx;
+}
+
+.subBtn {
+  margin-top: 30rpx;
 }

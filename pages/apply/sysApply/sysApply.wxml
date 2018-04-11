@@ -68,8 +68,8 @@
                   <view class='comListDesc'>{{item.applyStatusDesc}}</view>
                 </view>
                 <view class='comSubBtn' wx:if="{{item.applyStatus==='first_trial' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='aftersale_department' || item.applyStatus==='courier_department'}}">
-                  <view class='comListDetail' bindtap='clickApply' data-id='{{item.id}}' bindtap='ftPass'>通 过</view>
-                  <view class='comListDel' bindtap='delApply' data-id='{{item.id}}' bindtap='rejCannal'>拒 绝</view>
+                  <view class='comListDetail' data-id='{{item.id}}' bindtap='ftPass'>通 过</view>
+                  <view class='comListDel' data-id='{{item.id}}' bindtap='rejCannal'>拒 绝</view>
                 </view>
               </view>
             </block>
@@ -99,54 +99,52 @@
 </view>
 
 <!-- 初审通过 -->
-<view class='allModal'>
+<view class='allModal' wx:if="{{firstPassModal}}">
   <view class='webKitBox commonlist'>
     <view class='commonTips commonLineHeight'>
-      公司名称 :
+      回访内容:
     </view>
     <view class='commonMain commonLineHeight'>
-      <input class='commonInp' placeholder='请输入内容' />
+      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindApplyDesc" />
     </view>
   </view>
 
-  <view class='webKitBox commonlist'>
+  <picker bindchange="bindIsPayChange" range="{{isPayList}}" range-key='value'>
+    <view class='pickerMain'>
+      <view class='commonTips commonLineHeight'>
+        额外付费:
+      </view>
+      <view class="picker textAlignLeft">
+        {{isPayList[isPayIndex].value}}
+      </view>
+      <view>
+        <image class='selectImgMar' mode="aspectFit" src="{{selectImgSrc}}" />
+      </view>
+    </view>
+  </picker>
+
+  <view class='webKitBox commonlist' wx:if="{{isPayGoods}}">
     <view class='commonTips commonLineHeight'>
-      公司名称 :
+      付费记录:
     </view>
     <view class='commonMain commonLineHeight'>
-      <input class='commonInp' placeholder='请输入内容' />
+      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindPayGoods" />
     </view>
   </view>
 
+  <picker bindchange="bindApplyPolicyStateChange" range="{{ApplyPolicyStateCodeList}}" range-key='value'>
+    <view class='pickerMain'>
+      <view class='commonTips commonLineHeight'>
+        维修状态:
+      </view>
+      <view class="picker textAlignLeft">
+        {{ApplyPolicyStateCodeList[ApplyPolicyIndex].value}}
+      </view>
+      <view>
+        <image class='selectImgMar' mode="aspectFit" src="{{selectImgSrc}}" />
+      </view>
+    </view>
+  </picker>
 
-
-  <view class='webKitBox commonlist'>
-    <view class='commonTips commonLineHeight'>
-      回访内容 :
-    </view>
-    <view class='commonMain commonLineHeight'>
-      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindRejResion" />
-    </view>
-  </view>
-
-  <view class='webKitBox commonlist'>
-    <view class='commonTips commonLineHeight'>
-      是否付费 :
-    </view>
-    <view class='commonMain commonLineHeight'>
-      <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePointList}}">
-        <input disabled class='commonInp commonSel' placeholder='请选择是否需要额外收费的产品' />
-      </picker>
-    </view>
-  </view>
-
-  <view class='webKitBox commonlist'>
-    <view class='commonTips commonLineHeight'>
-      回访内容 :
-    </view>
-    <view class='commonMain commonLineHeight'>
-      <textarea class='commonTextarea' placeholder='请输入电话回访内容' maxlength='1000' fixed="true" bindblur="bindRejResion" />
-    </view>
-  </view>
-
+  <view class='comBtn subBtn' bindtap='subFirstPass'>提交初审</view>
 </view>

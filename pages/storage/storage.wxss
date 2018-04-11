@@ -1,16 +1,5 @@
 /* pages/storage/storage.wxss */
-.pickerMain { 
-  display: -webkit-box;
-  height: 100rpx;
-  line-height: 100rpx;
-  margin-left: 15rpx;
-  border-bottom: 1rpx solid #ccc;
-}
 
-.picker {
-  width: 80%;
-  text-align: center;
-}
 
 .scanCode {
   width: 256rpx;
