@@ -42,6 +42,6 @@ App({
     // reqIp: "http://gb.zhuguihao.com:7777/appService",
     // reqIp: "http://192.168.0.124:7777/appService",
     // reqIp: "http://192.168.0.192:10000/appService",
-    token: null
+    token: 'dd3afb47cd764d25967f5b44d2655a69'//null
   }
 })

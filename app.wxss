@@ -73,6 +73,7 @@ page {
 .comListTip {
   margin-top: 10rpx;
   margin-left: 20rpx;
+  text-align: right;
   width: 30%;
 }
 

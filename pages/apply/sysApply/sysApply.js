@@ -110,6 +110,18 @@ Page({
     vm.getApplyPolicyStateCode()
   },
   /**
+   * 签收客户快递
+   */
+  signExpress(e){
+    console.log(e.currentTarget.dataset.id)
+  },
+  /**
+   * 驳回客户快递
+   */
+  rejExpress(e) {
+    console.log(e.currentTarget.dataset.id)
+  },
+  /**
    * 是否付费下拉框改变事件
    */
   bindIsPayChange(e) {
