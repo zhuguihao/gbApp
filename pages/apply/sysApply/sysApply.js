@@ -114,12 +114,43 @@ Page({
    */
   signExpress(e){
     console.log(e.currentTarget.dataset.id)
+    let vm = this
+    let params = {
+      productSaleApplyId: e.currentTarget.dataset.id
+    }
+    util.postHttp("/proApplySys/signExpress", params, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          vm.setData({
+            ApplyPolicyStateCodeList: res.data
+          })
+          vm.sysApply()
+        }
+
+      }
+    })
   },
   /**
    * 驳回客户快递
    */
   rejExpress(e) {
     console.log(e.currentTarget.dataset.id)
+    let vm = this
+    let params = {
+      productSaleApplyId: e.currentTarget.dataset.id
+    }
+    util.postHttp("/proApplySys/rejExpress", params, {
+      success: res => {
+        if ("success" == res.status) {
+          console.log(res.data)
+          vm.setData({
+            ApplyPolicyStateCodeList: res.data
+          })
+          vm.sysApply()
+        }
+      }
+    })
   },
   /**
    * 是否付费下拉框改变事件

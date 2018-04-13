@@ -182,6 +182,29 @@ Page({
       wx.navigateTo({
         url: vm.data.trackingUrl + "?params=" + JSON.stringify(params)
       })
+    } else if ('courier_tracking_reject' == vm.data.applyStatus) {
+      /**
+       * 提交的快递单信息被驳回，需要重新填写
+       * 跳转到填写快递单流程
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '您的快递单被驳回，请重新填写',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            let params = {
+              barCode: vm.data.barCode
+            }
+            wx.navigateTo({
+              url: vm.data.trackingUrl + "?params=" + JSON.stringify(params)
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+
     } else if ('company_courier_tracking' == vm.data.applyStatus) {
       /**
        * 公司已经将产品维修好，需要确认收件
