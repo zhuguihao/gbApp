@@ -19,6 +19,10 @@ Page({
      */
     trackingUrl: "../cusApply/tracking/tracking",
     /**
+     * 填写快递信息
+     */
+    homeUrl: "../homePage/homePage",
+    /**
      * 售后单状态
      */
     applyStatus: null,
@@ -179,7 +183,7 @@ Page({
       let params = {
         barCode: vm.data.barCode
       }
-      wx.navigateTo({
+      wx.redirectTo({
         url: vm.data.trackingUrl + "?params=" + JSON.stringify(params)
       })
     } else if ('courier_tracking_reject' == vm.data.applyStatus) {
@@ -196,7 +200,7 @@ Page({
             let params = {
               barCode: vm.data.barCode
             }
-            wx.navigateTo({
+            wx.redirectTo({
               url: vm.data.trackingUrl + "?params=" + JSON.stringify(params)
             })
           } else if (res.cancel) {
@@ -209,16 +213,45 @@ Page({
       /**
        * 公司已经将产品维修好，需要确认收件
        */
-      wx.navigateTo({
-        url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
+      wx.showModal({
+        title: '温馨提醒',
+        content: '您的产品已维修完成，请签收',
+        confirmText: '签收',
+        cancelText: '未收到',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确认')
+            vm.signTacking()
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
       })
     } else {
       let params = {
         barCode: vm.data.barCode
       }
-      wx.navigateTo({
+      wx.redirectTo({
         url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
       })
     }
+  },
+  /**
+   * 客户签收快递，完成售后
+   */
+  signTacking() {
+    let vm = this
+    let params = {
+      barCode: vm.data.barCode
+    }
+    util.postHttp("/productApply/signTacking", params, {
+      success: res => {
+        if ("success" == res.status) {
+          wx.reLaunch({
+            url: vm.data.homeUrl
+          })
+        }
+      }
+    })
   }
 })

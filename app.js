@@ -40,7 +40,7 @@ App({
     openId: null,
     reqIp: "https://gb.zhuguihao.com/appService",
     // reqIp: "http://gb.zhuguihao.com:7777/appService",
-    // reqIp: "http://192.168.0.124:7777/appService",
+    // reqIp: "http://192.168.1.102:7777/appService",
     // reqIp: "http://192.168.0.192:10000/appService",
     token: null
   }

@@ -91,6 +91,10 @@ Page({
     firstPassId: null,
     applyDesc: null,
     payGoods: null,
+    /**
+     * 售后部门寄件ID
+     */
+    courierDepartmentPassId: null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -112,7 +116,7 @@ Page({
   /**
    * 签收客户快递
    */
-  signExpress(e){
+  signExpress(e) {
     console.log(e.currentTarget.dataset.id)
     let vm = this
     let params = {
@@ -121,10 +125,6 @@ Page({
     util.postHttp("/proApplySys/signExpress", params, {
       success: res => {
         if ("success" == res.status) {
-          console.log(res.data)
-          vm.setData({
-            ApplyPolicyStateCodeList: res.data
-          })
           vm.sysApply()
         }
 
@@ -143,10 +143,64 @@ Page({
     util.postHttp("/proApplySys/rejExpress", params, {
       success: res => {
         if ("success" == res.status) {
-          console.log(res.data)
-          vm.setData({
-            ApplyPolicyStateCodeList: res.data
-          })
+          vm.sysApply()
+        }
+      }
+    })
+  },
+  /**
+   * 售后部门完成维修
+   */
+  afterDepartmentPass(e) {
+    console.log(e.currentTarget.dataset.id)
+    let vm = this
+    let params = {
+      productSaleApplyId: e.currentTarget.dataset.id
+    }
+    util.postHttp("/proApplySys/afterDepartmentPass", params, {
+      success: res => {
+        if ("success" == res.status) {
+          vm.sysApply()
+        }
+      }
+    })
+  },
+  /**
+   * 售后部门寄件
+   */
+  courierDepartment(e) {
+    console.log(e.currentTarget.dataset.id)
+    let vm = this
+    vm.setData({
+      courierDepartmentPassId: e.currentTarget.dataset.id,
+    })
+    wx.showModal({
+      title: '温馨提醒',
+      content: '请联系客户，收到快递之后确认',
+      confirmText: '已通知',
+      cancelText: '未通知',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          vm.courierDepartmentPass()
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  },
+  /**
+   * 售后部门寄件
+   */
+  courierDepartmentPass() {
+    let vm = this
+    let params = {
+      productSaleApplyId: vm.data.courierDepartmentPassId
+    }
+    util.postHttp("/proApplySys/courierDepartmentPass", params, {
+      success: res => {
+        if ("success" == res.status) {
           vm.sysApply()
         }
       }
