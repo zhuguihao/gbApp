@@ -40,7 +40,7 @@
                   <view class='comListTip'>联系方式：</view>
                   <view class='comListDesc'>{{item.cusTelphone}}</view>
                 </view>
-                <view class='comListMain' wx:if="{{item.faultPoint && (item.applyStatus==='first_trial'  || item.applyStatus==='the_trial_pass' || item.applyStatus==='the_trial_reject' || item.applyStatus==='finsh_apply')}}">
+                <view class='comListMain' wx:if="{{item.faultPoint && (item.applyStatus==='first_trial'  || item.applyStatus==='the_trial_pass' || item.applyStatus==='the_trial_reject' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>损坏点：</view>
                   <view class='comListDesc'>{{item.faultPoint}}</view>
                 </view>
@@ -84,19 +84,19 @@
                   <view class='comListTip'>运单号：</view>
                   <view class='comListDesc'>{{item.sysWaybillNumber}}</view>
                 </view> -->
-                <view class='comListMain' wx:if="{{item.series && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply')}}">
+                <view class='comListMain' wx:if="{{item.series && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>产品系列：</view>
                   <view class='comListDesc'>{{item.series}}</view>
                 </view>
-                <view class='comListMain' wx:if="{{item.proName && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply')}}">
+                <view class='comListMain' wx:if="{{item.proName && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>产品名称：</view>
                   <view class='comListDesc'>{{item.proName}}</view>
                 </view>
-                <view class='comListMain' wx:if="{{item.proModel && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply')}}">
+                <view class='comListMain' wx:if="{{item.proModel && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>产品型号：</view>
                   <view class='comListDesc'>{{item.proModel}}</view>
                 </view>
-                <view class='comListMain' wx:if="{{item.proDesc && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply')}}">
+                <view class='comListMain' wx:if="{{item.proDesc && (item.applyStatus==='first_trial' || item.applyStatus==='the_trial_reject' || item.applyStatus==='company_courier_tracking' || item.applyStatus==='courier_department' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>产品描述：</view>
                   <view class='comListDesc'>{{item.proDesc}}</view>
                 </view>
@@ -115,9 +115,6 @@
                 <view class='comSubBtn' wx:if="{{item.applyStatus==='courier_tracking'}}">
                   <view class='comListDetail' data-id='{{item.id}}' bindtap='signExpress'>签 收</view>
                   <view class='comListDel' data-id='{{item.id}}' bindtap='rejExpress'>驳 回</view>
-                </view>
-                <view class='comSubBtn' wx:if="{{item.applyStatus==='aftersale_department'}}">
-                  <view class='comListDetail' data-id='{{item.id}}' bindtap='afterDepartmentPass'>完 成</view>
                 </view>
                 <view class='comSubBtn' wx:if="{{item.applyStatus==='aftersale_department'}}">
                   <view class='comListDetail' data-id='{{item.id}}' bindtap='afterDepartmentPass'>完 成</view>
