@@ -11,7 +11,7 @@
   <view class='homePageMenu' wx:for="{{homePageMenu}}" wx:key="homePageMenuKey">
     <block>
       <view class='homePageMenuTitle' bindtap="pageNavigateTo" data-item="{{item}}">
-        {{item.name}}
+        {{item.menuName}}
       </view>
     </block>
   </view>

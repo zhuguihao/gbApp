@@ -101,14 +101,14 @@ Page({
       })
       return
     }
-    if (data.oldPassword.length == 0) {
-      wx.showToast({
-        title: '请输入旧密码',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
+    // if (data.oldPassword.length == 0) {
+    //   wx.showToast({
+    //     title: '请输入旧密码',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return
+    // }
     if (data.password.length == 0) {
       wx.showToast({
         title: '请输入密码',
@@ -138,7 +138,7 @@ Page({
     var params = {
       account: vm.data.account,
       password: vm.data.password,
-      oldPassword: vm.data.oldPassword,
+      openId: app.globalData.openId,
       registerCode: vm.data.registerCode
     }
     util.postHttp("/user/modifyPwd", params, {
