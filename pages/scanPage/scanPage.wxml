@@ -1,5 +1,5 @@
 <view class='propagandaMap'>
-   <image src="{{propagandaMapImg}}" class='propagandaMapImg' />
+   <!-- <image src="{{propagandaMapImg}}" class='propagandaMapImg' /> -->
 </view>
 <view class='scanView' bindtap='scanCodeTap'>
   <text>扫码售后</text>

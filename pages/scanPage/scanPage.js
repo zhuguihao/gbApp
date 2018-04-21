@@ -227,6 +227,24 @@ Page({
           }
         }
       })
+    } else if ('apply_out_storage' == vm.data.applyStatus) {
+      /**
+       * 公司已经将产品维修好，需要确认收件
+       */
+      wx.showModal({
+        title: '温馨提醒',
+        content: '您的产品存在异常信息，请联系售后',
+        confirmText: '拨打',
+        cancelText: '取消',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确认')
+            vm.makePhoneCall()
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
     } else {
       let params = {
         barCode: vm.data.barCode
@@ -235,6 +253,17 @@ Page({
         url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
       })
     }
+  },
+  /**
+   * 拨打电话
+   */
+  makePhoneCall() {
+    wx.makePhoneCall({
+      phoneNumber: '15057582615',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   /**
    * 客户签收快递，完成售后

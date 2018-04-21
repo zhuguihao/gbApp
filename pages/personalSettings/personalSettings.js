@@ -4,7 +4,9 @@ const util = require('../../utils/util.js')
 Page({
   data: {
     token: null,
-    userInfo: null
+    userInfo: null,
+    modifyPwdPageUrl:"../modifyPwdPage/modifyPwdPage?account=",
+    loginUrl:"../loginPage/loginPage"
   },
   onLoad: function (e) {
     let vm = this
@@ -19,7 +21,7 @@ Page({
    */
   loginFun: function () {
     wx.navigateTo({
-      url: '../loginPage/loginPage'
+      url: this.data.loginUrl
     })
   },
   /**
@@ -51,5 +53,13 @@ Page({
         })
       }
     })
-  }
+  },
+  /**
+   * 修改密码
+   */
+  modifyPwdPage(){
+    wx.navigateTo({
+      url: this.data.modifyPwdPageUrl,
+  })
+  },
 })

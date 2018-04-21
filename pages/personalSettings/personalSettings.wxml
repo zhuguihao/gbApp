@@ -13,17 +13,17 @@
     </block>
   </view>
 </view>
-<!-- <block>
-  <view class='setLine'>
+ <block>
+  <view class='setLine' bindtap='modifyPwdPage'>
     <view class='setLineImg'>
       <image />
     </view>
     <view class='setLineMain'>
-      <view class='setContent'>我的地址</view>
+      <view class='setContent'>修改密码</view>
       <view class='rightIcon'>></view>
     </view>
   </view>
-</block> -->
+</block> 
 
 <view class='outLogin comBtn' >
   <block wx:if="{{token}}">
