@@ -44,51 +44,51 @@ Page({
       // onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
-        if ("CODE_128" == res.scanType) {//条形码
-          /**
-             * 1.不存在申请中的条形码
-             * 2.存在申请中的条形码
-             *    1.被驳回 ---  重新填单
-             *    （跳转到申请单填写页面）
-             *    2.初审状态
-             *    （跳转到结果页------提示客户正在初审，请等待）
-             *    3.其他流程步骤
-             *    （需要补充）
-             * 3.当前的条形码其他人员正在操作（需要询问客户具体操作）
-             * （跳转到帮助页面）
-             * 跳转页面
-           */
-          var params = {
-            "barCode": res.result
-          };
+        // if ("CODE_128" == res.scanType) {//条形码
+        /**
+           * 1.不存在申请中的条形码
+           * 2.存在申请中的条形码
+           *    1.被驳回 ---  重新填单
+           *    （跳转到申请单填写页面）
+           *    2.初审状态
+           *    （跳转到结果页------提示客户正在初审，请等待）
+           *    3.其他流程步骤
+           *    （需要补充）
+           * 3.当前的条形码其他人员正在操作（需要询问客户具体操作）
+           * （跳转到帮助页面）
+           * 跳转页面
+         */
+        var params = {
+          "barCode": res.result
+        };
 
-          util.postHttp("/productApply/checkStatus", params, {
-            success: data => {
-              if ("success" == data.status) {
-                console.log(JSON.stringify(data.data))
-                vm.setData({
-                  applyStatus: data.data.applyStatus,
-                  barCode: res.result
-                })
-                vm.applyStatusPage();
-              } else {
-                wx.showToast({
-                  title: data.msg,
-                  icon: 'none',
-                  duration: 2000
-                })
-              }
+        util.postHttp("/productApply/checkStatus", params, {
+          success: data => {
+            if ("success" == data.status) {
+              console.log(JSON.stringify(data.data))
+              vm.setData({
+                applyStatus: data.data.applyStatus,
+                barCode: res.result
+              })
+              vm.applyStatusPage();
+            } else {
+              wx.showToast({
+                title: data.msg,
+                icon: 'none',
+                duration: 2000
+              })
             }
-          })
+          }
+        })
 
 
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '识别失败，请重试！',
-            showCancel: false
-          })
-        }
+        // } else {
+        //   wx.showModal({
+        //     title: '提示',
+        //     content: '识别失败，请重试！',
+        //     showCancel: false
+        //   })
+        // }
       },
       fail: (res) => {
         wx.hideLoading();

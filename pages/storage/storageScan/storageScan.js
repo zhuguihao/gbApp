@@ -133,7 +133,7 @@ Page({
       success: (res) => {
         wx.hideLoading();
         console.log(res)
-        if ("CODE_128" == res.scanType) {//条形码
+        // if ("CODE_128" == res.scanType) {//条形码
           var params = {
             barCode: res.result,
             productId: vm.data.id
@@ -160,19 +160,19 @@ Page({
             }
           })
 
-        } else {
-          /**
-           * 跳转到扫码结果页面
-           */
-          // wx.navigateTo({
-          //   url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
-          // })
-          wx.showModal({
-            title: '提示',
-            content: '识别失败，请重试！',
-            showCancel: false
-          })
-        }
+        // } else {
+        //   /**
+        //    * 跳转到扫码结果页面
+        //    */
+        //   // wx.navigateTo({
+        //   //   url: vm.data.cusApplyUrl + "?params=" + JSON.stringify(params),
+        //   // })
+        //   wx.showModal({
+        //     title: '提示',
+        //     content: '识别失败，请重试！',
+        //     showCancel: false
+        //   })
+        // }
       },
       fail: (res) => {
         wx.hideLoading();

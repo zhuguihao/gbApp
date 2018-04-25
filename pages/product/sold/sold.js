@@ -64,7 +64,7 @@ Page({
       // onlyFromCamera: true,// 只允许从相机扫码
       success: (res) => {
         wx.hideLoading();
-        if ("CODE_128" == res.scanType) {//条形码
+        // if ("CODE_128" == res.scanType) {//条形码
           /**
            * 条形码
            * 进行出库操作
@@ -95,13 +95,13 @@ Page({
             }
           })
 
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '识别失败，请重试！',
-            showCancel: false
-          })
-        }
+        // } else {
+        //   wx.showModal({
+        //     title: '提示',
+        //     content: '识别失败，请重试！',
+        //     showCancel: false
+        //   })
+        // }
       },
       fail: (res) => {
         wx.hideLoading();

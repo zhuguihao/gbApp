@@ -153,18 +153,18 @@ Page({
         //   })
         //   return
         // } else 
-        if ("CODE_128" == res.scanType) {//条形码
+        // if ("CODE_128" == res.scanType) {//条形码
           vm.setData({
             scanCode: res.result
           })
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '识别失败，请重试！',
-            showCancel: false
-          })
-          return
-        }
+        // } else {
+        //   wx.showModal({
+        //     title: '提示',
+        //     content: '识别失败，请重试！',
+        //     showCancel: false
+        //   })
+        //   return
+        // }
         wx.showToast({
           title: '正在查询产品信息',
           icon: 'loading',

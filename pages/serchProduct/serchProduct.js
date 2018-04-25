@@ -108,18 +108,18 @@ Page({
       success: (res) => {
         wx.hideLoading();
         console.log(res.scanType);
-        if ("CODE_128" == res.scanType) {//条形码
+        // if ("CODE_128" == res.scanType) {//条形码
           vm.setData({
             scanCode: res.result
           })
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '识别失败，请重试！',
-            showCancel: false
-          })
-          return
-        }
+        // } else {
+        //   wx.showModal({
+        //     title: '提示',
+        //     content: '识别失败，请重试！',
+        //     showCancel: false
+        //   })
+        //   return
+        // }
 
         this.productSerch();
       },
