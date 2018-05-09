@@ -23,7 +23,7 @@
 <view class='cusApply'>
   <view class='cusApplyTitle'>
     <text>故障点</text>
-  </view>
+  </view>  
   <view class='cusApplyMain serchView'>
     <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePointList}}">
       <input disabled class='damagePoint' placeholder="请选择故障点" value='{{damagePoint}}' />
