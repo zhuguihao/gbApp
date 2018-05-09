@@ -23,11 +23,22 @@
 <view class='cusApply'>
   <view class='cusApplyTitle'>
     <text>故障点</text>
-  </view>  
+  </view>
   <view class='cusApplyMain serchView'>
     <picker bindchange="bindDamagePointChange" value="{{index}}" range-key="name" range="{{damagePointList}}">
       <input disabled class='damagePoint' placeholder="请选择故障点" value='{{damagePoint}}' />
     </picker>
+  </view>
+</view>
+<view class='cusApply'>
+  <view class='cusApplyTitle'>
+    <text>故障图</text>
+  </view>
+  <view class='cusApplyMain serchView'>
+    <block  wx:for="{{imageUrls}}" wx:for-index="index" wx:for-item="url" wx:key="imageUrls" >
+      <image class='defultImg' src='{{url}}' data-imageIndex="{{index}}" bindtap='previewImage'></image>
+    </block>
+    <image class='defultImg' src='{{defultImgSrc}}' bindtap='chooseImage' wx:if="{{addImageShow}}"></image>
   </view>
 </view>
 <view class='cusApply'>
@@ -43,7 +54,7 @@
     <text>联系方式</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <input class='damagePoint' type = 'number' placeholder="请输入您的联系方式" bindinput='bindPhone' maxlength='11' />
+    <input class='damagePoint' type='number' placeholder="请输入您的联系方式" bindinput='bindPhone' maxlength='11' />
   </view>
 </view>
 <view class='comBtn btn' bindtap='bindSubmit'>申请售后</view>

@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/cusApply/cusApply",
     "pages/homePage/homePage",
     "pages/apply/sysApply/sysApply",
     "pages/cusApply/tracking/tracking",
-    "pages/cusApply/cusApply",
+    
     "pages/product/sold/sold",
     "pages/storage/storage",
     "pages/outStorage/outStorage",

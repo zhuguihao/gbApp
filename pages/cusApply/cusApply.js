@@ -39,6 +39,41 @@ Page({
     damagePoint: '',
     name: '',
     phone: '',
+    /**
+     * 添加故障图片默认图
+     */
+    defultImgSrc: '../../static/logo/add.png',
+    /**
+     * 1.选中的图片
+     * 2.可选图片数量
+     * 3.是否显示添加图片按钮
+     */
+    imageUrls: [],
+    selImageNum: 2,
+    addImageShow: true,
+  },
+  /**
+   * 选择图片
+   */
+  chooseImage() {
+    let vm = this;
+    wx.chooseImage({
+      count: vm.data.selImageNum,
+      success: function (res) {
+        console.log(JSON.stringify(res.tempFilePaths))
+        console.log(vm.data.selImageNum)
+        let imageUrls = vm.data.imageUrls
+        for (let i = 0; i < res.tempFilePaths.length; i++) {
+          imageUrls.push(res.tempFilePaths[i])
+        }
+        console.log(JSON.stringify(imageUrls))
+        vm.setData({
+          imageUrls: imageUrls,
+          selImageNum: vm.data.selImageNum - res.tempFilePaths.length,
+          addImageShow: vm.data.selImageNum - res.tempFilePaths.length > 0
+        })
+      }
+    })
   },
   /**
    * 绑定姓名
@@ -93,11 +128,23 @@ Page({
 
     vm.subApply()
   },
-
+  /**
+   * 展示图片
+   */
+  previewImage(e) {
+    console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
+    let imageUrls = this.data.imageUrls
+    console.log(JSON.stringify(imageUrls))
+    wx.previewImage({
+      current: imageUrls[e.currentTarget.dataset.imageindex],
+      urls: imageUrls,
+    })
+  },
   /**
    * 初始化界面
    */
   onLoad: function (options) {
+
     if (options.params) {
       var barCode = JSON.parse(options.params).barCode;
       this.setData({
@@ -154,9 +201,9 @@ Page({
         //   return
         // } else 
         // if ("CODE_128" == res.scanType) {//条形码
-          vm.setData({
-            scanCode: res.result
-          })
+        vm.setData({
+          scanCode: res.result
+        })
         // } else {
         //   wx.showModal({
         //     title: '提示',
