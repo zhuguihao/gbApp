@@ -49,7 +49,7 @@ Page({
      * 3.是否显示添加图片按钮
      */
     imageUrls: [],
-    selImageNum: 2,
+    selImageNum: 9,
     addImageShow: true,
   },
   /**
@@ -73,6 +73,46 @@ Page({
           addImageShow: vm.data.selImageNum - res.tempFilePaths.length > 0
         })
       }
+    })
+  },
+  /**
+   * 删除选中的图片
+   */
+  delPreviewImage(e) {
+    let vm = this
+    console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
+    let imageUrls = vm.data.imageUrls
+    wx.showActionSheet({
+      itemList: ['删除'],
+      success: function (res) {
+        console.log(res.tapIndex)
+        if (res.tapIndex==0){
+          imageUrls.splice(e.currentTarget.dataset.imageindex, 1);
+          console.log(JSON.stringify(imageUrls))
+          vm.setData({
+            imageUrls: imageUrls,
+            selImageNum: vm.data.selImageNum + 1,
+            addImageShow: true
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+    
+  },
+  /**
+  * 展示图片
+  */
+  previewImage(e) {
+    console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
+    let imageUrls = this.data.imageUrls
+    console.log(JSON.stringify(imageUrls))
+    if (imageUrls.length<1) return
+    wx.previewImage({
+      current: imageUrls[e.currentTarget.dataset.imageindex],
+      urls: imageUrls,
     })
   },
   /**
@@ -128,18 +168,7 @@ Page({
 
     vm.subApply()
   },
-  /**
-   * 展示图片
-   */
-  previewImage(e) {
-    console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
-    let imageUrls = this.data.imageUrls
-    console.log(JSON.stringify(imageUrls))
-    wx.previewImage({
-      current: imageUrls[e.currentTarget.dataset.imageindex],
-      urls: imageUrls,
-    })
-  },
+ 
   /**
    * 初始化界面
    */

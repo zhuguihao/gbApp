@@ -35,8 +35,8 @@
     <text>故障图</text>
   </view>
   <view class='cusApplyMain serchView'>
-    <block  wx:for="{{imageUrls}}" wx:for-index="index" wx:for-item="url" wx:key="imageUrls" >
-      <image class='defultImg' src='{{url}}' data-imageIndex="{{index}}" bindtap='previewImage'></image>
+    <block wx:for="{{imageUrls}}" wx:for-index="index" wx:for-item="url" wx:key="imageUrls">
+      <image class='defultImg' src='{{url}}' data-imageIndex="{{index}}" bindtap='previewImage' bindlongpress='delPreviewImage'></image>
     </block>
     <image class='defultImg' src='{{defultImgSrc}}' bindtap='chooseImage' wx:if="{{addImageShow}}"></image>
   </view>

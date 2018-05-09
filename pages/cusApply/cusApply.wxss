@@ -19,7 +19,8 @@
 }
 
 .defultImg {
-  width: 60rpx;
-  height: 60rpx;
-  margin-top: 4rpx;
+  max-width: 100rpx;
+  max-height: 100rpx;
+  margin-top: 8rpx;
+  margin-left: 8rpx;
 }
