@@ -57,6 +57,65 @@ const getOpenId = function (fun) {
 }
 
 /**
+ * 文件上传
+ */
+const upload = function (url, params, fun) {
+  console.log("url:  " + url)
+  console.log("params:  " + JSON.stringify(params))
+  wx.showLoading({
+    title: '加载中',
+    mask: true
+  })
+  wx.uploadFile({
+    header: {
+      'content-type': 'application/json',
+      token: getApp().globalData.token
+    },
+    url: getApp().globalData.reqIp + url,
+    filePath: params.fileUrl,
+    formData: params,
+    name: 'file',
+    success: function (res) {
+      console.log(res)
+      if (200 == res.statusCode) {
+        wx.hideLoading()
+        if ("not_login" == res.data.status) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            mask: true,
+            duration: 2000
+          })
+          setTimeout(function () {
+            wx.reLaunch({
+              url: "/pages/loginPage/loginPage"
+            })
+          }, 2000);
+          return
+        }
+        fun.success(JSON.parse(res.data))
+      } else {
+        wx.showToast({
+          title: '网络异常请重试',
+          icon: 'loading',
+          mask: true,
+          duration: 2000
+        })
+      }
+    },
+    fail: function (res) {
+      console.log(res)
+      wx.hideLoading()
+      wx.showToast({
+        title: '网络异常请重试',
+        icon: 'loading',
+        mask: true,
+        duration: 2000
+      })
+    }
+  })
+}
+/**
  * HTTP:POST请求
  * 
  */
@@ -174,6 +233,7 @@ module.exports = {
   regAccount: check,
   getOpenId: getOpenId,
   postHttp: postHttp,
-  getUserInfo: getUserInfo
+  getUserInfo: getUserInfo,
+  upload: upload
 }
 

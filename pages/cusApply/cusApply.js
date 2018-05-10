@@ -49,7 +49,7 @@ Page({
      * 3.是否显示添加图片按钮
      */
     imageUrls: [],
-    selImageNum: 9,
+    selImageNum: 3,
     addImageShow: true,
   },
   /**
@@ -86,7 +86,7 @@ Page({
       itemList: ['删除'],
       success: function (res) {
         console.log(res.tapIndex)
-        if (res.tapIndex==0){
+        if (res.tapIndex == 0) {
           imageUrls.splice(e.currentTarget.dataset.imageindex, 1);
           console.log(JSON.stringify(imageUrls))
           vm.setData({
@@ -100,7 +100,7 @@ Page({
         console.log(res.errMsg)
       }
     })
-    
+
   },
   /**
   * 展示图片
@@ -109,7 +109,7 @@ Page({
     console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
     let imageUrls = this.data.imageUrls
     console.log(JSON.stringify(imageUrls))
-    if (imageUrls.length<1) return
+    if (imageUrls.length < 1) return
     wx.previewImage({
       current: imageUrls[e.currentTarget.dataset.imageindex],
       urls: imageUrls,
@@ -136,7 +136,9 @@ Page({
    */
   bindSubmit: function () {
     let vm = this
+    
     let data = vm.data
+    
     console.log(vm.data.name)
     console.log(vm.data.damagePoint)
     console.log(vm.data.barCode)
@@ -168,7 +170,7 @@ Page({
 
     vm.subApply()
   },
- 
+
   /**
    * 初始化界面
    */
@@ -186,7 +188,7 @@ Page({
   */
   subApply: function () {
     let vm = this
-
+    
     let params = {
       cusName: vm.data.name,
       cusTelphone: vm.data.phone,
@@ -202,10 +204,39 @@ Page({
           duration: 2000
         })
         if ("success" == res.status) {
+          /**
+           * 上传故障图
+           */
+          let applyId = res.data.applyId
+          for (let i = 0; i < vm.data.imageUrls.length; i++) {
+            console.log(vm.data.imageUrls[i])
+            vm.applyImage(vm.data.imageUrls[i], i, applyId)
+          }
+
           wx.reLaunch({
             url: '../homePage/homePage',
           })
+          return
         }
+      }
+    })
+
+  },
+  /**
+   * 上传文件
+   */
+  applyImage(fileUrl, index, applyId) {
+    let vm = this
+
+    let params = {
+      applyId: applyId,
+      fileUrl: fileUrl
+    }
+    console.log(getApp().globalData.reqIp)
+  
+    util.upload('/productApply/applyImage', params, {
+      success: res => {
+        console.log(JSON.stringify(res))
       }
     })
 
