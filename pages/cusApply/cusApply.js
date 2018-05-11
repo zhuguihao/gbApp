@@ -168,6 +168,15 @@ Page({
       return
     }
 
+    if (data.imageUrls.length < 1) {
+      wx.showToast({
+        title: '至少上传一张故障图',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
     vm.subApply()
   },
 

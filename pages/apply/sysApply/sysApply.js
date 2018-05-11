@@ -114,6 +114,22 @@ Page({
     vm.getApplyPolicyStateCode()
   },
   /**
+  * 展示图片
+  */
+  previewImage(e) {
+    console.log(e)
+    console.log(JSON.stringify(e.currentTarget.dataset.imageindex))
+    console.log(JSON.stringify(e.currentTarget.dataset.imageurls))
+    let index = e.currentTarget.dataset.imageindex
+    let imageUrls = e.currentTarget.dataset.imageurls
+    if (imageUrls.length < 1) return
+    console.log(111)
+    wx.previewImage({
+      current: imageUrls[index],
+      urls: imageUrls,
+    })
+  },
+  /**
    * 签收客户快递
    */
   signExpress(e) {

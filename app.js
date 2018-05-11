@@ -38,10 +38,10 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    // reqIp: "https://gb.zhuguihao.com/appService",
+    reqIp: "https://gb.zhuguihao.com/appService",
     // reqIp: "http://gb.zhuguihao.com:7777/appService",
     // reqIp: "http://192.168.1.102:7777/appService",
-    reqIp: "http://192.168.0.191:7777/appService",
-    token: '683651dae6184e438a27bec3a872b991'//null
+    // reqIp: "http://192.168.0.191:7777/appService",
+    token: null
   }
 })

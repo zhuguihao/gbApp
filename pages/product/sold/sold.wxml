@@ -7,7 +7,7 @@
   <view wx:for="{{soldProList}}" wx:key='splKey' wx:for-index="splIndex" wx:for-item="splItem">
     <view class='comList'>
       <view class='comListMain'>
-        <view class='comListTip'>售后开始时间：</view>
+        <view class='comListTip'>售后时间：</view>
         <view class='comListDesc'>{{splItem.afterSaleTime}}</view>
       </view>
       <view class='comListMain'>

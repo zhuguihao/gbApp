@@ -135,3 +135,9 @@ Page {
 .subBtn {
   margin-top: 30rpx;
 }
+
+.defultImg {
+  max-width: 50rpx;
+  max-height: 50rpx;
+  margin: 8rpx;
+}
