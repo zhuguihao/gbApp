@@ -46,7 +46,7 @@
                 </view>
 
                  <view class='comListMain' wx:if="{{item.file.length>0 && (item.applyStatus==='first_trial'  || item.applyStatus==='the_trial_pass' || item.applyStatus==='the_trial_reject' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
-                  <view class='comListTip'>损坏图片：</view>
+                  <view class='comListTip'>故障图：</view>
                   <view class='comListDesc webKitBox'>
                   <block wx:for="{{item.file}}" wx:for-item="fileItem" wx:key="filelList" wx:for-index="fileIndex">
                     <image class='defultImg' src='{{fileItem}}' data-imageIndex="{{fileIndex}}" data-imageUrls="{{item.file}}" bindtap='previewImage'></image>
