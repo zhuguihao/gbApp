@@ -12,19 +12,31 @@ Page({
     damagePointList: [
       {
         id: 0,
-        name: '电路损坏'
+        name: '炸管'
       },
       {
         id: 1,
-        name: '插头损坏'
+        name: '线扣脱落'
       },
       {
         id: 2,
-        name: '不能使用'
+        name: '线扣没插到位，接触不良'
       },
       {
         id: 3,
-        name: '机箱破损'
+        name: '机壳变形'
+      },
+      {
+        id: 4,
+        name: '机壳刮花'
+      },
+      {
+        id: 5,
+        name: '电阻、三端稳压器、芯片、继电器等损坏'
+      },
+      {
+        id: 6,
+        name: '其他'
       }
     ],
 
