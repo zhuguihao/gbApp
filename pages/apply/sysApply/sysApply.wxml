@@ -45,12 +45,12 @@
                   <view class='comListDesc'>{{item.faultPoint}}</view>
                 </view>
 
-                 <view class='comListMain' wx:if="{{item.file.length>0 && (item.applyStatus==='first_trial'  || item.applyStatus==='the_trial_pass' || item.applyStatus==='the_trial_reject' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
+                <view class='comListMain' wx:if="{{item.file.length>0 && (item.applyStatus==='first_trial'  || item.applyStatus==='the_trial_pass' || item.applyStatus==='the_trial_reject' || item.applyStatus==='finsh_apply' || item.applyStatus==='aftersale_department')}}">
                   <view class='comListTip'>故障图：</view>
                   <view class='comListDesc webKitBox'>
-                  <block wx:for="{{item.file}}" wx:for-item="fileItem" wx:key="filelList" wx:for-index="fileIndex">
-                    <image class='defultImg' src='{{fileItem}}' data-imageIndex="{{fileIndex}}" data-imageUrls="{{item.file}}" bindtap='previewImage'></image>
-                  </block>
+                    <block wx:for="{{item.file}}" wx:for-item="fileItem" wx:key="filelList" wx:for-index="fileIndex">
+                      <image class='defultImg' src='{{fileItem}}' data-imageIndex="{{fileIndex}}" data-imageUrls="{{item.file}}" bindtap='previewImage'></image>
+                    </block>
                   </view>
                 </view>
 
@@ -192,6 +192,22 @@
       <textarea class='commonTextarea' placeholder='请输入' maxlength='1000' fixed="true" bindblur="bindPayGoods" />
     </view>
   </view>
+  <!-- <view class='tips'>寄配件后，客户自行维修</view> -->
+  <picker bindchange="bindIsMailingAccessoriesChange" range="{{isPayList}}" range-key='value'>
+    <view class='pickerMain'>
+      <view class='commonTips commonLineHeight'>
+        直寄配件:
+      </view>
+      <view class="picker textAlignLeft">
+        {{isPayList[isMailingAccessoriesIndex].value}}
+      </view>
+      <view>
+        <image class='selectImgMar' mode="aspectFit" src="{{selectImgSrc}}" />
+      </view>
+      
+    </view>
+
+  </picker>
 
   <picker bindchange="bindApplyPolicyStateChange" range="{{ApplyPolicyStateCodeList}}" range-key='value'>
     <view class='pickerMain'>

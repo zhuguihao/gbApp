@@ -141,3 +141,10 @@ Page {
   max-height: 50rpx;
   margin: 8rpx;
 }
+
+.tips{
+  font-size: 16rpx;
+  color: red;
+  line-height: 40rpx;
+  padding-left: 20rpx
+}

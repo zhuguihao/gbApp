@@ -58,7 +58,7 @@ Page({
      */
     selectImgSrc: '../../../static/logo/select.png',
     /**
-     * 是否付费
+     * 是否付费，是否寄配件
      */
     isPayList: [{
       key: "N",
@@ -71,6 +71,11 @@ Page({
      * 是否付费下标
      */
     isPayIndex: 0,
+    /**
+     * 是否寄配件
+     */
+    isMailingAccessoriesIndex: 0,
+    isMailingAccessories: null,
     /**
      * 是否需要填写付费产品开关
      */
@@ -233,6 +238,16 @@ Page({
     })
   },
   /**
+   * 是否直寄配件下拉框改变事件
+   */
+  bindIsMailingAccessoriesChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      isMailingAccessoriesIndex: e.detail.value,
+      isMailingAccessories: this.data.isPayList[e.detail.value].key,
+    })
+  },
+  /**
    * 选择维修状态
    */
   bindApplyPolicyStateChange(e) {
@@ -301,7 +316,8 @@ Page({
     let params = {
       productSaleApplyId: data.firstPassId,
       applyDesc: data.applyDesc,
-      applyPolicyState: data.ApplyPolicyStateCodeList[data.ApplyPolicyIndex].key
+      applyPolicyState: data.ApplyPolicyStateCodeList[data.ApplyPolicyIndex].key,
+      isMailingAccessories: data.isMailingAccessories
     }
     if ("Y" == data.isPayList[data.isPayIndex].key) {
       params.isPay = data.isPayList[data.isPayIndex].key
