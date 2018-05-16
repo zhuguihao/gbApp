@@ -316,7 +316,7 @@ Page({
     let params = {
       productSaleApplyId: data.firstPassId,
       applyDesc: data.applyDesc,
-      applyPolicyState: data.ApplyPolicyStateCodeList[data.ApplyPolicyIndex].key,
+      // applyPolicyState: data.ApplyPolicyStateCodeList[data.ApplyPolicyIndex].key,//售后人员通过电话回访的售后状态
       isMailingAccessories: data.isMailingAccessories
     }
     if ("Y" == data.isPayList[data.isPayIndex].key) {

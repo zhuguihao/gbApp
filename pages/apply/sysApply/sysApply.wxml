@@ -209,7 +209,7 @@
 
   </picker>
 
-  <picker bindchange="bindApplyPolicyStateChange" range="{{ApplyPolicyStateCodeList}}" range-key='value'>
+  <!-- <picker bindchange="bindApplyPolicyStateChange" range="{{ApplyPolicyStateCodeList}}" range-key='value'>
     <view class='pickerMain'>
       <view class='commonTips commonLineHeight'>
         维修状态:
@@ -221,7 +221,7 @@
         <image class='selectImgMar' mode="aspectFit" src="{{selectImgSrc}}" />
       </view>
     </view>
-  </picker>
+  </picker> -->
 
   <view class='comBtn subBtn' bindtap='subFirstPass'>提交初审</view>
 </view>
