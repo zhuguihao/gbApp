@@ -100,6 +100,11 @@ Page({
      * 售后部门寄件ID
      */
     courierDepartmentPassId: null,
+    /**
+     * 快递单明细
+     */
+    expressModal: false,
+    expressDesc: null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -194,7 +199,14 @@ Page({
     let vm = this
     vm.setData({
       courierDepartmentPassId: e.currentTarget.dataset.id,
+      expressModal: true,
     })
+  },
+  /**
+   * 提交快递单明细
+   */
+  expressSubmit() {
+    let vm = this
     wx.showModal({
       title: '温馨提醒',
       content: '请联系客户，收到快递之后确认',
@@ -209,7 +221,6 @@ Page({
         }
       }
     })
-
   },
   /**
    * 售后部门寄件
@@ -217,12 +228,16 @@ Page({
   courierDepartmentPass() {
     let vm = this
     let params = {
-      productSaleApplyId: vm.data.courierDepartmentPassId
+      productSaleApplyId: vm.data.courierDepartmentPassId,
+      partsList: vm.data.expressDesc
     }
     util.postHttp("/proApplySys/courierDepartmentPass", params, {
       success: res => {
         if ("success" == res.status) {
           vm.sysApply()
+          vm.setData({
+            expressModal: false
+          })
         }
       }
     })
@@ -353,6 +368,14 @@ Page({
     })
   },
   /**
+   * 绑定快递单明细
+   */
+  bindExpressDesc(e) {
+    this.setData({
+      expressDesc: e.detail.value
+    })
+  },
+  /**
    * 绑定电话回访内容
    */
   bindApplyDesc(e) {
@@ -406,6 +429,16 @@ Page({
     console.log(e)
     this.setData({
       rejectModal: !this.data.rejectModal,
+      id: e.currentTarget.dataset.id
+    })
+  },
+  /**
+   * 关闭快递明细弹窗
+   */
+  expressCannal(e) {
+    console.log(e)
+    this.setData({
+      expressModal: !this.data.expressModal,
       id: e.currentTarget.dataset.id
     })
   },

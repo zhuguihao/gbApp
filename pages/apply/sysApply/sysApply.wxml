@@ -159,6 +159,25 @@
   </view>
 </view>
 
+<!-- 寄件明细 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{expressModal}}"></view>
+<view class="modalDlg" wx:if="{{expressModal}}">
+  <view class='modalTitle'>
+    附件明细
+  </view>
+  <view class='modalMain'>
+    <textarea placeholder='请输入附件明细' maxlength='1000' fixed="true" bindblur="bindExpressDesc" />
+  </view>
+  <view class='modalFoor'>
+    <view class='modalBtn' bindtap='expressSubmit'>
+      确认
+    </view>
+    <view class='modalBtn' bindtap='expressCannal'>
+      取消
+    </view>
+  </view>
+</view>
+
 <!-- 初审通过 -->
 <view class='allModal' wx:if="{{firstPassModal}}">
   <view class='webKitBox commonlist'>
